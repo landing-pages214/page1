@@ -1,3179 +1,2106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Sean Keagan — Chef · Mathematics · Hospitality</title>
-
-<meta
-  name="description"
-  content="Sean Keagan is a Red Seal chef with a background in mathematics, focused on technical excellence, thoughtful cuisine, leadership and the pursuit of an exceptional restaurant."
->
-
-<meta name="theme-color" content="#08090a">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-
-<style>
-
-/* =========================================================
-   ROOT
-========================================================= */
-
-:root{
-  --bg:#070809;
-  --bg-soft:#0d0f10;
-  --panel:#111315;
-  --panel-2:#151719;
-
-  --white:#f4f1eb;
-  --cream:#d8d2c7;
-  --muted:#929497;
-  --muted-dark:#62666a;
-
-  --red:#c72b35;
-  --red-bright:#ef555b;
-
-  --gold:#c7a36b;
-
-  --line:rgba(244,241,235,.11);
-  --line-strong:rgba(244,241,235,.19);
-
-  --max:1280px;
-  --nav-height:76px;
-
-  --serif:"Playfair Display", Georgia, serif;
-  --sans:"Inter", Arial, sans-serif;
-  --mono:"Space Mono", monospace;
-}
-
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  background:
-    radial-gradient(
-      circle at 80% 5%,
-      rgba(199,43,53,.10),
-      transparent 26%
-    ),
-    radial-gradient(
-      circle at 10% 50%,
-      rgba(199,163,107,.05),
-      transparent 25%
-    ),
-    var(--bg);
-
-  color:var(--white);
-  font-family:var(--sans);
-  overflow-x:hidden;
-  line-height:1.5;
-}
-
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index:9999;
-  opacity:.018;
-
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
-::selection{
-  background:var(--red);
-  color:white;
-}
-
-a{
-  color:inherit;
-  text-decoration:none;
-}
-
-img{
-  display:block;
-  width:100%;
-}
-
-button{
-  font:inherit;
-}
-
-button,
-a{
-  -webkit-tap-highlight-color:transparent;
-}
-
-.container{
-  width:min(calc(100% - 48px),var(--max));
-  margin-inline:auto;
-}
+  <meta charset="UTF-8">
 
-.mono{
-  font-family:var(--mono);
-}
-
-.red{
-  color:var(--red-bright);
-}
-
-.gold{
-  color:var(--gold);
-}
-
-.eyebrow{
-  display:flex;
-  align-items:center;
-  gap:8px;
-
-  margin-bottom:18px;
-
-  color:#bbb9b2;
-
-  font-family:var(--mono);
-  font-size:9px;
-  font-weight:700;
-
-  letter-spacing:.18em;
-  text-transform:uppercase;
-}
-
-.eyebrow::before{
-  content:"";
-  width:22px;
-  height:1px;
-  background:var(--red-bright);
-}
-
-h1,
-h2,
-h3{
-  font-family:var(--serif);
-  font-weight:500;
-  letter-spacing:-.045em;
-}
-
-h2{
-  font-size:clamp(3rem,5.6vw,6rem);
-  line-height:.92;
-}
-
-p{
-  color:var(--muted);
-}
-
-.reveal{
-  opacity:0;
-  transform:translateY(30px);
-  transition:
-    opacity .8s ease,
-    transform .8s cubic-bezier(.2,.7,.2,1);
-}
-
-.reveal.visible{
-  opacity:1;
-  transform:none;
-}
-
-
-/* =========================================================
-   SCROLL PROGRESS
-========================================================= */
-
-.progress{
-  position:fixed;
-  left:0;
-  top:0;
-  z-index:1000;
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
 
-  width:0;
-  height:2px;
+  <title>Sean Keagan | Chef, Mathematics & Hospitality</title>
 
-  background:var(--red-bright);
-
-  box-shadow:0 0 14px rgba(239,85,91,.5);
-}
+  <meta
+    name="description"
+    content="Sean Keagan is a Red Seal chef with a background in mathematics, focused on culinary precision, thoughtful hospitality, leadership and the pursuit of an exceptional restaurant."
+  >
 
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
+  <meta name="author" content="Sean Keagan">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#11110f">
+
+  <meta
+    property="og:title"
+    content="Sean Keagan | Chef, Mathematics & Hospitality"
+  >
+
+  <meta
+    property="og:description"
+    content="Precision, technique and hospitality — built toward something exceptional."
+  >
 
-.nav{
-  position:fixed;
-  inset:0 0 auto;
-  z-index:100;
+  <meta property="og:type" content="website">
+
+  <meta
+    property="og:image"
+    content="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=1600&q=85"
+  >
 
-  height:var(--nav-height);
+  <meta
+    name="twitter:card"
+    content="summary_large_image"
+  >
 
-  border-bottom:1px solid transparent;
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+    rel="stylesheet"
+  >
 
-  transition:
-    background .35s ease,
-    border-color .35s ease,
-    backdrop-filter .35s ease;
-}
+  <style>
 
-.nav.scrolled{
-  background:rgba(7,8,9,.82);
-  border-color:var(--line);
-  backdrop-filter:blur(22px);
-}
+    /* =========================================================
+       DESIGN SYSTEM
+    ========================================================= */
 
-.nav-inner{
-  width:min(calc(100% - 48px),1360px);
-  height:100%;
-  margin:auto;
+    :root {
+      --ink: #171713;
+      --ink-soft: #22221e;
+      --paper: #f3f0e8;
+      --paper-dark: #e7e2d8;
 
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:30px;
-}
+      --white: #fffdf8;
+      --muted: #74746d;
+      --muted-light: #a09f96;
 
-.brand{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  flex-shrink:0;
-}
+      --red: #a52d2d;
+      --red-dark: #7e2020;
 
-.brand-mark{
-  width:38px;
-  height:38px;
+      --gold: #ad8a4d;
 
-  display:grid;
-  place-items:center;
+      --line: rgba(23, 23, 19, .12);
+      --line-light: rgba(255, 255, 255, .14);
 
-  border:1px solid rgba(199,43,53,.65);
+      --serif: "Playfair Display", Georgia, serif;
+      --sans: "DM Sans", Arial, sans-serif;
+      --mono: "Space Mono", monospace;
 
-  background:
-    linear-gradient(
-      135deg,
-      #9f1d27,
-      #21090c
-    );
+      --max: 1240px;
+      --nav: 76px;
 
-  color:#f7eee6;
+      --radius: 2px;
 
-  font-family:var(--mono);
-  font-size:10px;
-  font-weight:700;
-}
+      --ease: cubic-bezier(.2, .75, .2, 1);
+    }
 
-.brand-name{
-  display:block;
 
-  color:#f0ede7;
+    /* =========================================================
+       RESET
+    ========================================================= */
 
-  font-family:var(--mono);
-  font-size:11px;
-  font-weight:700;
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
 
-  letter-spacing:.12em;
-}
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
 
-.brand-sub{
-  display:block;
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
 
-  margin-top:3px;
+    body.menu-open {
+      overflow: hidden;
+    }
 
-  color:#666a6e;
+    img {
+      display: block;
+      width: 100%;
+    }
 
-  font-family:var(--mono);
-  font-size:7px;
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-  letter-spacing:.14em;
-}
+    button {
+      font: inherit;
+    }
 
-.nav-links{
-  display:flex;
-  align-items:center;
-  gap:clamp(18px,2.5vw,34px);
-}
+    ::selection {
+      background: var(--red);
+      color: white;
+    }
 
-.nav-links a{
-  position:relative;
 
-  color:#999c9f;
+    /* =========================================================
+       ACCESSIBILITY
+    ========================================================= */
 
-  font-family:var(--mono);
-  font-size:9px;
-  font-weight:700;
+    .skip-link {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 9999;
+
+      padding: 10px 14px;
+
+      background: var(--ink);
+      color: white;
+
+      transform: translateY(-150%);
+      transition: transform .2s ease;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
 
-  letter-spacing:.06em;
-  text-transform:uppercase;
+    :focus-visible {
+      outline: 2px solid var(--red);
+      outline-offset: 4px;
+    }
 
-  transition:color .25s ease;
-}
+
+    /* =========================================================
+       UTILITIES
+    ========================================================= */
+
+    .container {
+      width: min(
+        calc(100% - 40px),
+        var(--max)
+      );
 
-.nav-links a::after{
-  content:"";
+      margin-inline: auto;
+    }
 
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:-9px;
+    .mono {
+      font-family: var(--mono);
+    }
 
-  height:1px;
+    .red {
+      color: var(--red);
+    }
 
-  background:var(--red-bright);
+    .gold {
+      color: var(--gold);
+    }
 
-  transform:scaleX(0);
-  transform-origin:left;
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
 
-  transition:transform .25s ease;
-}
+      margin-bottom: 18px;
 
-.nav-links a:hover{
-  color:#fff;
-}
+      color: var(--muted);
 
-.nav-links a:hover::after{
-  transform:scaleX(1);
-}
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 700;
 
-.nav-cta{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
 
-  min-height:40px;
-  padding:0 16px;
+    .eyebrow::before {
+      content: "";
 
-  border:1px solid var(--line-strong);
+      width: 28px;
+      height: 1px;
 
-  color:#eeeae4;
+      background: var(--red);
+    }
 
-  font-family:var(--mono);
-  font-size:9px;
-  font-weight:700;
+    .section {
+      padding: 120px 0;
+    }
 
-  letter-spacing:.06em;
-  text-transform:uppercase;
+    .section-heading {
+      max-width: 760px;
+    }
 
-  transition:
-    background .25s ease,
-    border-color .25s ease,
-    transform .25s ease;
-}
+    .section-heading.center {
+      margin-inline: auto;
+      text-align: center;
+    }
 
-.nav-cta:hover{
-  background:rgba(199,43,53,.10);
-  border-color:rgba(239,85,91,.55);
-  transform:translateY(-2px);
-}
+    .section-heading.center .eyebrow {
+      justify-content: center;
+    }
 
-.menu{
-  display:none;
+    h1,
+    h2,
+    h3 {
+      margin: 0;
 
-  width:42px;
-  height:42px;
+      font-family: var(--serif);
+      font-weight: 500;
+      letter-spacing: -.045em;
+    }
 
-  border:1px solid var(--line);
-  background:transparent;
+    h2 {
+      font-size: clamp(
+        3rem,
+        7vw,
+        6.5rem
+      );
 
-  color:white;
+      line-height: .92;
+    }
 
-  cursor:pointer;
-}
+    p {
+      margin: 0;
+    }
 
 
-/* =========================================================
-   HERO
-========================================================= */
+    /* =========================================================
+       SCROLL BAR
+    ========================================================= */
 
-.hero{
-  position:relative;
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 2000;
 
-  min-height:900px;
+      width: 0;
+      height: 3px;
 
-  display:flex;
-  align-items:center;
+      background: var(--red);
+    }
 
-  overflow:hidden;
 
-  border-bottom:1px solid var(--line);
-}
+    /* =========================================================
+       HEADER
+    ========================================================= */
 
-.hero-bg{
-  position:absolute;
-  inset:0;
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
 
-  background:
-    linear-gradient(
-      90deg,
-      rgba(5,6,7,.98) 0%,
-      rgba(5,6,7,.93) 32%,
-      rgba(5,6,7,.60) 58%,
-      rgba(5,6,7,.25) 78%,
-      rgba(5,6,7,.76) 100%
-    ),
-    linear-gradient(
-      0deg,
-      #070809 0%,
-      transparent 42%
-    ),
-    url("https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=2400&q=92")
-    center/cover;
+      z-index: 1000;
 
-  transform:scale(1.04);
+      height: var(--nav);
 
-  animation:heroZoom 16s ease-out forwards;
-}
+      color: white;
 
-.hero-grid{
-  position:absolute;
-  inset:0;
+      transition:
+        background .3s ease,
+        color .3s ease,
+        box-shadow .3s ease;
+    }
 
-  opacity:.12;
+    .site-header.scrolled {
+      background: rgba(243, 240, 232, .94);
+      color: var(--ink);
 
-  background-image:
-    linear-gradient(
-      rgba(255,255,255,.10) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(255,255,255,.10) 1px,
-      transparent 1px
-    );
+      box-shadow:
+        0 1px 0 rgba(23, 23, 19, .1);
 
-  background-size:80px 80px;
+      backdrop-filter: blur(18px);
+    }
 
-  mask-image:linear-gradient(
-    90deg,
-    black,
-    transparent 76%
-  );
-}
+    .nav {
+      height: 100%;
 
-.hero-inner{
-  position:relative;
-  z-index:2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
 
-  width:min(calc(100% - 48px),var(--max));
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
 
-  margin:auto;
+      flex-shrink: 0;
+    }
 
-  padding-top:80px;
-}
+    .logo-mark {
+      width: 40px;
+      height: 40px;
 
-.hero-copy{
-  max-width:770px;
-}
+      display: grid;
+      place-items: center;
 
-.hero h1{
-  margin-bottom:34px;
+      background: var(--red);
 
-  color:#f1eee8;
+      color: white;
 
-  font-size:clamp(4.4rem,9vw,9.4rem);
-  line-height:.78;
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+    }
 
-  animation:rise .9s .05s both;
-}
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
 
-.hero h1 em{
-  display:block;
+    .logo-name {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .1em;
+    }
 
-  color:#ded9d0;
+    .logo-sub {
+      margin-top: 2px;
 
-  font-style:normal;
-  font-weight:500;
-}
+      color: currentColor;
+      opacity: .55;
 
-.hero-description{
-  max-width:610px;
+      font-family: var(--mono);
+      font-size: 7px;
 
-  margin-bottom:32px;
+      letter-spacing: .1em;
+    }
 
-  color:#b5b7b8;
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+    }
 
-  font-size:15px;
-  line-height:1.85;
+    .desktop-nav a {
+      position: relative;
 
-  animation:rise .9s .2s both;
-}
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 700;
 
-.buttons{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
 
-  animation:rise .9s .35s both;
-}
+      opacity: .7;
 
-.btn{
-  min-height:52px;
+      transition: opacity .2s ease;
+    }
 
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
+    .desktop-nav a::after {
+      content: "";
 
-  padding:0 22px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -8px;
 
-  border:1px solid transparent;
+      height: 1px;
 
-  background:
-    linear-gradient(
-      135deg,
-      #db444c,
-      #9c1c27
-    );
+      background: currentColor;
 
-  color:white;
+      transform: scaleX(0);
+      transform-origin: left;
 
-  font-family:var(--mono);
-  font-size:9px;
-  font-weight:700;
+      transition: transform .25s var(--ease);
+    }
 
-  letter-spacing:.08em;
-  text-transform:uppercase;
+    .desktop-nav a:hover {
+      opacity: 1;
+    }
 
-  box-shadow:0 18px 50px rgba(181,31,43,.20);
+    .desktop-nav a:hover::after {
+      transform: scaleX(1);
+    }
 
-  transition:
-    transform .25s ease,
-    box-shadow .25s ease,
-    background .25s ease;
-}
+    .header-cta {
+      min-height: 42px;
 
-.btn:hover{
-  transform:translateY(-3px);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
 
-  box-shadow:
-    0 24px 65px rgba(181,31,43,.32);
-}
+      padding: 0 17px;
 
-.btn-outline{
-  background:rgba(5,6,7,.34);
-  border-color:rgba(245,243,238,.24);
+      background: var(--red);
 
-  box-shadow:none;
-}
+      color: white;
 
-.btn-outline:hover{
-  background:rgba(245,243,238,.07);
-}
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 700;
 
-.hero-meta{
-  display:flex;
-  flex-wrap:wrap;
-  gap:28px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
 
-  margin-top:48px;
+      transition:
+        background .2s ease,
+        transform .2s ease;
+    }
 
-  animation:rise .9s .5s both;
-}
+    .header-cta:hover {
+      background: var(--red-dark);
+      transform: translateY(-2px);
+    }
 
-.meta{
-  padding-left:14px;
+    .mobile-toggle {
+      width: 44px;
+      height: 44px;
 
-  border-left:1px solid rgba(199,43,53,.75);
-}
+      display: none;
 
-.meta strong{
-  display:block;
+      place-items: center;
 
-  color:#efebe4;
+      border: 1px solid currentColor;
 
-  font-family:var(--mono);
-  font-size:12px;
-}
+      background: transparent;
 
-.meta span{
-  display:block;
+      color: inherit;
 
-  margin-top:5px;
+      cursor: pointer;
+    }
 
-  color:#74777b;
+    .hamburger {
+      width: 18px;
+      height: 12px;
 
-  font-family:var(--mono);
-  font-size:8px;
+      position: relative;
+    }
 
-  letter-spacing:.09em;
-  text-transform:uppercase;
-}
+    .hamburger::before,
+    .hamburger::after,
+    .hamburger span {
+      content: "";
 
+      position: absolute;
+      left: 0;
 
-/* =========================================================
-   DEGREE CARD
-========================================================= */
+      width: 100%;
+      height: 1px;
 
-.degree-card{
-  position:absolute;
+      background: currentColor;
 
-  right:5%;
-  top:27%;
+      transition:
+        transform .25s ease,
+        top .25s ease;
+    }
 
-  z-index:3;
+    .hamburger::before {
+      top: 0;
+    }
 
-  width:250px;
+    .hamburger span {
+      top: 5px;
+    }
 
-  padding:21px;
+    .hamburger::after {
+      top: 10px;
+    }
 
-  border:1px solid rgba(245,243,238,.17);
 
-  background:rgba(7,8,9,.70);
+    /* =========================================================
+       MOBILE MENU
+    ========================================================= */
 
-  backdrop-filter:blur(18px);
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      z-index: 900;
 
-  box-shadow:
-    0 30px 100px rgba(0,0,0,.45);
+      display: flex;
+      align-items: flex-end;
 
-  animation:float 5s ease-in-out infinite;
-}
+      background: rgba(23, 23, 19, .45);
 
-.degree-top{
-  display:flex;
-  justify-content:space-between;
+      opacity: 0;
+      pointer-events: none;
 
-  color:#777a7d;
+      transition: opacity .3s ease;
+    }
 
-  font-family:var(--mono);
-  font-size:7px;
+    .mobile-menu-panel {
+      width: 100%;
 
-  letter-spacing:.10em;
-}
+      padding:
+        100px
+        24px
+        calc(100px + env(safe-area-inset-bottom));
 
-.degree-symbol{
-  margin:22px 0 7px;
+      background: var(--paper);
 
-  color:var(--red-bright);
+      color: var(--ink);
 
-  font-family:var(--serif);
-  font-size:32px;
-}
+      transform: translateY(30px);
 
-.degree-card h3{
-  color:#eeeae2;
-  font-size:24px;
-}
+      transition: transform .35s var(--ease);
+    }
 
-.degree-card p{
-  margin-top:7px;
+    .mobile-menu.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
 
-  color:#7f8286;
+    .mobile-menu.open .mobile-menu-panel {
+      transform: none;
+    }
 
-  font-size:9px;
-  line-height:1.65;
-}
+    .mobile-menu a {
+      display: block;
 
-.degree-equation{
-  margin-top:18px;
-  padding-top:13px;
+      padding: 14px 0;
 
-  border-top:1px solid var(--line);
+      border-bottom: 1px solid var(--line);
 
-  color:#bdbfc1;
+      font-family: var(--mono);
+      font-size: 12px;
+      font-weight: 700;
 
-  font-family:var(--mono);
-  font-size:9px;
-  line-height:1.5;
-}
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
 
 
-/* =========================================================
-   INTRO DATA BAR
-========================================================= */
+    /* =========================================================
+       HERO
+    ========================================================= */
 
-.data-bar{
-  position:relative;
-  z-index:5;
+    .hero {
+      position: relative;
 
-  margin-top:-65px;
-}
+      min-height: 100svh;
 
-.data-grid{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
+      display: flex;
+      align-items: flex-end;
 
-  border:1px solid var(--line);
+      overflow: hidden;
 
-  background:rgba(13,14,15,.93);
+      background: var(--ink);
 
-  backdrop-filter:blur(20px);
-}
+      color: white;
+    }
 
-.data{
-  min-height:125px;
+    .hero-image {
+      position: absolute;
+      inset: 0;
 
-  padding:22px;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(23, 23, 19, .97) 0%,
+          rgba(23, 23, 19, .83) 42%,
+          rgba(23, 23, 19, .35) 75%,
+          rgba(23, 23, 19, .58) 100%
+        ),
+        linear-gradient(
+          0deg,
+          rgba(23, 23, 19, .95),
+          transparent 60%
+        ),
+        url("https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=2200&q=88")
+        center / cover;
 
-  border-right:1px solid var(--line);
-}
+      transform: scale(1.03);
+    }
 
-.data:last-child{
-  border-right:0;
-}
+    .hero-content {
+      position: relative;
+      z-index: 2;
 
-.data-number{
-  margin-bottom:8px;
+      width: 100%;
 
-  color:#e8e4dc;
+      padding:
+        150px 0
+        80px;
+    }
 
-  font-family:var(--mono);
-  font-size:18px;
-  font-weight:700;
-}
+    .hero-inner {
+      display: grid;
 
-.data-label{
-  color:var(--red-bright);
+      grid-template-columns:
+        minmax(0, 1fr)
+        300px;
 
-  font-family:var(--mono);
-  font-size:8px;
-  font-weight:700;
+      gap: 70px;
 
-  letter-spacing:.11em;
-  text-transform:uppercase;
-}
+      align-items: end;
+    }
 
-.data p{
-  margin-top:7px;
+    .hero-copy {
+      max-width: 850px;
+    }
 
-  color:#717479;
+    .hero .eyebrow {
+      color: rgba(255,255,255,.68);
+    }
 
-  font-size:9px;
-  line-height:1.55;
-}
+    .hero h1 {
+      margin-bottom: 28px;
 
+      font-size: clamp(
+        4rem,
+        10vw,
+        9.5rem
+      );
 
-/* =========================================================
-   GENERIC SECTION
-========================================================= */
+      line-height: .79;
+    }
 
-section.standard{
-  padding:140px 0;
-}
+    .hero h1 span {
+      display: block;
 
-.split{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:90px;
+      color: #ddd8cd;
+    }
 
-  align-items:center;
-}
+    .hero-description {
+      max-width: 590px;
 
-.photo{
-  position:relative;
+      color: rgba(255,255,255,.68);
 
-  min-height:620px;
+      font-size: 15px;
+      line-height: 1.8;
+    }
 
-  overflow:hidden;
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
 
-  border:1px solid var(--line);
+      margin-top: 32px;
+    }
 
-  background:#101213;
-}
+    .button {
+      min-height: 52px;
 
-.photo::after{
-  content:"";
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
 
-  position:absolute;
-  inset:0;
+      padding: 0 21px;
 
-  pointer-events:none;
+      border: 1px solid transparent;
 
-  background:
-    linear-gradient(
-      180deg,
-      transparent 50%,
-      rgba(0,0,0,.45)
-    );
-}
+      background: var(--red);
 
-.photo img{
-  width:100%;
-  height:100%;
-  min-height:620px;
+      color: white;
 
-  object-fit:cover;
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 700;
 
-  transition:
-    transform .9s cubic-bezier(.2,.7,.2,1);
-}
+      letter-spacing: .08em;
+      text-transform: uppercase;
 
-.photo:hover img{
-  transform:scale(1.045);
-}
+      transition:
+        transform .25s var(--ease),
+        background .25s ease;
+    }
 
-.photo-tag{
-  position:absolute;
+    .button:hover {
+      background: var(--red-dark);
+      transform: translateY(-3px);
+    }
 
-  left:18px;
-  right:18px;
-  bottom:18px;
+    .button.secondary {
+      background: rgba(255,255,255,.06);
 
-  z-index:3;
+      border-color: rgba(255,255,255,.25);
+    }
 
-  width:max-content;
-  max-width:calc(100% - 36px);
+    .button.secondary:hover {
+      background: rgba(255,255,255,.13);
+    }
 
-  padding:10px 12px;
+    .hero-side {
+      padding: 24px;
 
-  border:1px solid rgba(255,255,255,.17);
+      border-left: 1px solid rgba(255,255,255,.25);
 
-  background:rgba(5,6,7,.78);
+      color: rgba(255,255,255,.7);
+    }
 
-  color:#d4d1ca;
+    .hero-side-number {
+      margin-bottom: 10px;
 
-  font-family:var(--mono);
-  font-size:8px;
+      color: white;
 
-  letter-spacing:.09em;
-  line-height:1.4;
-}
+      font-family: var(--serif);
+      font-size: 52px;
+      line-height: 1;
+    }
 
-.copy p{
-  max-width:570px;
+    .hero-side h2 {
+      margin-bottom: 10px;
 
-  margin:22px 0 30px;
+      font-size: 27px;
+      line-height: 1;
+    }
 
-  color:#929598;
+    .hero-side p {
+      color: rgba(255,255,255,.5);
 
-  font-size:13px;
-  line-height:1.9;
-}
+      font-size: 11px;
+      line-height: 1.7;
+    }
 
-.list{
-  list-style:none;
-}
+    .hero-scroll {
+      position: absolute;
+      right: 30px;
+      bottom: 28px;
 
-.list li{
-  display:grid;
-  grid-template-columns:28px 1fr;
-  gap:12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
 
-  padding:16px 0;
+      color: rgba(255,255,255,.5);
 
-  border-bottom:1px solid rgba(255,255,255,.07);
+      font-family: var(--mono);
+      font-size: 8px;
 
-  color:#bdbebd;
+      letter-spacing: .1em;
+      text-transform: uppercase;
 
-  font-size:11px;
-  line-height:1.6;
-}
+      writing-mode: vertical-rl;
+    }
 
-.list b{
-  color:var(--red-bright);
 
-  font-family:var(--mono);
-  font-size:9px;
-}
+    /* =========================================================
+       INTRO STRIP
+    ========================================================= */
 
-.list strong{
-  color:#eeeae3;
-}
+    .intro-strip {
+      position: relative;
+      z-index: 5;
 
+      margin-top: -1px;
 
-/* =========================================================
-   SECTION INTRO
-========================================================= */
+      background: var(--ink);
 
-.section-intro{
-  max-width:820px;
-  margin:auto;
+      color: white;
+    }
 
-  text-align:center;
-}
+    .intro-grid {
+      display: grid;
 
-.section-intro p{
-  max-width:640px;
+      grid-template-columns:
+        repeat(4, 1fr);
 
-  margin:20px auto 0;
+      border-top: 1px solid var(--line-light);
+      border-bottom: 1px solid var(--line-light);
+    }
 
-  color:#7f8285;
+    .intro-item {
+      padding: 28px 24px;
 
-  font-size:12px;
-  line-height:1.85;
-}
+      border-right: 1px solid var(--line-light);
+    }
 
+    .intro-item:last-child {
+      border-right: 0;
+    }
 
-/* =========================================================
-   METHOD / MATHEMATICS
-========================================================= */
+    .intro-number {
+      margin-bottom: 7px;
 
-.math-section{
-  background:
-    radial-gradient(
-      circle at 50% 20%,
-      rgba(199,43,53,.05),
-      transparent 35%
-    ),
-    #0b0c0d;
+      color: white;
 
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-}
+      font-family: var(--mono);
+      font-size: 18px;
+      font-weight: 700;
+    }
 
-.math-layout{
-  display:grid;
-  grid-template-columns:.9fr 1.1fr;
+    .intro-label {
+      margin-bottom: 7px;
 
-  gap:18px;
+      color: #d55c5c;
 
-  margin-top:65px;
-}
+      font-family: var(--mono);
+      font-size: 8px;
+      font-weight: 700;
 
-.matrix{
-  padding:36px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
 
-  border:1px solid var(--line);
+    .intro-item p {
+      color: rgba(255,255,255,.45);
 
-  background:
-    linear-gradient(
-      rgba(255,255,255,.025) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(255,255,255,.025) 1px,
-      transparent 1px
-    ),
-    #08090a;
+      font-size: 10px;
+      line-height: 1.65;
+    }
 
-  background-size:30px 30px;
-}
 
-.matrix-title{
-  color:var(--red-bright);
+    /* =========================================================
+       ABOUT
+    ========================================================= */
 
-  font-family:var(--mono);
-  font-size:8px;
-  font-weight:700;
+    .about {
+      background: var(--paper);
+    }
 
-  letter-spacing:.16em;
-  text-transform:uppercase;
-}
+    .about-grid {
+      display: grid;
 
-.formula-big{
-  margin:35px 0 20px;
+      grid-template-columns:
+        minmax(0, .9fr)
+        minmax(0, 1.1fr);
 
-  color:#e9e5dd;
+      gap: 90px;
 
-  font-family:var(--serif);
-  font-size:clamp(2.4rem,4vw,4.4rem);
-}
+      align-items: center;
+    }
 
-.formula-big i{
-  color:var(--red-bright);
-}
+    .image-frame {
+      position: relative;
 
-.matrix p{
-  color:#707478;
+      overflow: hidden;
 
-  font-family:var(--mono);
-  font-size:9px;
+      background: var(--ink);
+    }
 
-  line-height:1.8;
-}
+    .image-frame img {
+      aspect-ratio: 4 / 5;
 
-.method-note{
-  margin-top:26px;
-  padding-top:20px;
+      object-fit: cover;
 
-  border-top:1px solid var(--line);
+      transition:
+        transform .8s var(--ease);
+    }
 
-  color:#aaa9a4;
+    .image-frame:hover img {
+      transform: scale(1.035);
+    }
 
-  font-family:var(--serif);
-  font-size:20px;
-  line-height:1.45;
-}
+    .image-caption {
+      position: absolute;
+      left: 18px;
+      bottom: 18px;
 
-.graph{
-  position:relative;
+      padding: 9px 11px;
 
-  min-height:390px;
+      background: rgba(23,23,19,.86);
 
-  overflow:hidden;
+      color: white;
 
-  border:1px solid var(--line);
+      font-family: var(--mono);
+      font-size: 8px;
 
-  background:
-    linear-gradient(
-      rgba(255,255,255,.035) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(255,255,255,.035) 1px,
-      transparent 1px
-    );
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
 
-  background-size:40px 40px;
-}
+    .about-copy p {
+      max-width: 610px;
 
-.graph::before{
-  content:"";
+      margin: 24px 0 34px;
 
-  position:absolute;
+      color: var(--muted);
 
-  left:8%;
-  right:6%;
-  top:18%;
-  bottom:19%;
+      font-size: 14px;
+      line-height: 1.9;
+    }
 
-  background:
-    linear-gradient(
-      155deg,
-      transparent 0 22%,
-      rgba(181,31,43,.9) 23% 24%,
-      transparent 25% 38%,
-      rgba(199,163,107,.8) 39% 40%,
-      transparent 41% 58%,
-      rgba(245,243,238,.68) 59% 60%,
-      transparent 61%
-    );
+    .principles {
+      border-top: 1px solid var(--line);
+    }
 
-  filter:drop-shadow(
-    0 0 10px rgba(181,31,43,.3)
-  );
-}
+    .principle {
+      display: grid;
 
-.axis-x,
-.axis-y{
-  position:absolute;
+      grid-template-columns: 40px 1fr;
 
-  color:#55595d;
+      gap: 16px;
 
-  font-family:var(--mono);
-  font-size:8px;
-}
+      padding: 17px 0;
 
-.axis-x{
-  left:5%;
-  right:5%;
-  bottom:16px;
+      border-bottom: 1px solid var(--line);
+    }
 
-  padding-top:7px;
+    .principle-number {
+      color: var(--red);
 
-  border-top:1px solid #303236;
-}
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 700;
+    }
 
-.axis-y{
-  left:15px;
-  top:15%;
-  bottom:15%;
+    .principle strong {
+      color: var(--ink);
 
-  padding-left:7px;
+      font-size: 12px;
+    }
 
-  border-left:1px solid #303236;
-}
+    .principle p {
+      margin: 5px 0 0;
 
-.graph-label{
-  position:absolute;
+      color: var(--muted);
 
-  top:20px;
-  right:20px;
+      font-size: 11px;
+      line-height: 1.65;
+    }
 
-  color:#7d8084;
 
-  font-family:var(--mono);
-  font-size:8px;
+    /* =========================================================
+       DARK PHILOSOPHY SECTION
+    ========================================================= */
 
-  text-align:right;
-  line-height:1.7;
-}
+    .dark-section {
+      background: var(--ink);
+      color: white;
+    }
 
+    .dark-section .eyebrow {
+      color: rgba(255,255,255,.48);
+    }
 
-/* =========================================================
-   EXPERTISE CARDS
-========================================================= */
+    .dark-section .section-heading p {
+      margin-top: 22px;
 
-.expertise{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
+      max-width: 650px;
 
-  gap:14px;
+      color: rgba(255,255,255,.52);
 
-  margin-top:55px;
-}
+      font-size: 13px;
+      line-height: 1.85;
+    }
 
-.expertise-card{
-  position:relative;
+    .method-grid {
+      display: grid;
 
-  padding:30px;
+      grid-template-columns:
+        1fr 1fr;
 
-  border:1px solid var(--line);
+      gap: 14px;
 
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,.035),
-      rgba(255,255,255,.008)
-    );
+      margin-top: 65px;
+    }
 
-  transition:
-    transform .3s ease,
-    border-color .3s ease,
-    background .3s ease;
-}
+    .method-card {
+      min-height: 360px;
 
-.expertise-card:hover{
-  transform:translateY(-5px);
+      padding: 35px;
 
-  border-color:rgba(239,85,91,.35);
+      border: 1px solid var(--line-light);
 
-  background:
-    linear-gradient(
-      145deg,
-      rgba(199,43,53,.08),
-      rgba(255,255,255,.01)
-    );
-}
+      background: #1d1d18;
+    }
 
-.card-number{
-  color:var(--red-bright);
+    .method-card.large {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
 
-  font-family:var(--mono);
-  font-size:9px;
-}
+    .method-tag {
+      color: #d55c5c;
 
-.expertise-card h3{
-  margin-top:42px;
+      font-family: var(--mono);
+      font-size: 8px;
+      font-weight: 700;
 
-  color:#ebe7df;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
 
-  font-size:29px;
-}
+    .formula {
+      margin: 55px 0 15px;
 
-.expertise-card p{
-  margin-top:12px;
+      color: white;
 
-  color:#777b7f;
+      font-family: var(--serif);
+      font-size: clamp(
+        3rem,
+        7vw,
+        6rem
+      );
 
-  font-size:11px;
-  line-height:1.8;
-}
+      line-height: .9;
+    }
 
+    .formula i {
+      color: #d55c5c;
+    }
 
-/* =========================================================
-   FOOD GALLERY
-========================================================= */
+    .method-note {
+      max-width: 500px;
 
-.gallery{
-  display:grid;
+      color: rgba(255,255,255,.52);
 
-  grid-template-columns:1.25fr .75fr .75fr;
+      font-size: 11px;
+      line-height: 1.8;
+    }
 
-  grid-auto-rows:250px;
+    .method-list {
+      display: grid;
 
-  gap:14px;
+      grid-template-columns: 1fr 1fr;
 
-  margin-top:60px;
-}
+      gap: 0;
 
-.dish{
-  position:relative;
+      margin-top: 45px;
+    }
 
-  min-width:0;
+    .method-point {
+      padding: 20px 0;
 
-  overflow:hidden;
+      border-top: 1px solid var(--line-light);
+    }
 
-  border:1px solid var(--line);
+    .method-point:nth-child(odd) {
+      margin-right: 20px;
+    }
 
-  background:#101112;
-}
+    .method-point-number {
+      color: #d55c5c;
 
-.dish:first-child{
-  grid-row:span 2;
-}
+      font-family: var(--mono);
+      font-size: 8px;
+    }
 
-.dish img{
-  width:100%;
-  height:100%;
+    .method-point h3 {
+      margin-top: 9px;
 
-  object-fit:cover;
+      font-size: 23px;
+    }
 
-  transition:
-    transform .8s cubic-bezier(.2,.7,.2,1);
-}
+    .method-point p {
+      margin-top: 7px;
 
-.dish:hover img{
-  transform:scale(1.055);
-}
+      color: rgba(255,255,255,.45);
 
-.dish::after{
-  content:"";
+      font-size: 10px;
+      line-height: 1.7;
+    }
 
-  position:absolute;
-  inset:0;
 
-  background:
-    linear-gradient(
-      180deg,
-      transparent 35%,
-      rgba(0,0,0,.86) 100%
-    );
-}
+    /* =========================================================
+       EXPERTISE
+    ========================================================= */
 
-.dish-copy{
-  position:absolute;
+    .expertise-grid {
+      display: grid;
 
-  left:20px;
-  right:20px;
-  bottom:18px;
+      grid-template-columns:
+        repeat(3, 1fr);
 
-  z-index:2;
+      gap: 1px;
 
-  min-width:0;
-}
+      margin-top: 60px;
 
-.dish-copy small{
-  display:block;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
 
-  margin-bottom:5px;
+    .expertise-card {
+      min-height: 280px;
 
-  color:#ef5a60;
+      padding: 30px;
 
-  font-family:var(--mono);
-  font-size:8px;
-  font-weight:700;
+      background: var(--paper);
+    }
 
-  letter-spacing:.12em;
-}
+    .expertise-card:hover {
+      background: var(--white);
+    }
 
-.dish-copy h3{
-  max-width:100%;
+    .expertise-number {
+      color: var(--red);
 
-  color:#f1ede6;
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 700;
+    }
 
-  font-size:clamp(20px,2vw,30px);
+    .expertise-card h3 {
+      margin-top: 60px;
 
-  line-height:1.05;
+      font-size: 31px;
+      line-height: 1;
+    }
 
-  overflow-wrap:anywhere;
-  word-break:normal;
-}
+    .expertise-card p {
+      margin-top: 14px;
 
+      color: var(--muted);
 
-/* =========================================================
-   LIFE
-========================================================= */
+      font-size: 11px;
+      line-height: 1.75;
+    }
 
-.life{
-  display:grid;
-  grid-template-columns:.8fr 1.2fr;
 
-  gap:14px;
+    /* =========================================================
+       CUISINE
+    ========================================================= */
 
-  margin-top:60px;
-}
+    .cuisine {
+      background: var(--paper-dark);
+    }
 
-.life .photo{
-  min-height:510px;
-}
+    .food-grid {
+      display: grid;
 
-.life .photo img{
-  min-height:510px;
-}
+      grid-template-columns:
+        1.2fr .8fr;
 
-.life-stack{
-  display:grid;
+      grid-template-rows:
+        360px 360px;
 
-  grid-template-columns:1fr 1fr;
+      gap: 14px;
 
-  gap:14px;
-}
+      margin-top: 60px;
+    }
 
-.life-stack .photo{
-  min-height:248px;
-}
+    .food-card {
+      position: relative;
 
-.life-stack .photo img{
-  min-height:248px;
-}
+      overflow: hidden;
 
+      background: var(--ink);
+    }
 
-/* =========================================================
-   CAREER
-========================================================= */
+    .food-card:first-child {
+      grid-row: 1 / 3;
+    }
 
-.timeline{
-  margin-top:60px;
+    .food-card img {
+      width: 100%;
+      height: 100%;
 
-  border-top:1px solid var(--line);
-}
+      object-fit: cover;
 
-.row{
-  display:grid;
+      transition:
+        transform .8s var(--ease);
+    }
 
-  grid-template-columns:150px 1fr 1.25fr;
+    .food-card:hover img {
+      transform: scale(1.045);
+    }
 
-  gap:35px;
+    .food-overlay {
+      position: absolute;
+      inset: 0;
 
-  padding:30px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
 
-  border-bottom:1px solid var(--line);
-}
+      padding: 25px;
 
-.row .year{
-  color:var(--red-bright);
+      background:
+        linear-gradient(
+          0deg,
+          rgba(23,23,19,.88),
+          transparent 60%
+        );
 
-  font-family:var(--mono);
-  font-size:8px;
-  font-weight:700;
+      color: white;
+    }
 
-  letter-spacing:.06em;
-}
+    .food-index {
+      margin-bottom: 8px;
 
-.row h3{
-  color:#e8e4dd;
+      color: #e26a6a;
 
-  font-size:25px;
+      font-family: var(--mono);
+      font-size: 8px;
+      font-weight: 700;
 
-  line-height:1.15;
-}
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
 
-.row p{
-  color:#777b7f;
+    .food-overlay h3 {
+      font-size: clamp(
+        25px,
+        4vw,
+        43px
+      );
 
-  font-size:10px;
-  line-height:1.8;
-}
+      line-height: .95;
+    }
 
 
-/* =========================================================
-   VISION
-========================================================= */
+    /* =========================================================
+       LIFE / COLLAGE
+    ========================================================= */
 
-.vision{
-  position:relative;
+    .life-grid {
+      display: grid;
 
-  min-height:760px;
+      grid-template-columns:
+        1fr 1fr;
 
-  display:flex;
-  align-items:center;
+      gap: 14px;
 
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
+      margin-top: 60px;
+    }
 
-  background:
-    linear-gradient(
-      90deg,
-      rgba(4,5,6,.98),
-      rgba(4,5,6,.83) 45%,
-      rgba(4,5,6,.24) 85%
-    ),
-    url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=2400&q=90")
-    center/cover;
-}
+    .life-main img {
+      aspect-ratio: 4 / 5;
 
-.vision-copy{
-  max-width:730px;
-}
+      object-fit: cover;
+    }
 
-.vision-copy p{
-  max-width:650px;
+    .life-side {
+      display: grid;
 
-  margin:24px 0 30px;
+      grid-template-columns: 1fr 1fr;
 
-  color:#a8abad;
+      gap: 14px;
+    }
 
-  font-size:13px;
-  line-height:1.9;
-}
+    .life-side img {
+      height: 100%;
 
-.quote{
-  max-width:620px;
+      min-height: 250px;
 
-  margin:32px 0;
+      object-fit: cover;
+    }
 
-  padding-left:20px;
 
-  border-left:2px solid var(--red-bright);
+    /* =========================================================
+       CAREER
+    ========================================================= */
 
-  color:#e6e0d7;
+    .career {
+      background: var(--paper-dark);
+    }
 
-  font-family:var(--serif);
-  font-size:25px;
-  font-style:italic;
+    .timeline {
+      margin-top: 60px;
 
-  line-height:1.4;
-}
+      border-top: 1px solid var(--line);
+    }
 
+    .timeline-item {
+      display: grid;
 
-/* =========================================================
-   CONTACT
-========================================================= */
+      grid-template-columns: 150px 1fr 1fr;
 
-.contact{
-  padding:120px 0;
+      gap: 35px;
 
-  background:#0b0c0d;
+      padding: 30px 0;
 
-  border-bottom:1px solid var(--line);
-}
+      border-bottom: 1px solid var(--line);
+    }
 
-.contact-grid{
-  display:grid;
-  grid-template-columns:1.1fr .9fr;
+    .timeline-label {
+      color: var(--red);
 
-  gap:70px;
+      font-family: var(--mono);
+      font-size: 8px;
+      font-weight: 700;
 
-  align-items:end;
-}
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
 
-.contact-copy p{
-  max-width:570px;
+    .timeline-item h3 {
+      font-size: 29px;
+      line-height: 1;
+    }
 
-  margin-top:22px;
+    .timeline-item p {
+      color: var(--muted);
 
-  color:#888b8e;
+      font-size: 11px;
+      line-height: 1.8;
+    }
 
-  font-size:13px;
-  line-height:1.85;
-}
 
-.contact-links{
-  display:grid;
-  gap:12px;
-}
+    /* =========================================================
+       VISION
+    ========================================================= */
 
-.contact-link{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+    .vision {
+      position: relative;
 
-  padding:18px 20px;
+      min-height: 760px;
 
-  border:1px solid var(--line);
+      display: flex;
+      align-items: center;
 
-  color:#e8e4dc;
+      overflow: hidden;
 
-  font-family:var(--mono);
-  font-size:9px;
+      background: var(--ink);
+      color: white;
+    }
 
-  letter-spacing:.06em;
-  text-transform:uppercase;
+    .vision-image {
+      position: absolute;
+      inset: 0;
 
-  transition:
-    background .25s ease,
-    border-color .25s ease,
-    transform .25s ease;
-}
+      background:
+        linear-gradient(
+          90deg,
+          rgba(23,23,19,.98) 0%,
+          rgba(23,23,19,.88) 45%,
+          rgba(23,23,19,.3) 100%
+        ),
+        url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=2200&q=85")
+        center / cover;
+    }
 
-.contact-link span:last-child{
-  color:var(--red-bright);
-}
+    .vision-content {
+      position: relative;
+      z-index: 2;
 
-.contact-link:hover{
-  background:rgba(199,43,53,.07);
-  border-color:rgba(239,85,91,.35);
+      max-width: 780px;
+    }
 
-  transform:translateX(4px);
-}
+    .vision .eyebrow {
+      color: rgba(255,255,255,.5);
+    }
 
+    .vision p {
+      max-width: 620px;
 
-/* =========================================================
-   FOOTER
-========================================================= */
+      margin-top: 24px;
 
-footer{
-  padding:75px 0 25px;
-}
+      color: rgba(255,255,255,.58);
 
-.footer-grid{
-  display:grid;
+      font-size: 14px;
+      line-height: 1.85;
+    }
 
-  grid-template-columns:1.6fr repeat(3,1fr);
+    .quote {
+      margin: 35px 0;
 
-  gap:40px;
+      padding-left: 20px;
 
-  padding-bottom:55px;
-}
+      border-left: 2px solid var(--red);
 
-footer h4{
-  margin-bottom:16px;
+      color: white;
 
-  color:#d8d5cf;
+      font-family: var(--serif);
+      font-size: clamp(
+        1.4rem,
+        3vw,
+        2rem
+      );
 
-  font-family:var(--mono);
-  font-size:8px;
-  font-weight:700;
+      font-style: italic;
 
-  letter-spacing:.13em;
-  text-transform:uppercase;
-}
+      line-height: 1.4;
+    }
 
-footer a,
-footer p{
-  display:block;
 
-  color:#6d7074;
+    /* =========================================================
+       CONTACT
+    ========================================================= */
 
-  font-size:10px;
-  line-height:2;
-}
+    .contact {
+      background: var(--red);
+      color: white;
+    }
 
-footer a:hover{
-  color:#e7e3dc;
-}
+    .contact-grid {
+      display: grid;
 
-.footer-brand p{
-  max-width:300px;
+      grid-template-columns:
+        1.1fr .9fr;
 
-  margin-top:15px;
+      gap: 80px;
 
-  line-height:1.8;
-}
+      align-items: end;
+    }
 
-.copyright{
-  display:flex;
-  justify-content:space-between;
+    .contact .eyebrow {
+      color: rgba(255,255,255,.65);
+    }
 
-  padding-top:22px;
+    .contact .eyebrow::before {
+      background: white;
+    }
 
-  border-top:1px solid var(--line);
+    .contact h2 {
+      max-width: 700px;
+    }
 
-  color:#56595c;
+    .contact-copy p {
+      max-width: 560px;
 
-  font-family:var(--mono);
-  font-size:8px;
+      margin-top: 22px;
 
-  letter-spacing:.05em;
-}
+      color: rgba(255,255,255,.72);
 
+      font-size: 13px;
+      line-height: 1.8;
+    }
 
-/* =========================================================
-   ANIMATIONS
-========================================================= */
+    .contact-links {
+      display: grid;
 
-@keyframes rise{
-  from{
-    opacity:0;
-    transform:translateY(28px);
-  }
+      gap: 10px;
+    }
 
-  to{
-    opacity:1;
-    transform:none;
-  }
-}
+    .contact-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
-@keyframes heroZoom{
-  from{
-    transform:scale(1.10);
-  }
+      min-height: 60px;
 
-  to{
-    transform:scale(1.04);
-  }
-}
+      padding: 0 18px;
 
-@keyframes float{
-  0%,
-  100%{
-    transform:translateY(0) rotate(0);
-  }
+      border: 1px solid rgba(255,255,255,.3);
 
-  50%{
-    transform:translateY(-12px) rotate(.5deg);
-  }
-}
+      color: white;
 
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 700;
 
-/* =========================================================
-   FOCUS STATES
-========================================================= */
+      letter-spacing: .08em;
+      text-transform: uppercase;
 
-a:focus-visible,
-button:focus-visible{
-  outline:2px solid var(--red-bright);
-  outline-offset:4px;
-}
+      transition:
+        background .2s ease,
+        transform .2s ease;
+    }
 
+    .contact-link:hover {
+      background: rgba(255,255,255,.12);
+      transform: translateX(4px);
+    }
 
-/* =========================================================
-   TABLET
-========================================================= */
 
-@media(max-width:1050px){
+    /* =========================================================
+       FOOTER
+    ========================================================= */
 
-  .nav-links{
-    display:none;
-  }
+    footer {
+      padding: 70px 0 30px;
 
-  .menu{
-    display:block;
-  }
+      background: var(--ink);
 
-  .nav-cta{
-    display:none;
-  }
+      color: white;
+    }
 
-  .nav-links.open{
-    position:absolute;
+    .footer-grid {
+      display: grid;
 
-    left:24px;
-    right:24px;
-    top:68px;
+      grid-template-columns:
+        1.6fr repeat(3, 1fr);
 
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
+      gap: 40px;
 
-    padding:24px;
+      padding-bottom: 60px;
+    }
 
-    background:rgba(7,8,9,.98);
+    footer h3 {
+      margin-bottom: 16px;
 
-    border:1px solid var(--line);
+      color: white;
 
-    box-shadow:0 30px 80px rgba(0,0,0,.45);
-  }
+      font-family: var(--mono);
+      font-size: 8px;
+      font-weight: 700;
 
-  .nav-links.open a{
-    width:100%;
-    padding:8px 0;
-  }
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
 
-  .nav-links.open a::after{
-    display:none;
-  }
+    footer a,
+    footer p {
+      display: block;
 
-  .data-grid{
-    grid-template-columns:repeat(3,1fr);
-  }
+      color: rgba(255,255,255,.43);
 
-  .data:nth-child(3){
-    border-right:0;
-  }
+      font-size: 10px;
+      line-height: 2;
+    }
 
-  .data:nth-child(-n+3){
-    border-bottom:1px solid var(--line);
-  }
+    footer a:hover {
+      color: white;
+    }
 
-  .split{
-    grid-template-columns:1fr;
+    .footer-brand p {
+      max-width: 300px;
 
-    gap:60px;
-  }
+      margin-top: 17px;
 
-  .math-layout{
-    grid-template-columns:1fr;
-  }
+      line-height: 1.8;
+    }
 
-  .expertise{
-    grid-template-columns:1fr 1fr;
-  }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
 
-  .gallery{
-    grid-template-columns:1fr 1fr;
-  }
+      padding-top: 22px;
 
-  .dish:first-child{
-    grid-column:1/-1;
-    grid-row:auto;
-  }
+      border-top: 1px solid var(--line-light);
 
-  .life{
-    grid-template-columns:1fr;
-  }
+      color: rgba(255,255,255,.3);
 
-  .row{
-    grid-template-columns:120px 1fr;
-  }
+      font-family: var(--mono);
+      font-size: 8px;
 
-  .row p{
-    grid-column:2;
-  }
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
 
-  .contact-grid{
-    grid-template-columns:1fr;
-    gap:45px;
-  }
 
-  .footer-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-}
+    /* =========================================================
+       MOBILE BOTTOM NAV
+    ========================================================= */
 
+    .bottom-nav {
+      display: none;
+    }
 
-/* =========================================================
-   MOBILE
-========================================================= */
 
-@media(max-width:650px){
+    /* =========================================================
+       ANIMATIONS
+    ========================================================= */
 
-  .container,
-  .hero-inner,
-  .nav-inner{
-    width:min(
-      calc(100% - 32px),
-      var(--max)
-    );
-  }
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
 
-  :root{
-    --nav-height:68px;
-  }
+      transition:
+        opacity .7s ease,
+        transform .7s var(--ease);
+    }
 
-  .hero{
-    min-height:820px;
-  }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
 
-  .hero-bg{
-    background:
-      linear-gradient(
-        90deg,
-        rgba(5,6,7,.98) 0%,
-        rgba(5,6,7,.84) 55%,
-        rgba(5,6,7,.62) 100%
-      ),
-      linear-gradient(
-        0deg,
-        #070809,
-        transparent 55%
-      ),
-      url("https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=1600&q=90")
-      62% center/cover;
-  }
 
-  .hero-inner{
-    padding-top:100px;
-  }
+    /* =========================================================
+       TABLET
+    ========================================================= */
 
-  .hero h1{
-    font-size:clamp(3.8rem,18vw,5.4rem);
+    @media (max-width: 1050px) {
 
-    line-height:.80;
-  }
+      .desktop-nav,
+      .header-cta {
+        display: none;
+      }
 
-  .hero-description{
-    max-width:100%;
+      .mobile-toggle {
+        display: grid;
+      }
 
-    font-size:13px;
-    line-height:1.8;
-  }
+      .hero-inner {
+        grid-template-columns: 1fr;
+      }
 
-  .degree-card{
-    right:16px;
-    top:auto;
-    bottom:40px;
+      .hero-side {
+        max-width: 300px;
+      }
 
-    width:180px;
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 55px;
+      }
 
-    padding:15px;
+      .expertise-grid {
+        grid-template-columns: 1fr 1fr;
+      }
 
-    animation:none;
-  }
+      .food-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 340px 340px;
+      }
 
-  .degree-symbol{
-    margin:14px 0 5px;
+      .food-card:first-child {
+        grid-column: 1 / 3;
+        grid-row: auto;
+      }
 
-    font-size:24px;
-  }
+      .life-grid {
+        grid-template-columns: 1fr;
+      }
 
-  .degree-card h3{
-    font-size:18px;
-  }
+      .life-main img {
+        aspect-ratio: 16 / 9;
+      }
 
-  .degree-card p{
-    font-size:8px;
-  }
+      .timeline-item {
+        grid-template-columns: 120px 1fr;
+      }
 
-  .degree-equation{
-    font-size:7px;
-  }
+      .timeline-item p {
+        grid-column: 2;
+      }
 
-  .hero-meta{
-    gap:15px;
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
 
-    max-width:260px;
-  }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
 
-  .meta{
-    padding-left:10px;
-  }
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+    }
 
-  .meta strong{
-    font-size:10px;
-  }
 
-  .meta span{
-    font-size:7px;
-  }
+    /* =========================================================
+       MOBILE
+    ========================================================= */
 
-  .data-bar{
-    margin-top:-30px;
-  }
+    @media (max-width: 650px) {
 
-  .data-grid{
-    grid-template-columns:1fr;
-  }
+      :root {
+        --nav: 66px;
+      }
 
-  .data{
-    min-height:auto;
+      body {
+        padding-bottom: 70px;
+      }
 
-    padding:19px;
+      .container {
+        width: min(
+          calc(100% - 30px),
+          var(--max)
+        );
+      }
 
-    border-right:0!important;
-    border-bottom:1px solid var(--line);
-  }
+      .section {
+        padding: 82px 0;
+      }
 
-  .data:last-child{
-    border-bottom:0;
-  }
+      h2 {
+        font-size: clamp(
+          3rem,
+          15vw,
+          4.6rem
+        );
+      }
 
-  section.standard{
-    padding:90px 0;
-  }
 
-  h2{
-    font-size:clamp(2.8rem,14vw,4.3rem);
-  }
+      /* HEADER */
 
-  .photo,
-  .photo img{
-    min-height:440px;
-  }
+      .site-header {
+        height: 66px;
+      }
 
-  .matrix{
-    padding:25px;
-  }
+      .logo-mark {
+        width: 36px;
+        height: 36px;
+      }
 
-  .formula-big{
-    font-size:2.5rem;
-  }
+      .logo-sub {
+        display: none;
+      }
 
-  .graph{
-    min-height:300px;
-  }
+      .mobile-toggle {
+        width: 42px;
+        height: 42px;
+      }
 
-  .expertise{
-    grid-template-columns:1fr;
-  }
 
-  .expertise-card{
-    padding:25px;
-  }
+      /* HERO */
 
-  .expertise-card h3{
-    margin-top:32px;
-  }
+      .hero {
+        min-height: 100svh;
+      }
 
-  .gallery{
-    grid-template-columns:1fr;
+      .hero-image {
+        background:
+          linear-gradient(
+            180deg,
+            rgba(23,23,19,.72) 0%,
+            rgba(23,23,19,.74) 45%,
+            rgba(23,23,19,.98) 100%
+          ),
+          url("https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=1400&q=85")
+          65% center / cover;
+      }
 
-    grid-auto-rows:290px;
-  }
+      .hero-content {
+        padding:
+          120px 0
+          75px;
+      }
 
-  .dish:first-child{
-    grid-column:auto;
-  }
+      .hero-inner {
+        display: block;
+      }
 
-  .dish-copy{
-    left:16px;
-    right:16px;
-    bottom:16px;
-  }
+      .hero h1 {
+        margin-bottom: 24px;
 
-  .dish-copy h3{
-    font-size:25px;
-  }
+        font-size: clamp(
+          4rem,
+          19vw,
+          5.8rem
+        );
 
-  .life-stack{
-    grid-template-columns:1fr;
-  }
+        line-height: .78;
+      }
 
-  .life-stack .photo,
-  .life-stack .photo img{
-    min-height:300px;
-  }
+      .hero-description {
+        font-size: 13px;
+        line-height: 1.8;
+      }
 
-  .row{
-    grid-template-columns:1fr;
-    gap:10px;
-  }
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
 
-  .row p{
-    grid-column:auto;
-  }
+        margin-top: 26px;
+      }
 
-  .row h3{
-    font-size:22px;
-  }
+      .button {
+        width: 100%;
+      }
 
-  .vision{
-    min-height:680px;
+      .hero-side {
+        display: none;
+      }
 
-    background-position:60% center;
-  }
+      .hero-scroll {
+        display: none;
+      }
 
-  .vision-copy p{
-    font-size:12px;
-  }
 
-  .quote{
-    font-size:21px;
-  }
+      /* INTRO */
 
-  .contact{
-    padding:90px 0;
-  }
+      .intro-grid {
+        grid-template-columns: 1fr 1fr;
+      }
 
-  .footer-grid{
-    grid-template-columns:1fr 1fr;
-  }
+      .intro-item {
+        padding: 20px 16px;
+      }
 
-  .footer-brand{
-    grid-column:1/-1;
-  }
+      .intro-item:nth-child(2) {
+        border-right: 0;
+      }
 
-  .copyright{
-    flex-direction:column;
-    gap:9px;
-  }
-}
+      .intro-item:nth-child(-n + 2) {
+        border-bottom: 1px solid var(--line-light);
+      }
 
+      .intro-item p {
+        font-size: 9px;
+      }
 
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
 
-@media(prefers-reduced-motion:reduce){
+      /* ABOUT */
 
-  *,
-  *::before,
-  *::after{
-    animation-duration:.01ms!important;
-    animation-iteration-count:1!important;
+      .image-frame img {
+        aspect-ratio: 1 / 1.08;
+      }
 
-    transition-duration:.01ms!important;
+      .about-copy p {
+        font-size: 13px;
+      }
 
-    scroll-behavior:auto!important;
-  }
 
-  .reveal{
-    opacity:1;
-    transform:none;
-  }
-}
+      /* METHOD */
 
-</style>
+      .method-grid {
+        grid-template-columns: 1fr;
+
+        margin-top: 45px;
+      }
+
+      .method-card {
+        min-height: 300px;
+
+        padding: 25px;
+      }
+
+      .formula {
+        margin-top: 45px;
+
+        font-size: 3.5rem;
+      }
+
+      .method-list {
+        grid-template-columns: 1fr;
+      }
+
+      .method-point:nth-child(odd) {
+        margin-right: 0;
+      }
+
+
+      /* EXPERTISE */
+
+      .expertise-grid {
+        grid-template-columns: 1fr;
+
+        margin-top: 45px;
+      }
+
+      .expertise-card {
+        min-height: 220px;
+
+        padding: 25px;
+      }
+
+      .expertise-card h3 {
+        margin-top: 42px;
+
+        font-size: 28px;
+      }
+
+
+      /* FOOD */
+
+      .food-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, 300px);
+
+        margin-top: 45px;
+      }
+
+      .food-card:first-child {
+        grid-column: auto;
+      }
+
+      .food-overlay {
+        padding: 18px;
+      }
+
+      .food-overlay h3 {
+        font-size: 30px;
+      }
+
+
+      /* LIFE */
+
+      .life-grid {
+        margin-top: 45px;
+      }
+
+      .life-main img {
+        aspect-ratio: 1 / 1.1;
+      }
+
+      .life-side {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .life-side img {
+        min-height: 180px;
+      }
+
+
+      /* CAREER */
+
+      .timeline {
+        margin-top: 45px;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+
+        padding: 24px 0;
+      }
+
+      .timeline-item p {
+        grid-column: auto;
+      }
+
+      .timeline-item h3 {
+        font-size: 25px;
+      }
+
+
+      /* VISION */
+
+      .vision {
+        min-height: 680px;
+      }
+
+      .vision-image {
+        background:
+          linear-gradient(
+            180deg,
+            rgba(23,23,19,.6),
+            rgba(23,23,19,.98)
+          ),
+          url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1400&q=85")
+          center / cover;
+      }
+
+      .vision p {
+        font-size: 13px;
+      }
+
+
+      /* CONTACT */
+
+      .contact {
+        padding: 80px 0;
+      }
+
+      .contact-link {
+        min-height: 58px;
+      }
+
+
+      /* FOOTER */
+
+      footer {
+        padding: 60px 0 25px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 35px 25px;
+      }
+
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+
+      /* MOBILE BOTTOM NAV */
+
+      .bottom-nav {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        z-index: 1100;
+
+        height:
+          calc(
+            66px + env(safe-area-inset-bottom)
+          );
+
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+
+        padding-bottom: env(safe-area-inset-bottom);
+
+        background: rgba(23,23,19,.96);
+
+        border-top: 1px solid rgba(255,255,255,.12);
+
+        backdrop-filter: blur(20px);
+      }
+
+      .bottom-nav a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+
+        color: rgba(255,255,255,.48);
+
+        font-family: var(--mono);
+        font-size: 7px;
+        font-weight: 700;
+
+        letter-spacing: .05em;
+        text-transform: uppercase;
+      }
+
+      .bottom-nav a:first-child {
+        color: white;
+      }
+
+      .bottom-icon {
+        font-size: 14px;
+        line-height: 1;
+      }
+    }
+
+
+    /* =========================================================
+       REDUCED MOTION
+    ========================================================= */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+  </style>
 </head>
 
 
 <body>
 
-<div class="progress" id="progress"></div>
-
-
-<!-- =======================================================
-     NAVIGATION
-======================================================= -->
-
-<header class="nav" id="nav">
-
-  <div class="nav-inner">
-
-    <a class="brand" href="#top" aria-label="Sean Keagan home">
-
-      <div class="brand-mark">
-        SK
-      </div>
-
-      <div>
-        <span class="brand-name">
-          SEAN KEAGAN
-        </span>
-
-        <span class="brand-sub">
-          RED SEAL · MATHEMATICS · CULINARY
-        </span>
-      </div>
-
-    </a>
-
-
-    <nav class="nav-links" id="links">
-
-      <a href="#about">
-        About
-      </a>
-
-      <a href="#method">
-        Method
-      </a>
-
-      <a href="#work">
-        Cuisine
-      </a>
-
-      <a href="#expertise">
-        Expertise
-      </a>
-
-      <a href="#career">
-        Career
-      </a>
-
-      <a href="#vision">
-        Vision
-      </a>
-
-    </nav>
-
-
-    <a class="nav-cta" href="#contact">
-      Work With Sean →
-    </a>
-
-
-    <button
-      class="menu"
-      id="menu"
-      aria-label="Open navigation"
-      aria-expanded="false"
-    >
-      ☰
-    </button>
-
-  </div>
-
-</header>
-
-
-<main>
-
-
-<!-- =======================================================
-     HERO
-======================================================= -->
-
-<section class="hero" id="top">
-
-  <div class="hero-bg"></div>
-
-  <div class="hero-grid"></div>
-
-
-  <div class="hero-inner">
-
-    <div class="hero-copy">
-
-      <div class="eyebrow">
-        Chef · Mathematics · Hospitality
-      </div>
-
-
-      <h1>
-        Precision.<br>
-        <em>With Purpose.</em>
-      </h1>
-
-
-      <p class="hero-description">
-        Sean Keagan is a Red Seal chef with a background in mathematics,
-        combining technical discipline, analytical thinking and a deep
-        respect for ingredients to build food that is precise, expressive
-        and memorable.
-      </p>
-
-
-      <div class="buttons">
-
-        <a class="btn" href="#work">
-          Explore The Cuisine →
-        </a>
-
-        <a class="btn btn-outline" href="#about">
-          The Story
-        </a>
-
-      </div>
-
-
-      <div class="hero-meta">
-
-        <div class="meta">
-          <strong>RED SEAL</strong>
-          <span>Professional Cook</span>
-        </div>
-
-        <div class="meta">
-          <strong>MATHEMATICS</strong>
-          <span>Analytical Foundation</span>
-        </div>
-
-        <div class="meta">
-          <strong>LONG TERM</strong>
-          <span>Restaurant Ambition</span>
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <aside class="degree-card">
-
-    <div class="degree-top">
-      <span>BACKGROUND</span>
-      <span>01 / 02</span>
-    </div>
-
-    <div class="degree-symbol">
-      ∑
-    </div>
-
-    <h3>
-      Mathematics
-    </h3>
-
-    <p>
-      Logic, systems, probability and optimization —
-      translated from the classroom into the kitchen.
-    </p>
-
-    <div class="degree-equation">
-      technique + precision + judgment
-    </div>
-
-  </aside>
-
-</section>
-
-
-<!-- =======================================================
-     DATA BAR
-======================================================= -->
-
-<section class="data-bar">
-
-  <div class="container">
-
-    <div class="data-grid">
-
-      <div class="data reveal">
-
-        <div class="data-number">
-          01
-        </div>
-
-        <div class="data-label">
-          Technique
-        </div>
-
-        <p>
-          Fundamentals first. Creativity becomes more powerful
-          when the foundation is strong.
-        </p>
-
-      </div>
-
-
-      <div class="data reveal">
-
-        <div class="data-number">
-          ∞
-        </div>
-
-        <div class="data-label">
-          Curiosity
-        </div>
-
-        <p>
-          Always learning. Always testing. Always looking for
-          the next better answer.
-        </p>
-
-      </div>
-
-
-      <div class="data reveal">
-
-        <div class="data-number">
-          ±
-        </div>
-
-        <div class="data-label">
-          Precision
-        </div>
-
-        <p>
-          Small decisions compound into the final experience
-          on the plate.
-        </p>
-
-      </div>
-
-
-      <div class="data reveal">
-
-        <div class="data-number">
-          100%
-        </div>
-
-        <div class="data-label">
-          Hospitality
-        </div>
-
-        <p>
-          A great meal should feel considered without ever
-          feeling complicated.
-        </p>
-
-      </div>
-
-
-      <div class="data reveal">
-
-        <div class="data-number">
-          01
-        </div>
-
-        <div class="data-label">
-          Future
-        </div>
-
-        <p>
-          Build the skill, leadership and identity required
-          to create an exceptional restaurant.
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =======================================================
-     ABOUT
-======================================================= -->
-
-<section class="standard" id="about">
-
-  <div class="container split">
-
-
-    <div class="photo reveal">
-
-      <img
-        src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1500&q=90"
-        alt="Professional chef working in a commercial kitchen"
-        loading="lazy"
+  <a
+    href="#main"
+    class="skip-link"
+  >
+    Skip to content
+  </a>
+
+
+  <div
+    class="scroll-progress"
+    id="scrollProgress"
+    aria-hidden="true"
+  ></div>
+
+
+  <!-- =======================================================
+       HEADER
+  ======================================================== -->
+
+  <header
+    class="site-header"
+    id="siteHeader"
+  >
+
+    <div class="container nav">
+
+      <a
+        href="#top"
+        class="logo"
+        aria-label="Sean Keagan home"
       >
 
-      <div class="photo-tag">
-        KITCHEN / DISCIPLINE / EXECUTION
-      </div>
+        <span class="logo-mark">
+          SK
+        </span>
 
-    </div>
+        <span class="logo-text">
 
-
-    <div class="copy reveal">
-
-      <div class="eyebrow">
-        The Philosophy
-      </div>
-
-
-      <h2>
-        Quietly<br>
-        <span class="red">Obsessive.</span>
-      </h2>
-
-
-      <p>
-        The best cooking rarely needs to announce itself.
-        It is felt in the balance of a sauce, the texture of a
-        perfectly cooked ingredient, the timing of a plate and
-        the confidence of a kitchen that knows exactly where it
-        is going.
-      </p>
-
-
-      <ul class="list">
-
-        <li>
-          <b>01</b>
-
-          <span>
-            <strong>Respect the fundamentals.</strong><br>
-            Classical technique creates the freedom to make
-            intelligent decisions.
+          <span class="logo-name">
+            SEAN KEAGAN
           </span>
-        </li>
 
-
-        <li>
-          <b>02</b>
-
-          <span>
-            <strong>Understand the variables.</strong><br>
-            Temperature, time, texture, acidity, seasoning and
-            ingredient quality all matter.
+          <span class="logo-sub">
+            CHEF · MATHEMATICS · HOSPITALITY
           </span>
-        </li>
 
+        </span>
 
-        <li>
-          <b>03</b>
-
-          <span>
-            <strong>Stay composed.</strong><br>
-            Pressure should improve execution, not compromise it.
-          </span>
-        </li>
-
-
-        <li>
-          <b>04</b>
-
-          <span>
-            <strong>Make the guest remember.</strong><br>
-            Technical excellence matters because it creates
-            a better experience.
-          </span>
-        </li>
-
-      </ul>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =======================================================
-     METHOD
-======================================================= -->
-
-<section class="standard math-section" id="method">
-
-  <div class="container">
-
-
-    <div class="section-intro reveal">
-
-      <div class="eyebrow">
-        The Method
-      </div>
-
-      <h2>
-        Think Like A
-        <span class="gold">Chef.</span>
-      </h2>
-
-      <p>
-        Mathematics changed the way Sean approaches problems:
-        identify the variables, understand the system, test the
-        result and refine the process. Cooking adds something
-        numbers cannot — judgment, intuition and human experience.
-      </p>
-
-    </div>
-
-
-    <div class="math-layout">
-
-
-      <div class="matrix reveal">
-
-        <div class="matrix-title">
-          Working Principle / 001
-        </div>
-
-
-        <div class="formula-big">
-          Q = <i>T</i> × <i>P</i> × <i>J</i>
-        </div>
-
-
-        <p>
-          QUALITY = TECHNIQUE × PRECISION × JUDGMENT
-        </p>
-
-
-        <div class="method-note">
-          The goal is not to make food complicated.
-          The goal is to remove everything unnecessary
-          until the important things become unmistakable.
-        </div>
-
-      </div>
-
-
-      <div class="graph reveal">
-
-        <div class="axis-y">
-          FLAVOUR ↑
-        </div>
-
-        <div class="axis-x">
-          TIME →
-        </div>
-
-        <div class="graph-label">
-          TEMPERATURE<br>
-          TEXTURE<br>
-          SEASONING<br>
-          TIMING
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =======================================================
-     EXPERTISE
-======================================================= -->
-
-<section class="standard" id="expertise">
-
-  <div class="container">
-
-
-    <div class="section-intro reveal">
-
-      <div class="eyebrow">
-        Culinary Foundation
-      </div>
-
-      <h2>
-        Built From The
-        <span class="red">Basics Up.</span>
-      </h2>
-
-      <p>
-        A strong chef is more than someone who can produce a
-        beautiful plate. The craft is built through repetition,
-        standards, service and the ability to make excellence
-        repeatable.
-      </p>
-
-    </div>
-
-
-    <div class="expertise">
-
-
-      <article class="expertise-card reveal">
-
-        <div class="card-number">
-          01 / TECHNIQUE
-        </div>
-
-        <h3>
-          Classical Craft
-        </h3>
-
-        <p>
-          Knife work, stocks, sauces, proteins, vegetables,
-          pastry, heat management and the fundamentals that
-          underpin serious cooking.
-        </p>
-
-      </article>
-
-
-      <article class="expertise-card reveal">
-
-        <div class="card-number">
-          02 / THINKING
-        </div>
-
-        <h3>
-          Analytical Mind
-        </h3>
-
-        <p>
-          Mathematics provides a natural framework for
-          understanding systems, constraints, measurement
-          and optimization.
-        </p>
-
-      </article>
-
-
-      <article class="expertise-card reveal">
-
-        <div class="card-number">
-          03 / SERVICE
-        </div>
-
-        <h3>
-          Hospitality
-        </h3>
-
-        <p>
-          The kitchen exists for the guest. Timing, communication,
-          consistency and warmth matter just as much as what
-          arrives on the plate.
-        </p>
-
-      </article>
-
-
-      <article class="expertise-card reveal">
-
-        <div class="card-number">
-          04 / DISCIPLINE
-        </div>
-
-        <h3>
-          Standards
-        </h3>
-
-        <p>
-          Clean stations, clear systems, preparation and attention
-          to detail create the conditions for calm, confident service.
-        </p>
-
-      </article>
-
-
-      <article class="expertise-card reveal">
-
-        <div class="card-number">
-          05 / LEADERSHIP
-        </div>
-
-        <h3>
-          The Brigade
-        </h3>
-
-        <p>
-          Great kitchens depend on people. The long-term goal is
-          to build teams where standards are understood, shared
-          and consistently delivered.
-        </p>
-
-      </article>
-
-
-      <article class="expertise-card reveal">
-
-        <div class="card-number">
-          06 / IDENTITY
-        </div>
-
-        <h3>
-          Point Of View
-        </h3>
-
-        <p>
-          Technique is the foundation. The next step is developing
-          a recognizable culinary language that feels distinctly yours.
-        </p>
-
-      </article>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =======================================================
-     CUISINE
-======================================================= -->
-
-<section class="standard" id="work">
-
-  <div class="container">
-
-
-    <div class="section-intro reveal">
-
-      <div class="eyebrow">
-        Cuisine / Selected Work
-      </div>
-
-      <h2>
-        Food With A
-        <span class="red">Point Of View.</span>
-      </h2>
-
-      <p>
-        Refined without being precious. Technical without becoming
-        theatrical. The aim is food that feels intentional from
-        the first bite to the final detail.
-      </p>
-
-    </div>
-
-
-    <div class="gallery">
-
-
-      <article class="dish reveal">
-
-        <img
-          src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1500&q=90"
-          alt="Artfully plated cuisine"
-          loading="lazy"
-        >
-
-        <div class="dish-copy">
-
-          <small>
-            01 / COMPOSITION
-          </small>
-
-          <h3>
-            Smoke · Acid · Sweet
-          </h3>
-
-        </div>
-
-      </article>
-
-
-      <article class="dish reveal">
-
-        <img
-          src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1000&q=90"
-          alt="Fine dining dish"
-          loading="lazy"
-        >
-
-        <div class="dish-copy">
-
-          <small>
-            02 / TEXTURE
-          </small>
-
-          <h3>
-            Contrast
-          </h3>
-
-        </div>
-
-      </article>
-
-
-      <article class="dish reveal">
-
-        <img
-          src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1000&q=90"
-          alt="Chef composed dish"
-          loading="lazy"
-        >
-
-        <div class="dish-copy">
-
-          <small>
-            03 / BALANCE
-          </small>
-
-          <h3>
-            Acidity
-          </h3>
-
-        </div>
-
-      </article>
-
-
-      <article class="dish reveal">
-
-        <img
-          src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1000&q=90"
-          alt="Elegant plated cuisine"
-          loading="lazy"
-        >
-
-        <div class="dish-copy">
-
-          <small>
-            04 / SEASON
-          </small>
-
-          <h3>
-            Restraint
-          </h3>
-
-        </div>
-
-      </article>
-
-
-      <article class="dish reveal">
-
-        <img
-          src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1000&q=90"
-          alt="Restaurant dining room"
-          loading="lazy"
-        >
-
-        <div class="dish-copy">
-
-          <small>
-            05 / EXPERIENCE
-          </small>
-
-          <h3>
-            The Room
-          </h3>
-
-        </div>
-
-      </article>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =======================================================
-     LIFE
-======================================================= -->
-
-<section class="standard" id="life">
-
-  <div class="container">
-
-
-    <div class="section-intro reveal">
-
-      <div class="eyebrow">
-        Beyond The Plate
-      </div>
-
-      <h2>
-        The Life Behind
-        <span class="gold">The Kitchen.</span>
-      </h2>
-
-      <p>
-        Becoming a great chef is not limited to service.
-        It happens through reading, training, travelling,
-        studying ingredients, observing other kitchens,
-        making mistakes and returning the next day determined
-        to be better.
-      </p>
-
-    </div>
-
-
-    <div class="life">
-
-
-      <div class="photo reveal">
-
-        <img
-          src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1500&q=90"
-          alt="Chef's composed cuisine"
-          loading="lazy"
-        >
-
-        <div class="photo-tag">
-          THE PLATE / THE RESULT
-        </div>
-
-      </div>
-
-
-      <div class="life-stack">
-
-
-        <div class="photo reveal">
-
-          <img
-            src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1000&q=90"
-            alt="Professional kitchen preparation"
-            loading="lazy"
-          >
-
-        </div>
-
-
-        <div class="photo reveal">
-
-          <img
-            src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1000&q=90"
-            alt="Fresh ingredients"
-            loading="lazy"
-          >
-
-        </div>
-
-
-        <div class="photo reveal">
-
-          <img
-            src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1000&q=90"
-            alt="Restaurant service"
-            loading="lazy"
-          >
-
-        </div>
-
-
-        <div class="photo reveal">
-
-          <img
-            src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=90"
-            alt="Elegant restaurant interior"
-            loading="lazy"
-          >
-
-        </div>
-
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =======================================================
-     CAREER
-======================================================= -->
-
-<section class="standard" id="career">
-
-  <div class="container">
-
-
-    <div class="section-intro reveal">
-
-      <div class="eyebrow">
-        Trajectory
-      </div>
-
-      <h2>
-        Build The Skill.
-        <span class="red">Then Build The House.</span>
-      </h2>
-
-      <p>
-        The objective is not to collect titles. It is to accumulate
-        enough technical skill, taste, leadership and operational
-        intelligence to earn the responsibility that comes next.
-      </p>
-
-    </div>
-
-
-    <div class="timeline">
-
-
-      <div class="row reveal">
-
-        <div class="year">
-          01 / FOUNDATION
-        </div>
-
-        <h3>
-          Master The Fundamentals
-        </h3>
-
-        <p>
-          Build technical fluency until the fundamentals become
-          instinct: sauces, stocks, butchery, pastry, vegetables,
-          fire, seasoning and sanitation.
-        </p>
-
-      </div>
-
-
-      <div class="row reveal">
-
-        <div class="year">
-          02 / SERVICE
-        </div>
-
-        <h3>
-          Become Exceptional Under Pressure
-        </h3>
-
-        <p>
-          Learn to execute at speed without allowing speed to
-          lower the standard. Service becomes the ultimate test
-          of preparation.
-        </p>
-
-      </div>
-
-
-      <div class="row reveal">
-
-        <div class="year">
-          03 / LEADERSHIP
-        </div>
-
-        <h3>
-          Learn To Build A Team
-        </h3>
-
-        <p>
-          Develop the communication, systems and standards required
-          to make excellence repeatable across an entire kitchen.
-        </p>
-
-      </div>
-
-
-      <div class="row reveal">
-
-        <div class="year">
-          04 / IDENTITY
-        </div>
-
-        <h3>
-          Develop The Cuisine
-        </h3>
-
-        <p>
-          Turn technique into a recognizable language of ingredients,
-          flavour, texture, plating and hospitality.
-        </p>
-
-      </div>
-
-
-      <div class="row reveal">
-
-        <div class="year">
-          05 / OWNERSHIP
-        </div>
-
-        <h3>
-          Build The House
-        </h3>
-
-        <p>
-          Create a restaurant with a serious culinary point of view,
-          an exceptional team and an experience guests actively want
-          to return to.
-        </p>
-
-      </div>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =======================================================
-     VISION
-======================================================= -->
-
-<section class="vision" id="vision">
-
-  <div class="container">
-
-    <div class="vision-copy reveal">
-
-      <div class="eyebrow">
-        The Long-Term Vision
-      </div>
-
-
-      <h2>
-        Not Just A Restaurant.
-        <span class="gold">A Destination.</span>
-      </h2>
-
-
-      <p>
-        The long-term ambition is to build a dining room where the
-        technical work happening behind the scenes becomes almost
-        invisible to the guest.
-      </p>
-
-
-      <p>
-        Every temperature considered. Every sauce balanced.
-        Every movement intentional. Every member of the team
-        contributing to the same standard.
-      </p>
-
-
-      <div class="quote">
-        “Make it exact enough to be brilliant.
-        Make it human enough to be remembered.”
-      </div>
-
-
-      <a class="btn" href="#contact">
-        Start A Conversation →
       </a>
 
-    </div>
 
-  </div>
-
-</section>
-
-
-<!-- =======================================================
-     CONTACT
-======================================================= -->
-
-<section class="contact" id="contact">
-
-  <div class="container">
-
-    <div class="contact-grid">
-
-
-      <div class="contact-copy reveal">
-
-        <div class="eyebrow">
-          Connect
-        </div>
-
-        <h2>
-          Let's Build
-          <span class="red">Something.</span>
-        </h2>
-
-        <p>
-          Whether the opportunity is a kitchen, collaboration,
-          mentorship, hospitality project or the next chapter
-          in the journey, serious conversations are always welcome.
-        </p>
-
-      </div>
-
-
-      <div class="contact-links reveal">
-
-
-        <!-- Replace these placeholder links with real details -->
-
-        <a
-          class="contact-link"
-          href="mailto:hello@seankeagan.com"
-        >
-          <span>
-            Email Sean
-          </span>
-
-          <span>
-            →
-          </span>
-        </a>
-
-
-        <a
-          class="contact-link"
-          href="#career"
-        >
-          <span>
-            Career & Experience
-          </span>
-
-          <span>
-            →
-          </span>
-        </a>
-
-
-        <a
-          class="contact-link"
-          href="#work"
-        >
-          <span>
-            Explore The Cuisine
-          </span>
-
-          <span>
-            →
-          </span>
-        </a>
-
-
-      </div>
-
-
-    </div>
-
-  </div>
-
-</section>
-
-
-</main>
-
-
-<!-- =======================================================
-     FOOTER
-======================================================= -->
-
-<footer>
-
-  <div class="container">
-
-    <div class="footer-grid">
-
-
-      <div class="footer-brand">
-
-        <a class="brand" href="#top">
-
-          <div class="brand-mark">
-            SK
-          </div>
-
-          <div>
-
-            <span class="brand-name">
-              SEAN KEAGAN
-            </span>
-
-            <span class="brand-sub">
-              RED SEAL · MATHEMATICS · CULINARY
-            </span>
-
-          </div>
-
-        </a>
-
-
-        <p>
-          Culinary craft, analytical thinking and hospitality —
-          developed with one long-term ambition:
-          to build an exceptional restaurant.
-        </p>
-
-      </div>
-
-
-      <div>
-
-        <h4>
-          Explore
-        </h4>
+      <nav
+        class="desktop-nav"
+        aria-label="Primary navigation"
+      >
 
         <a href="#about">
           About
@@ -3183,235 +2110,1761 @@ button:focus-visible{
           Method
         </a>
 
-        <a href="#work">
+        <a href="#cuisine">
           Cuisine
-        </a>
-
-      </div>
-
-
-      <div>
-
-        <h4>
-          Journey
-        </h4>
-
-        <a href="#expertise">
-          Expertise
-        </a>
-
-        <a href="#life">
-          Life
         </a>
 
         <a href="#career">
           Career
         </a>
 
-      </div>
-
-
-      <div>
-
-        <h4>
-          Future
-        </h4>
-
         <a href="#vision">
-          Restaurant
+          Vision
         </a>
 
-        <a href="#contact">
-          Contact
-        </a>
+      </nav>
 
-        <p>
-          Destination dining
-        </p>
 
-        <p>
-          Precision hospitality
-        </p>
+      <a
+        href="#contact"
+        class="header-cta"
+      >
+        Contact
+      </a>
 
-      </div>
 
+      <button
+        class="mobile-toggle"
+        id="mobileToggle"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="mobileMenu"
+      >
+
+        <span class="hamburger">
+          <span></span>
+        </span>
+
+      </button>
 
     </div>
 
+  </header>
 
-    <div class="copyright">
 
-      <span>
-        © 2026 Sean Keagan
-      </span>
+  <!-- =======================================================
+       MOBILE MENU
+  ======================================================== -->
 
-      <span>
-        CRAFT / LOGIC / HOSPITALITY
-      </span>
+  <div
+    class="mobile-menu"
+    id="mobileMenu"
+    aria-hidden="true"
+  >
 
-    </div>
+    <nav
+      class="mobile-menu-panel"
+      aria-label="Mobile navigation"
+    >
+
+      <a href="#about">
+        01 — About
+      </a>
+
+      <a href="#method">
+        02 — Method
+      </a>
+
+      <a href="#expertise">
+        03 — Expertise
+      </a>
+
+      <a href="#cuisine">
+        04 — Cuisine
+      </a>
+
+      <a href="#career">
+        05 — Career
+      </a>
+
+      <a href="#vision">
+        06 — Vision
+      </a>
+
+      <a href="#contact">
+        07 — Contact
+      </a>
+
+    </nav>
 
   </div>
 
-</footer>
+
+  <main id="main">
 
 
-<script>
+    <!-- =====================================================
+         HERO
+    ====================================================== -->
 
-/* =========================================================
-   NAVIGATION
-========================================================= */
+    <section
+      class="hero"
+      id="top"
+    >
 
-const nav = document.getElementById("nav");
-const links = document.getElementById("links");
-const menu = document.getElementById("menu");
-const progress = document.getElementById("progress");
+      <div
+        class="hero-image"
+        aria-hidden="true"
+      ></div>
 
 
-window.addEventListener(
-  "scroll",
-  () => {
+      <div class="hero-content">
 
-    nav.classList.toggle(
-      "scrolled",
-      window.scrollY > 30
+        <div class="container">
+
+          <div class="hero-inner">
+
+            <div class="hero-copy">
+
+              <div class="eyebrow">
+                Red Seal Chef · Mathematics · Hospitality
+              </div>
+
+
+              <h1>
+                Precision.
+                <span>
+                  With Purpose.
+                </span>
+              </h1>
+
+
+              <p class="hero-description">
+                Sean Keagan is a Red Seal chef with a background
+                in mathematics — combining technical discipline,
+                analytical thinking and a deep respect for
+                ingredients to create food that is precise,
+                expressive and memorable.
+              </p>
+
+
+              <div class="hero-actions">
+
+                <a
+                  href="#cuisine"
+                  class="button"
+                >
+                  Explore The Cuisine →
+                </a>
+
+                <a
+                  href="#about"
+                  class="button secondary"
+                >
+                  Discover The Story
+                </a>
+
+              </div>
+
+            </div>
+
+
+            <aside class="hero-side">
+
+              <div class="hero-side-number">
+                ∑
+              </div>
+
+              <h2>
+                Mathematics
+              </h2>
+
+              <p>
+                Logic, systems, probability and optimization
+                translated into a practical approach to cooking,
+                preparation and decision-making.
+              </p>
+
+            </aside>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="hero-scroll">
+        Scroll to explore ↓
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         INTRO
+    ====================================================== -->
+
+    <section
+      class="intro-strip"
+      aria-label="Core principles"
+    >
+
+      <div class="container">
+
+        <div class="intro-grid">
+
+          <div class="intro-item">
+
+            <div class="intro-number">
+              01
+            </div>
+
+            <div class="intro-label">
+              Technique
+            </div>
+
+            <p>
+              Fundamentals create freedom.
+            </p>
+
+          </div>
+
+
+          <div class="intro-item">
+
+            <div class="intro-number">
+              ±
+            </div>
+
+            <div class="intro-label">
+              Precision
+            </div>
+
+            <p>
+              Small decisions compound.
+            </p>
+
+          </div>
+
+
+          <div class="intro-item">
+
+            <div class="intro-number">
+              ∞
+            </div>
+
+            <div class="intro-label">
+              Curiosity
+            </div>
+
+            <p>
+              Always testing and learning.
+            </p>
+
+          </div>
+
+
+          <div class="intro-item">
+
+            <div class="intro-number">
+              01
+            </div>
+
+            <div class="intro-label">
+              Future
+            </div>
+
+            <p>
+              Build something exceptional.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         ABOUT
+    ====================================================== -->
+
+    <section
+      class="section about"
+      id="about"
+    >
+
+      <div class="container">
+
+        <div class="about-grid">
+
+
+          <div class="image-frame reveal">
+
+            <img
+              src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1400&q=85"
+              alt="Professional chef working in a commercial kitchen"
+              loading="lazy"
+              decoding="async"
+            >
+
+            <div class="image-caption">
+              Kitchen / Discipline / Execution
+            </div>
+
+          </div>
+
+
+          <div class="about-copy reveal">
+
+            <div class="eyebrow">
+              The Philosophy
+            </div>
+
+
+            <h2>
+              Quietly
+              <span class="red">
+                obsessive.
+              </span>
+            </h2>
+
+
+            <p>
+              The best cooking rarely needs to announce itself.
+              It is felt in the balance of a sauce, the texture
+              of a perfectly cooked ingredient, the timing of a
+              plate and the confidence of a kitchen that knows
+              exactly where it is going.
+            </p>
+
+
+            <div class="principles">
+
+              <div class="principle">
+
+                <div class="principle-number">
+                  01
+                </div>
+
+                <div>
+                  <strong>
+                    Respect the fundamentals.
+                  </strong>
+
+                  <p>
+                    Classical technique creates the freedom
+                    to make intelligent decisions.
+                  </p>
+                </div>
+
+              </div>
+
+
+              <div class="principle">
+
+                <div class="principle-number">
+                  02
+                </div>
+
+                <div>
+                  <strong>
+                    Understand the variables.
+                  </strong>
+
+                  <p>
+                    Temperature, time, texture, acidity,
+                    seasoning and ingredient quality all matter.
+                  </p>
+                </div>
+
+              </div>
+
+
+              <div class="principle">
+
+                <div class="principle-number">
+                  03
+                </div>
+
+                <div>
+                  <strong>
+                    Stay composed.
+                  </strong>
+
+                  <p>
+                    Pressure should improve execution,
+                    not compromise it.
+                  </p>
+                </div>
+
+              </div>
+
+
+              <div class="principle">
+
+                <div class="principle-number">
+                  04
+                </div>
+
+                <div>
+                  <strong>
+                    Make the guest remember.
+                  </strong>
+
+                  <p>
+                    Technical excellence matters because
+                    it creates a better experience.
+                  </p>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         METHOD
+    ====================================================== -->
+
+    <section
+      class="section dark-section"
+      id="method"
+    >
+
+      <div class="container">
+
+
+        <div class="section-heading reveal">
+
+          <div class="eyebrow">
+            The Method
+          </div>
+
+          <h2>
+            Think like a
+            <span class="gold">
+              chef.
+            </span>
+          </h2>
+
+          <p>
+            Mathematics changed the way Sean approaches problems:
+            identify the variables, understand the system, test
+            the result and refine the process. Cooking adds what
+            numbers cannot — judgment, intuition and human experience.
+          </p>
+
+        </div>
+
+
+        <div class="method-grid">
+
+
+          <article class="method-card large reveal">
+
+            <div>
+
+              <div class="method-tag">
+                Working Principle / 001
+              </div>
+
+              <div class="formula">
+                Q = <i>T</i> × <i>P</i> × <i>J</i>
+              </div>
+
+              <p class="method-note">
+                QUALITY = TECHNIQUE × PRECISION × JUDGMENT
+              </p>
+
+            </div>
+
+
+            <p class="method-note">
+              The goal is not to make food complicated.
+              The goal is to remove everything unnecessary
+              until the important things become unmistakable.
+            </p>
+
+          </article>
+
+
+          <article class="method-card reveal">
+
+            <div class="method-tag">
+              Variables / 002
+            </div>
+
+
+            <div class="method-list">
+
+              <div class="method-point">
+
+                <div class="method-point-number">
+                  01
+                </div>
+
+                <h3>
+                  Temperature
+                </h3>
+
+                <p>
+                  Heat is a tool. Understanding it changes
+                  how ingredients behave.
+                </p>
+
+              </div>
+
+
+              <div class="method-point">
+
+                <div class="method-point-number">
+                  02
+                </div>
+
+                <h3>
+                  Timing
+                </h3>
+
+                <p>
+                  Great ingredients can still fail without
+                  the right sequence.
+                </p>
+
+              </div>
+
+
+              <div class="method-point">
+
+                <div class="method-point-number">
+                  03
+                </div>
+
+                <h3>
+                  Texture
+                </h3>
+
+                <p>
+                  Contrast gives a dish movement and keeps
+                  each bite interesting.
+                </p>
+
+              </div>
+
+
+              <div class="method-point">
+
+                <div class="method-point-number">
+                  04
+                </div>
+
+                <h3>
+                  Balance
+                </h3>
+
+                <p>
+                  Acidity, salt, fat, sweetness and bitterness
+                  must work together.
+                </p>
+
+              </div>
+
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         EXPERTISE
+    ====================================================== -->
+
+    <section
+      class="section"
+      id="expertise"
+    >
+
+      <div class="container">
+
+
+        <div class="section-heading center reveal">
+
+          <div class="eyebrow">
+            Culinary Foundation
+          </div>
+
+          <h2>
+            Built from the
+            <span class="red">
+              basics up.
+            </span>
+          </h2>
+
+          <p style="margin-top:22px;color:var(--muted);font-size:13px;line-height:1.85;">
+            A strong chef is more than someone who can produce
+            a beautiful plate. The craft is built through repetition,
+            standards, service and the ability to make excellence
+            repeatable.
+          </p>
+
+        </div>
+
+
+        <div class="expertise-grid">
+
+
+          <article class="expertise-card reveal">
+
+            <div class="expertise-number">
+              01 / TECHNIQUE
+            </div>
+
+            <h3>
+              Classical Craft
+            </h3>
+
+            <p>
+              Knife work, stocks, sauces, proteins, vegetables,
+              pastry, heat management and the fundamentals that
+              underpin serious cooking.
+            </p>
+
+          </article>
+
+
+          <article class="expertise-card reveal">
+
+            <div class="expertise-number">
+              02 / THINKING
+            </div>
+
+            <h3>
+              Analytical Mind
+            </h3>
+
+            <p>
+              Mathematics provides a framework for understanding
+              systems, constraints, measurement and optimization.
+            </p>
+
+          </article>
+
+
+          <article class="expertise-card reveal">
+
+            <div class="expertise-number">
+              03 / SERVICE
+            </div>
+
+            <h3>
+              Hospitality
+            </h3>
+
+            <p>
+              The kitchen exists for the guest. Timing,
+              communication, consistency and warmth matter.
+            </p>
+
+          </article>
+
+
+          <article class="expertise-card reveal">
+
+            <div class="expertise-number">
+              04 / DISCIPLINE
+            </div>
+
+            <h3>
+              Standards
+            </h3>
+
+            <p>
+              Clean stations, preparation and attention to detail
+              create the conditions for calm, confident service.
+            </p>
+
+          </article>
+
+
+          <article class="expertise-card reveal">
+
+            <div class="expertise-number">
+              05 / LEADERSHIP
+            </div>
+
+            <h3>
+              The Brigade
+            </h3>
+
+            <p>
+              Great kitchens depend on people. Standards need
+              to be understood, shared and consistently delivered.
+            </p>
+
+          </article>
+
+
+          <article class="expertise-card reveal">
+
+            <div class="expertise-number">
+              06 / IDENTITY
+            </div>
+
+            <h3>
+              Point Of View
+            </h3>
+
+            <p>
+              Technique is the foundation. The next step is
+              developing a recognizable culinary language.
+            </p>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CUISINE
+    ====================================================== -->
+
+    <section
+      class="section cuisine"
+      id="cuisine"
+    >
+
+      <div class="container">
+
+
+        <div class="section-heading reveal">
+
+          <div class="eyebrow">
+            Cuisine / Selected Work
+          </div>
+
+          <h2>
+            Food with a
+            <span class="red">
+              point of view.
+            </span>
+          </h2>
+
+          <p style="margin-top:22px;max-width:620px;color:var(--muted);font-size:13px;line-height:1.85;">
+            Refined without being precious. Technical without
+            becoming theatrical. The aim is food that feels
+            intentional from the first bite to the final detail.
+          </p>
+
+        </div>
+
+
+        <div class="food-grid">
+
+
+          <article class="food-card reveal">
+
+            <img
+              src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1500&q=85"
+              alt="Artfully plated culinary dish"
+              loading="lazy"
+              decoding="async"
+            >
+
+            <div class="food-overlay">
+
+              <div class="food-index">
+                01 / Composition
+              </div>
+
+              <h3>
+                Smoke · Acid · Sweet
+              </h3>
+
+            </div>
+
+          </article>
+
+
+          <article class="food-card reveal">
+
+            <img
+              src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1100&q=85"
+              alt="Fine dining dish"
+              loading="lazy"
+              decoding="async"
+            >
+
+            <div class="food-overlay">
+
+              <div class="food-index">
+                02 / Texture
+              </div>
+
+              <h3>
+                Contrast
+              </h3>
+
+            </div>
+
+          </article>
+
+
+          <article class="food-card reveal">
+
+            <img
+              src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1100&q=85"
+              alt="Chef composed dish"
+              loading="lazy"
+              decoding="async"
+            >
+
+            <div class="food-overlay">
+
+              <div class="food-index">
+                03 / Balance
+              </div>
+
+              <h3>
+                Acidity
+              </h3>
+
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         LIFE
+    ====================================================== -->
+
+    <section
+      class="section"
+      id="life"
+    >
+
+      <div class="container">
+
+
+        <div class="section-heading center reveal">
+
+          <div class="eyebrow">
+            Beyond The Plate
+          </div>
+
+          <h2>
+            The life behind
+            <span class="gold">
+              the kitchen.
+            </span>
+          </h2>
+
+          <p style="margin-top:22px;color:var(--muted);font-size:13px;line-height:1.85;">
+            Becoming a great chef is not limited to service.
+            It happens through reading, training, travelling,
+            studying ingredients, observing other kitchens,
+            making mistakes and returning determined to be better.
+          </p>
+
+        </div>
+
+
+        <div class="life-grid">
+
+
+          <div class="life-main reveal">
+
+            <img
+              src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1500&q=85"
+              alt="Chef's composed cuisine"
+              loading="lazy"
+              decoding="async"
+            >
+
+          </div>
+
+
+          <div class="life-side">
+
+
+            <div class="reveal">
+
+              <img
+                src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=900&q=85"
+                alt="Professional kitchen preparation"
+                loading="lazy"
+                decoding="async"
+              >
+
+            </div>
+
+
+            <div class="reveal">
+
+              <img
+                src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=900&q=85"
+                alt="Fresh culinary ingredients"
+                loading="lazy"
+                decoding="async"
+              >
+
+            </div>
+
+
+            <div class="reveal">
+
+              <img
+                src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=900&q=85"
+                alt="Restaurant service"
+                loading="lazy"
+                decoding="async"
+              >
+
+            </div>
+
+
+            <div class="reveal">
+
+              <img
+                src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=85"
+                alt="Elegant restaurant interior"
+                loading="lazy"
+                decoding="async"
+              >
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CAREER
+    ====================================================== -->
+
+    <section
+      class="section career"
+      id="career"
+    >
+
+      <div class="container">
+
+
+        <div class="section-heading center reveal">
+
+          <div class="eyebrow">
+            Trajectory
+          </div>
+
+          <h2>
+            Build the skill.
+            <span class="red">
+              Build the house.
+            </span>
+          </h2>
+
+          <p style="margin-top:22px;color:var(--muted);font-size:13px;line-height:1.85;">
+            The objective is not to collect titles. It is to
+            accumulate enough technical skill, taste, leadership
+            and operational intelligence to earn the responsibility
+            that comes next.
+          </p>
+
+        </div>
+
+
+        <div class="timeline">
+
+
+          <article class="timeline-item reveal">
+
+            <div class="timeline-label">
+              01 / Foundation
+            </div>
+
+            <h3>
+              Master The Fundamentals
+            </h3>
+
+            <p>
+              Build technical fluency until the fundamentals
+              become instinct: sauces, stocks, butchery, pastry,
+              vegetables, fire, seasoning and sanitation.
+            </p>
+
+          </article>
+
+
+          <article class="timeline-item reveal">
+
+            <div class="timeline-label">
+              02 / Service
+            </div>
+
+            <h3>
+              Become Exceptional Under Pressure
+            </h3>
+
+            <p>
+              Learn to execute at speed without allowing speed
+              to lower the standard. Service becomes the ultimate
+              test of preparation.
+            </p>
+
+          </article>
+
+
+          <article class="timeline-item reveal">
+
+            <div class="timeline-label">
+              03 / Leadership
+            </div>
+
+            <h3>
+              Learn To Build A Team
+            </h3>
+
+            <p>
+              Develop the communication, systems and standards
+              required to make excellence repeatable across
+              an entire kitchen.
+            </p>
+
+          </article>
+
+
+          <article class="timeline-item reveal">
+
+            <div class="timeline-label">
+              04 / Identity
+            </div>
+
+            <h3>
+              Develop The Cuisine
+            </h3>
+
+            <p>
+              Turn technique into a recognizable language of
+              ingredients, flavour, texture, plating and hospitality.
+            </p>
+
+          </article>
+
+
+          <article class="timeline-item reveal">
+
+            <div class="timeline-label">
+              05 / Ownership
+            </div>
+
+            <h3>
+              Build The House
+            </h3>
+
+            <p>
+              Create a restaurant with a serious culinary point
+              of view, an exceptional team and an experience
+              guests actively want to return to.
+            </p>
+
+          </article>
+
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         VISION
+    ====================================================== -->
+
+    <section
+      class="vision"
+      id="vision"
+    >
+
+      <div
+        class="vision-image"
+        aria-hidden="true"
+      ></div>
+
+
+      <div class="container">
+
+        <div class="vision-content reveal">
+
+          <div class="eyebrow">
+            The Long-Term Vision
+          </div>
+
+
+          <h2>
+            Not just a restaurant.
+            <span class="gold">
+              A destination.
+            </span>
+          </h2>
+
+
+          <p>
+            The long-term ambition is to build a dining room
+            where the technical work happening behind the scenes
+            becomes almost invisible to the guest.
+          </p>
+
+
+          <p>
+            Every temperature considered. Every sauce balanced.
+            Every movement intentional. Every member of the team
+            contributing to the same standard.
+          </p>
+
+
+          <div class="quote">
+            “Make it exact enough to be brilliant.
+            Make it human enough to be remembered.”
+          </div>
+
+
+          <a
+            href="#contact"
+            class="button"
+          >
+            Start A Conversation →
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         CONTACT
+    ====================================================== -->
+
+    <section
+      class="section contact"
+      id="contact"
+    >
+
+      <div class="container">
+
+        <div class="contact-grid">
+
+
+          <div class="contact-copy reveal">
+
+            <div class="eyebrow">
+              Connect
+            </div>
+
+            <h2>
+              Let's build
+              <span style="color:#ffd2d2;">
+                something.
+              </span>
+            </h2>
+
+            <p>
+              Whether the opportunity is a kitchen, collaboration,
+              mentorship, hospitality project or the next chapter
+              in the journey, serious conversations are always welcome.
+            </p>
+
+          </div>
+
+
+          <div class="contact-links reveal">
+
+
+            <a
+              href="mailto:hello@seankeagan.com"
+              class="contact-link"
+            >
+
+              <span>
+                Email Sean
+              </span>
+
+              <span>
+                →
+              </span>
+
+            </a>
+
+
+            <a
+              href="#career"
+              class="contact-link"
+            >
+
+              <span>
+                Career & Experience
+              </span>
+
+              <span>
+                →
+              </span>
+
+            </a>
+
+
+            <a
+              href="#cuisine"
+              class="contact-link"
+            >
+
+              <span>
+                Explore The Cuisine
+              </span>
+
+              <span>
+                →
+              </span>
+
+            </a>
+
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =======================================================
+       FOOTER
+  ======================================================== -->
+
+  <footer>
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+
+        <div class="footer-brand">
+
+          <a
+            href="#top"
+            class="logo"
+          >
+
+            <span class="logo-mark">
+              SK
+            </span>
+
+            <span class="logo-text">
+
+              <span class="logo-name">
+                SEAN KEAGAN
+              </span>
+
+              <span class="logo-sub">
+                CHEF · MATHEMATICS · HOSPITALITY
+              </span>
+
+            </span>
+
+          </a>
+
+
+          <p>
+            Culinary craft, analytical thinking and hospitality —
+            developed with one long-term ambition:
+            to build an exceptional restaurant.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h3>
+            Explore
+          </h3>
+
+          <a href="#about">
+            About
+          </a>
+
+          <a href="#method">
+            Method
+          </a>
+
+          <a href="#cuisine">
+            Cuisine
+          </a>
+
+        </div>
+
+
+        <div>
+
+          <h3>
+            Journey
+          </h3>
+
+          <a href="#expertise">
+            Expertise
+          </a>
+
+          <a href="#life">
+            Life
+          </a>
+
+          <a href="#career">
+            Career
+          </a>
+
+        </div>
+
+
+        <div>
+
+          <h3>
+            Future
+          </h3>
+
+          <a href="#vision">
+            Vision
+          </a>
+
+          <a href="#contact">
+            Contact
+          </a>
+
+          <p>
+            Destination dining
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="footer-bottom">
+
+        <span>
+          © 2026 Sean Keagan
+        </span>
+
+        <span>
+          Craft / Logic / Hospitality
+        </span>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- =======================================================
+       MOBILE BOTTOM NAV
+  ======================================================== -->
+
+  <nav
+    class="bottom-nav"
+    aria-label="Quick navigation"
+  >
+
+    <a href="#top">
+      <span class="bottom-icon">⌂</span>
+      Home
+    </a>
+
+    <a href="#about">
+      <span class="bottom-icon">◌</span>
+      About
+    </a>
+
+    <a href="#cuisine">
+      <span class="bottom-icon">✦</span>
+      Cuisine
+    </a>
+
+    <a href="#contact">
+      <span class="bottom-icon">→</span>
+      Contact
+    </a>
+
+  </nav>
+
+
+  <script>
+
+    /* =======================================================
+       ELEMENTS
+    ======================================================== */
+
+    const header =
+      document.getElementById("siteHeader");
+
+    const progress =
+      document.getElementById("scrollProgress");
+
+    const mobileToggle =
+      document.getElementById("mobileToggle");
+
+    const mobileMenu =
+      document.getElementById("mobileMenu");
+
+    const mobileLinks =
+      mobileMenu.querySelectorAll("a");
+
+
+    /* =======================================================
+       HEADER + SCROLL PROGRESS
+    ======================================================== */
+
+    function updateScrollUI() {
+
+      const scrollTop =
+        window.scrollY;
+
+      header.classList.toggle(
+        "scrolled",
+        scrollTop > 40
+      );
+
+
+      const documentHeight =
+        document.documentElement.scrollHeight -
+        window.innerHeight;
+
+
+      const progressAmount =
+        documentHeight > 0
+          ? (scrollTop / documentHeight) * 100
+          : 0;
+
+
+      progress.style.width =
+        progressAmount + "%";
+
+    }
+
+
+    window.addEventListener(
+      "scroll",
+      updateScrollUI,
+      { passive: true }
     );
 
 
-    const scrollTop =
-      window.scrollY;
-
-    const documentHeight =
-      document.documentElement.scrollHeight -
-      window.innerHeight;
-
-    const percentage =
-      documentHeight > 0
-        ? (scrollTop / documentHeight) * 100
-        : 0;
-
-    progress.style.width =
-      percentage + "%";
-
-  },
-  { passive:true }
-);
+    updateScrollUI();
 
 
-/* =========================================================
-   MOBILE MENU
-========================================================= */
+    /* =======================================================
+       MOBILE MENU
+    ======================================================== */
 
-menu.addEventListener(
-  "click",
-  () => {
+    function setMenu(open) {
 
-    const open =
-      links.classList.toggle("open");
+      mobileMenu.classList.toggle(
+        "open",
+        open
+      );
 
-    menu.setAttribute(
-      "aria-expanded",
-      open ? "true" : "false"
-    );
+      mobileMenu.setAttribute(
+        "aria-hidden",
+        open ? "false" : "true"
+      );
 
-  }
-);
+      mobileToggle.setAttribute(
+        "aria-expanded",
+        open ? "true" : "false"
+      );
+
+      mobileToggle.setAttribute(
+        "aria-label",
+        open
+          ? "Close menu"
+          : "Open menu"
+      );
+
+      document.body.classList.toggle(
+        "menu-open",
+        open
+      );
+
+    }
 
 
-links.querySelectorAll("a").forEach(
-  link => {
-
-    link.addEventListener(
+    mobileToggle.addEventListener(
       "click",
       () => {
 
-        links.classList.remove("open");
+        const isOpen =
+          mobileMenu.classList.contains("open");
 
-        menu.setAttribute(
-          "aria-expanded",
-          "false"
+        setMenu(!isOpen);
+
+      }
+    );
+
+
+    mobileLinks.forEach(
+      link => {
+
+        link.addEventListener(
+          "click",
+          () => setMenu(false)
         );
 
       }
     );
 
-  }
-);
+
+    mobileMenu.addEventListener(
+      "click",
+      event => {
+
+        if (
+          event.target === mobileMenu
+        ) {
+          setMenu(false);
+        }
+
+      }
+    );
 
 
-/* =========================================================
-   REVEAL ANIMATIONS
-========================================================= */
+    document.addEventListener(
+      "keydown",
+      event => {
 
-const observer =
-  new IntersectionObserver(
-    entries => {
+        if (
+          event.key === "Escape"
+        ) {
+          setMenu(false);
+        }
 
-      entries.forEach(
-        (entry, index) => {
+      }
+    );
 
-          if(entry.isIntersecting){
 
-            setTimeout(
-              () => {
+    /* =======================================================
+       REVEAL ANIMATIONS
+    ======================================================== */
+
+    const revealElements =
+      document.querySelectorAll(".reveal");
+
+
+    const revealObserver =
+      new IntersectionObserver(
+        entries => {
+
+          entries.forEach(
+            entry => {
+
+              if (
+                entry.isIntersecting
+              ) {
 
                 entry.target.classList.add(
                   "visible"
                 );
 
-              },
-              index * 55
-            );
+                revealObserver.unobserve(
+                  entry.target
+                );
 
-            observer.unobserve(
-              entry.target
-            );
+              }
 
-          }
+            }
+          );
+
+        },
+        {
+          threshold: .08,
+          rootMargin: "0px 0px -40px 0px"
+        }
+      );
+
+
+    revealElements.forEach(
+      element => {
+
+        revealObserver.observe(
+          element
+        );
+
+      }
+    );
+
+
+    /* =======================================================
+       ACTIVE MOBILE NAV
+    ======================================================== */
+
+    const sections =
+      document.querySelectorAll(
+        "main section[id]"
+      );
+
+    const bottomLinks =
+      document.querySelectorAll(
+        ".bottom-nav a"
+      );
+
+
+    const sectionObserver =
+      new IntersectionObserver(
+        entries => {
+
+          entries.forEach(
+            entry => {
+
+              if (
+                entry.isIntersecting
+              ) {
+
+                bottomLinks.forEach(
+                  link => {
+
+                    link.style.color =
+                      "rgba(255,255,255,.48)";
+
+                  }
+                );
+
+
+                const active =
+                  document.querySelector(
+                    `.bottom-nav a[href="#${entry.target.id}"]`
+                  );
+
+
+                if (active) {
+
+                  active.style.color =
+                    "#ffffff";
+
+                }
+
+              }
+
+            }
+          );
+
+        },
+        {
+          rootMargin:
+            "-45% 0px -45% 0px"
+        }
+      );
+
+
+    sections.forEach(
+      section => {
+
+        sectionObserver.observe(
+          section
+        );
+
+      }
+    );
+
+
+    /* =======================================================
+       SMOOTH ANCHOR FALLBACK
+    ======================================================== */
+
+    document
+      .querySelectorAll('a[href^="#"]')
+      .forEach(
+        link => {
+
+          link.addEventListener(
+            "click",
+            event => {
+
+              const targetId =
+                link.getAttribute("href");
+
+
+              if (
+                targetId === "#"
+              ) {
+                return;
+              }
+
+
+              const target =
+                document.querySelector(
+                  targetId
+                );
+
+
+              if (!target) {
+                return;
+              }
+
+
+              event.preventDefault();
+
+
+              target.scrollIntoView({
+                behavior:
+                  window.matchMedia(
+                    "(prefers-reduced-motion: reduce)"
+                  ).matches
+                    ? "auto"
+                    : "smooth",
+                block: "start"
+              });
+
+            }
+          );
 
         }
       );
 
-    },
-    {
-      threshold:.10
-    }
-  );
-
-
-document
-  .querySelectorAll(".reveal")
-  .forEach(
-    element => observer.observe(element)
-  );
-
-
-/* =========================================================
-   CLOSE MENU WHEN CLICKING OUTSIDE
-========================================================= */
-
-document.addEventListener(
-  "click",
-  event => {
-
-    if(
-      !links.contains(event.target) &&
-      !menu.contains(event.target)
-    ){
-
-      links.classList.remove("open");
-
-      menu.setAttribute(
-        "aria-expanded",
-        "false"
-      );
-
-    }
-
-  }
-);
-
-</script>
+  </script>
 
 </body>
 </html>
