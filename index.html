@@ -1,184 +1,930 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Get a Free Coffee</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen;
-}
+  <title>Free Coffee Awaits — Join the Club</title>
+  <meta
+    name="description"
+    content="Join our coffee club and unlock exclusive deals, insider updates, and special offers."
+  />
 
-body {
-  background: #0b0f1a;
-  color: #fff;
-  overflow-x: hidden;
-}
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
 
-/* LAYOUT */
-.container {
-  display: flex;
-  min-height: 100vh;
-}
+    :root {
+      --bg: #090806;
+      --bg-soft: #11100d;
+      --cream: #f7f1e7;
+      --muted: #a9a39a;
+      --gold: #d6a75c;
+      --gold-light: #f0c982;
+      --brown: #8b5e34;
+      --white: #ffffff;
+      --border: rgba(255, 255, 255, 0.11);
+    }
 
-/* IMAGE SIDE */
-.image-section {
-  flex: 1;
-  position: relative;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-.image-section img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-/* overlay for premium look */
-.image-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to right,
-    rgba(11,15,26,0.8),
-    rgba(11,15,26,0.2)
-  );
-}
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(170, 110, 45, 0.12), transparent 30%),
+        radial-gradient(circle at 90% 80%, rgba(214, 167, 92, 0.08), transparent 28%),
+        var(--bg);
+      color: var(--cream);
+      font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      overflow-x: hidden;
+    }
 
-/* CONTENT SIDE */
-.content-section {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 60px;
-}
+    /* --------------------------------
+       BACKGROUND EFFECTS
+    -------------------------------- */
 
-.content {
-  max-width: 420px;
-}
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.035;
+      z-index: 20;
+      background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
+    }
 
-/* TYPOGRAPHY */
-h1 {
-  font-size: 2.8rem;
-  line-height: 1.2;
-  margin-bottom: 20px;
-}
+    .orb {
+      position: fixed;
+      width: 450px;
+      height: 450px;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.12;
+      pointer-events: none;
+      z-index: 0;
+    }
 
-.highlight {
-  color: #6366f1;
-}
+    .orb-one {
+      background: #c1843c;
+      top: -220px;
+      left: -150px;
+    }
 
-p {
-  font-size: 1.05rem;
-  color: #9ca3af;
-  margin-bottom: 30px;
-}
+    .orb-two {
+      background: #70502d;
+      right: -180px;
+      bottom: -220px;
+    }
 
-/* FORM */
-form {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 12px;
-}
+    /* --------------------------------
+       MAIN LAYOUT
+    -------------------------------- */
 
-input {
-  flex: 1;
-  padding: 14px;
-  border-radius: 8px;
-  border: none;
-  font-size: 1rem;
-}
+    .page {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(430px, 0.92fr);
+      position: relative;
+      z-index: 1;
+    }
 
-button {
-  padding: 14px 18px;
-  border-radius: 8px;
-  border: none;
-  background: #6366f1;
-  color: white;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.2s ease;
-}
+    /* --------------------------------
+       IMAGE SIDE
+    -------------------------------- */
 
-button:hover {
-  background: #4f46e5;
-  transform: translateY(-1px);
-}
+    .visual {
+      position: relative;
+      min-height: 100vh;
+      overflow: hidden;
+      isolation: isolate;
+    }
 
-/* TRUST TEXT */
-.note {
-  font-size: 0.8rem;
-  color: #6b7280;
-}
+    .visual img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transform: scale(1.04);
+      animation: imageReveal 1.6s ease forwards;
+    }
 
-/* MOBILE */
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-  }
+    .visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(7, 6, 5, 0.08) 0%,
+          rgba(7, 6, 5, 0.18) 48%,
+          rgba(9, 8, 6, 0.96) 100%
+        ),
+        linear-gradient(
+          0deg,
+          rgba(5, 4, 3, 0.62) 0%,
+          transparent 42%
+        );
+      z-index: 1;
+    }
 
-  .image-section {
-    height: 45vh;
-  }
+    .visual-content {
+      position: absolute;
+      left: clamp(28px, 5vw, 80px);
+      bottom: clamp(35px, 7vw, 90px);
+      z-index: 2;
+      max-width: 520px;
+      animation: fadeUp 1s 0.25s ease both;
+    }
 
-  .content-section {
-    padding: 30px;
-  }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 13px;
+      margin-bottom: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 100px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      color: #f3e9d8;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
 
-  h1 {
-    font-size: 2rem;
-  }
+    .eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      background: #e3b86e;
+      border-radius: 50%;
+      box-shadow: 0 0 12px #e3b86e;
+    }
 
-  form {
-    flex-direction: column;
-  }
+    .visual h2 {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(2.5rem, 4.3vw, 4.5rem);
+      line-height: 0.98;
+      font-weight: 600;
+      letter-spacing: -0.045em;
+      margin-bottom: 18px;
+    }
 
-  button {
-    width: 100%;
-  }
-}
-</style>
+    .visual p {
+      max-width: 430px;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    /* Floating badge */
+
+    .offer-badge {
+      position: absolute;
+      top: 42px;
+      left: 42px;
+      z-index: 3;
+      width: 118px;
+      height: 118px;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: rgba(22, 18, 13, 0.72);
+      border: 1px solid rgba(240, 201, 130, 0.5);
+      backdrop-filter: blur(14px);
+      box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.28),
+        inset 0 0 30px rgba(255, 255, 255, 0.04);
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .offer-badge strong {
+      font-family: "Playfair Display", Georgia, serif;
+      color: var(--gold-light);
+      font-size: 29px;
+      line-height: 1;
+    }
+
+    .offer-badge span {
+      margin-top: 6px;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* --------------------------------
+       CONTENT SIDE
+    -------------------------------- */
+
+    .content-area {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(35px, 6vw, 90px);
+      position: relative;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.015),
+          transparent 45%
+        );
+    }
+
+    .content {
+      width: 100%;
+      max-width: 510px;
+      animation: fadeUp 1s ease both;
+    }
+
+    .mini-logo {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      margin-bottom: 38px;
+      color: #e9d6b8;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(214, 167, 92, 0.45);
+      color: var(--gold-light);
+      font-size: 14px;
+    }
+
+    .content h1 {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(3rem, 5vw, 5rem);
+      line-height: 0.98;
+      font-weight: 600;
+      letter-spacing: -0.055em;
+      margin-bottom: 25px;
+    }
+
+    .highlight {
+      color: var(--gold-light);
+      position: relative;
+      display: inline-block;
+    }
+
+    .highlight::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 5%;
+      bottom: -3px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      opacity: 0.7;
+    }
+
+    .subtitle {
+      max-width: 470px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.75;
+      margin-bottom: 32px;
+    }
+
+    /* --------------------------------
+       BENEFITS
+    -------------------------------- */
+
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .benefit {
+      padding: 15px 12px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.025);
+      transition: 0.25s ease;
+    }
+
+    .benefit:hover {
+      transform: translateY(-3px);
+      border-color: rgba(214, 167, 92, 0.3);
+      background: rgba(214, 167, 92, 0.045);
+    }
+
+    .benefit-icon {
+      margin-bottom: 8px;
+      color: var(--gold-light);
+      font-size: 17px;
+    }
+
+    .benefit strong {
+      display: block;
+      margin-bottom: 3px;
+      color: #eee6da;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .benefit span {
+      color: #817c74;
+      font-size: 10px;
+      line-height: 1.3;
+    }
+
+    /* --------------------------------
+       FORM
+    -------------------------------- */
+
+    .signup-form {
+      position: relative;
+      margin-bottom: 14px;
+    }
+
+    .input-wrap {
+      display: flex;
+      align-items: center;
+      padding: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.055);
+      box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.035);
+      backdrop-filter: blur(16px);
+      transition: 0.25s ease;
+    }
+
+    .input-wrap:focus-within {
+      border-color: rgba(214, 167, 92, 0.65);
+      box-shadow:
+        0 0 0 4px rgba(214, 167, 92, 0.07),
+        0 20px 50px rgba(0, 0, 0, 0.25);
+    }
+
+    .input-icon {
+      padding-left: 14px;
+      color: #8e887e;
+      font-size: 16px;
+    }
+
+    input {
+      width: 100%;
+      min-width: 0;
+      padding: 15px 12px;
+      border: none;
+      outline: none;
+      background: transparent;
+      color: #fff;
+      font-family: inherit;
+      font-size: 14px;
+    }
+
+    input::placeholder {
+      color: #77736d;
+    }
+
+    button {
+      flex-shrink: 0;
+      min-height: 49px;
+      padding: 0 23px;
+      border: 0;
+      border-radius: 10px;
+      background: linear-gradient(
+        135deg,
+        #e4bd78,
+        #bd8541
+      );
+      color: #21170d;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      cursor: pointer;
+      box-shadow:
+        0 8px 25px rgba(194, 137, 63, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      transition: 0.25s ease;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      background: linear-gradient(
+        135deg,
+        #f0cc8b,
+        #cd954d
+      );
+      box-shadow:
+        0 12px 30px rgba(194, 137, 63, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    }
+
+    button:active {
+      transform: translateY(0);
+    }
+
+    .fine-print {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      color: #69655f;
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    .fine-print svg {
+      flex-shrink: 0;
+      color: #8c7452;
+    }
+
+    /* --------------------------------
+       SOCIAL PROOF
+    -------------------------------- */
+
+    .proof {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      margin-top: 38px;
+      padding-top: 25px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .avatars {
+      display: flex;
+      padding-left: 5px;
+    }
+
+    .avatar {
+      width: 30px;
+      height: 30px;
+      margin-left: -5px;
+      display: grid;
+      place-items: center;
+      border: 2px solid #0c0a08;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #8c623d, #d5b084);
+      color: #28190e;
+      font-size: 9px;
+      font-weight: 800;
+    }
+
+    .avatar:nth-child(2) {
+      background: linear-gradient(135deg, #c9a17b, #704d35);
+    }
+
+    .avatar:nth-child(3) {
+      background: linear-gradient(135deg, #e1c7a1, #9d724d);
+    }
+
+    .avatar:nth-child(4) {
+      background: linear-gradient(135deg, #7e5940, #b98d68);
+    }
+
+    .proof-text {
+      color: #77736d;
+      font-size: 11px;
+      line-height: 1.45;
+    }
+
+    .proof-text strong {
+      color: #c7c0b5;
+    }
+
+    .stars {
+      color: var(--gold-light);
+      letter-spacing: 2px;
+      margin-bottom: 2px;
+    }
+
+    /* --------------------------------
+       ANIMATIONS
+    -------------------------------- */
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes imageReveal {
+      from {
+        opacity: 0;
+        transform: scale(1.1);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1.04);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0) rotate(0deg);
+      }
+
+      50% {
+        transform: translateY(-10px) rotate(2deg);
+      }
+    }
+
+    /* --------------------------------
+       TABLET
+    -------------------------------- */
+
+    @media (max-width: 1000px) {
+      .page {
+        grid-template-columns: 1fr;
+      }
+
+      .visual {
+        min-height: 65vh;
+        height: 65vh;
+      }
+
+      .content-area {
+        min-height: auto;
+        padding: 70px 30px 80px;
+      }
+
+      .content {
+        max-width: 620px;
+      }
+
+      .content h1 {
+        font-size: clamp(3rem, 8vw, 4.5rem);
+      }
+
+      .visual::after {
+        background:
+          linear-gradient(
+            0deg,
+            rgba(9, 8, 6, 0.95) 0%,
+            rgba(9, 8, 6, 0.12) 65%
+          );
+      }
+    }
+
+    /* --------------------------------
+       MOBILE
+    -------------------------------- */
+
+    @media (max-width: 600px) {
+      .visual {
+        min-height: 58vh;
+        height: 58vh;
+      }
+
+      .offer-badge {
+        width: 90px;
+        height: 90px;
+        top: 22px;
+        left: 22px;
+      }
+
+      .offer-badge strong {
+        font-size: 23px;
+      }
+
+      .offer-badge span {
+        font-size: 7px;
+      }
+
+      .visual-content {
+        left: 24px;
+        right: 24px;
+        bottom: 30px;
+      }
+
+      .visual h2 {
+        font-size: 2.55rem;
+      }
+
+      .visual p {
+        font-size: 13px;
+      }
+
+      .content-area {
+        padding: 50px 22px 55px;
+      }
+
+      .mini-logo {
+        margin-bottom: 28px;
+      }
+
+      .content h1 {
+        font-size: 3.15rem;
+        margin-bottom: 20px;
+      }
+
+      .subtitle {
+        font-size: 14px;
+        line-height: 1.65;
+        margin-bottom: 26px;
+      }
+
+      .benefits {
+        gap: 7px;
+      }
+
+      .benefit {
+        padding: 13px 9px;
+      }
+
+      .benefit-icon {
+        font-size: 15px;
+      }
+
+      .benefit strong {
+        font-size: 10px;
+      }
+
+      .benefit span {
+        font-size: 9px;
+      }
+
+      .input-wrap {
+        padding: 6px;
+        flex-wrap: wrap;
+      }
+
+      .input-icon {
+        padding-left: 11px;
+      }
+
+      input {
+        width: calc(100% - 40px);
+      }
+
+      button {
+        width: 100%;
+        margin-top: 3px;
+      }
+
+      .proof {
+        margin-top: 30px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .content h1 {
+        font-size: 2.7rem;
+      }
+
+      .benefits {
+        grid-template-columns: 1fr;
+      }
+
+      .benefit {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .benefit-icon {
+        margin-bottom: 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="container">
+  <div class="orb orb-one"></div>
+  <div class="orb orb-two"></div>
 
-  <!-- IMAGE -->
-  <div class="image-section">
-    <img src="Screenshot_20260418-170007~2.png" alt="Food spread">
-    <div class="image-overlay"></div>
-  </div>
+  <main class="page">
 
-  <!-- CONTENT -->
-  <div class="content-section">
-    <div class="content">
-      
-      <h1>
-        Get Your <span class="highlight">Free Coffee</span> Today
-      </h1>
+    <!-- =====================================
+         VISUAL / HERO IMAGE
+    ====================================== -->
 
-      <p>
-        Join thousands getting exclusive deals, insider updates, and special promotions—straight to your inbox.
-      </p>
+    <section class="visual">
 
-      <form action="https://formspree.io/f/xkokbzvk" method="POST">
-        <input type="email" name="email" placeholder="Enter your email" required>
-        <button type="submit">Get Free Coffee</button>
-      </form>
+      <img
+        src="Screenshot_20260418-170007~2.png"
+        alt="Fresh coffee and delicious food spread"
+      />
 
-      <div class="note">
-        No spam. Unsubscribe anytime.
+      <div class="offer-badge">
+        <strong>100%</strong>
+        <span>Free Coffee</span>
       </div>
 
-    </div>
-  </div>
+      <div class="visual-content">
 
-</div>
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          The Coffee Club
+        </div>
+
+        <h2>
+          Good coffee.<br />
+          Great perks.
+        </h2>
+
+        <p>
+          Your next favorite cup might be on us.
+          Join a community of coffee lovers getting
+          first access to our best offers.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================
+         SIGNUP CONTENT
+    ====================================== -->
+
+    <section class="content-area">
+
+      <div class="content">
+
+        <div class="mini-logo">
+          <span class="logo-mark">☕</span>
+          Coffee Club
+        </div>
+
+        <h1>
+          Your first cup is
+          <span class="highlight">on us.</span>
+        </h1>
+
+        <p class="subtitle">
+          Sign up today and we'll send you a little something
+          special — plus exclusive deals, early access,
+          and coffee-worthy surprises straight to your inbox.
+        </p>
+
+
+        <!-- BENEFITS -->
+
+        <div class="benefits">
+
+          <div class="benefit">
+            <div class="benefit-icon">☕</div>
+            <div>
+              <strong>FREE COFFEE</strong>
+              <span>Your first cup is on us.</span>
+            </div>
+          </div>
+
+          <div class="benefit">
+            <div class="benefit-icon">✦</div>
+            <div>
+              <strong>EXCLUSIVE DEALS</strong>
+              <span>Members get the good stuff.</span>
+            </div>
+          </div>
+
+          <div class="benefit">
+            <div class="benefit-icon">⚡</div>
+            <div>
+              <strong>FIRST ACCESS</strong>
+              <span>Be first to know.</span>
+            </div>
+          </div>
+
+        </div>
+
+
+        <!-- FORM -->
+
+        <form
+          class="signup-form"
+          action="https://formspree.io/f/xkokbzvk"
+          method="POST"
+        >
+
+          <div class="input-wrap">
+
+            <span class="input-icon">
+              <svg
+                width="17"
+                height="17"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                <path d="m3 7 9 6 9-6"></path>
+              </svg>
+            </span>
+
+            <input
+              type="email"
+              name="email"
+              placeholder="Your email address"
+              autocomplete="email"
+              required
+              aria-label="Email address"
+            />
+
+            <button type="submit">
+              Get My Free Coffee →
+            </button>
+
+          </div>
+
+        </form>
+
+
+        <!-- TRUST -->
+
+        <div class="fine-print">
+
+          <svg
+            width="13"
+            height="13"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect x="5" y="11" width="14" height="10" rx="2"></rect>
+            <path d="M8 11V7a4 4 0 0 1 8 0v4"></path>
+          </svg>
+
+          No spam. No nonsense. Unsubscribe anytime.
+
+        </div>
+
+
+        <!-- SOCIAL PROOF -->
+
+        <div class="proof">
+
+          <div class="avatars">
+            <div class="avatar">JM</div>
+            <div class="avatar">AL</div>
+            <div class="avatar">SK</div>
+            <div class="avatar">+ </div>
+          </div>
+
+          <div class="proof-text">
+
+            <div class="stars">★★★★★</div>
+
+            <strong>Loved by coffee people.</strong><br />
+
+            Join thousands already in the club.
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
 
 </body>
 </html>
