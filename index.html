@@ -2,11 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1, viewport-fit=cover"
->
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
 <title>Sean Keagan — Chef & Hospitality</title>
 
@@ -26,385 +22,231 @@
 >
 
 <style>
-
-/* =========================================================
-   SEAN KEAGAN — PREMIUM CULINARY STOREFRONT
-========================================================= */
-
 :root {
-  --red: #a91e25;
-  --red-dark: #741116;
-  --red-deep: #43080b;
-  --red-bright: #e2353d;
-  --red-hot: #ff555c;
+  --red:#a91e25;
+  --red-dark:#741116;
+  --red-deep:#43080b;
+  --red-bright:#e2353d;
+  --red-hot:#ff555c;
 
-  --cream: #f7f0df;
-  --cream-2: #eee2c9;
-  --cream-3: #fffaf0;
+  --cream:#f7f0df;
+  --cream-2:#eee2c9;
+  --cream-3:#fffaf0;
 
-  --ink: #151313;
-  --ink-2: #242020;
+  --ink:#151313;
+  --ink-2:#242020;
 
-  --gold: #d6a94c;
-  --gold-light: #f0ca70;
+  --gold:#d6a94c;
+  --gold-light:#f0ca70;
 
-  --muted: #766f67;
+  --muted:#766f67;
+  --line:rgba(21,19,19,.14);
 
-  --line: rgba(21,19,19,.14);
+  --serif:"Libre Baskerville",Georgia,serif;
+  --sans:"DM Sans",Arial,sans-serif;
+  --display:"Oswald",Impact,sans-serif;
+  --mono:"Space Mono",monospace;
 
-  --serif: "Libre Baskerville", Georgia, serif;
-  --sans: "DM Sans", Arial, sans-serif;
-  --display: "Oswald", Impact, sans-serif;
-  --mono: "Space Mono", monospace;
+  --max:1240px;
+  --ease:cubic-bezier(.2,.8,.2,1);
 
-  --max: 1240px;
-  --ease: cubic-bezier(.2,.8,.2,1);
+  /*
+    IMPORTANT:
+    These values keep the header above the mobile menu,
+    while the mobile menu remains above the page.
+  */
+  --z-ticker:3000;
+  --z-header:4000;
+  --z-menu:3500;
+  --z-bottom:4500;
+  --z-progress:5000;
 }
-
-
-/* =========================================================
-   RESET
-========================================================= */
 
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+  box-sizing:border-box;
 }
 
 html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 100px;
+  scroll-behavior:smooth;
+  scroll-padding-top:110px;
 }
 
 body {
-  margin: 0;
-
+  margin:0;
   background:
-    radial-gradient(
-      circle at 20% 10%,
-      rgba(255,255,255,.8),
-      transparent 28%
-    ),
+    radial-gradient(circle at 20% 10%,rgba(255,255,255,.8),transparent 28%),
     var(--cream);
-
-  color: var(--ink);
-
-  font-family: var(--sans);
-  line-height: 1.5;
-
-  overflow-x: hidden;
+  color:var(--ink);
+  font-family:var(--sans);
+  line-height:1.5;
+  overflow-x:hidden;
 }
 
-body.menu-open {
-  overflow: hidden;
+body.mobile-menu-open {
+  overflow:hidden;
 }
 
 img {
-  display: block;
-  width: 100%;
+  display:block;
+  width:100%;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+  color:inherit;
+  text-decoration:none;
 }
 
 button {
-  font: inherit;
+  font:inherit;
 }
 
 ::selection {
-  background: var(--red);
-  color: white;
+  background:var(--red);
+  color:white;
 }
 
-
-/* =========================================================
-   GLOBAL
-========================================================= */
-
 .container {
-  width: min(
-    calc(100% - 40px),
-    var(--max)
-  );
-
-  margin-inline: auto;
+  width:min(calc(100% - 40px),var(--max));
+  margin-inline:auto;
 }
 
 .section {
-  padding: 110px 0;
+  padding:110px 0;
 }
 
-.mono {
-  font-family: var(--mono);
-}
-
-.display {
-  font-family: var(--display);
-}
-
-.serif {
-  font-family: var(--serif);
-}
-
-.red {
-  color: var(--red);
-}
-
-.gold {
-  color: var(--gold);
-}
+.mono { font-family:var(--mono); }
+.display { font-family:var(--display); }
+.serif { font-family:var(--serif); }
+.red { color:var(--red); }
+.gold { color:var(--gold); }
 
 .eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-
-  margin-bottom: 20px;
-
-  font-family: var(--mono);
-  font-size: 9px;
-  font-weight: 700;
-
-  letter-spacing: .14em;
-  text-transform: uppercase;
-
-  color: var(--red);
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  margin-bottom:20px;
+  font-family:var(--mono);
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--red);
 }
 
 .eyebrow::before {
-  content: "";
-
-  width: 28px;
-  height: 3px;
-
-  border-radius: 10px;
-
-  background: currentColor;
+  content:"";
+  width:28px;
+  height:3px;
+  border-radius:10px;
+  background:currentColor;
 }
 
 h1,
 h2,
 h3,
 p {
-  margin-top: 0;
+  margin-top:0;
 }
 
 h1,
 h2,
 h3 {
-  font-family: var(--display);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: -.035em;
+  font-family:var(--display);
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:-.035em;
 }
 
 h2 {
-  margin-bottom: 0;
-
-  font-size: clamp(
-    3.2rem,
-    7vw,
-    6.8rem
-  );
-
-  line-height: .88;
+  margin-bottom:0;
+  font-size:clamp(3.2rem,7vw,6.8rem);
+  line-height:.88;
 }
 
 p {
-  margin-bottom: 0;
+  margin-bottom:0;
 }
 
-
-/* =========================================================
-   GLOBAL GLOW / NOISE
-========================================================= */
-
+/* NOISE */
 body::before {
-  content: "";
-
-  position: fixed;
-  inset: 0;
-
-  z-index: 9999;
-
-  pointer-events: none;
-
-  opacity: .035;
-
-  background-image:
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  pointer-events:none;
+  opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
 }
 
-
-/* =========================================================
-   CANDY PAINT
-========================================================= */
-
-.candy {
-  position: relative;
-
-  background:
-    linear-gradient(
-      145deg,
-      #cf2932 0%,
-      #a51b22 35%,
-      #801219 70%,
-      #641015 100%
-    );
-
-  color: white;
-
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.3),
-    inset 0 -18px 40px rgba(50,0,0,.18),
-    0 18px 40px rgba(80,10,14,.18);
-}
-
-.chrome {
-  background:
-    linear-gradient(
-      135deg,
-      #fff 0%,
-      #a9a9a5 25%,
-      #fff 45%,
-      #777 58%,
-      #e8e8e5 75%,
-      #8d8d89 100%
-    );
-
-  color: #1a1818;
-
-  box-shadow:
-    inset 0 1px 2px white,
-    0 5px 18px rgba(0,0,0,.18);
-}
-
-
-/* =========================================================
-   SCROLL PROGRESS
-========================================================= */
-
+/* PROGRESS */
 #progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-
-  z-index: 5000;
-
-  width: 0;
-  height: 4px;
-
-  background:
-    linear-gradient(
-      90deg,
-      #ff686e,
-      var(--red),
-      #630b10
-    );
-
-  box-shadow:
-    0 0 12px rgba(255,60,70,.6);
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:var(--z-progress);
+  width:0;
+  height:4px;
+  background:linear-gradient(90deg,#ff686e,var(--red),#630b10);
+  box-shadow:0 0 12px rgba(255,60,70,.6);
 }
 
-
-/* =========================================================
-   TOP TICKER
-========================================================= */
-
+/* TICKER */
 .ticker {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-
-  z-index: 3000;
-
-  height: 30px;
-
-  overflow: hidden;
-
-  background:
-    linear-gradient(
-      90deg,
-      #110a0a,
-      #261112,
-      #110a0a
-    );
-
-  color: white;
-
-  border-bottom:
-    1px solid rgba(255,255,255,.14);
-
-  font-family: var(--mono);
-  font-size: 8px;
-  font-weight: 700;
-
-  letter-spacing: .12em;
-  text-transform: uppercase;
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:var(--z-ticker);
+  height:30px;
+  overflow:hidden;
+  background:linear-gradient(90deg,#110a0a,#261112,#110a0a);
+  color:white;
+  border-bottom:1px solid rgba(255,255,255,.14);
+  font-family:var(--mono);
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
 }
 
 .ticker-track {
-  display: flex;
-  align-items: center;
-
-  width: max-content;
-  height: 100%;
-
-  animation:
-    ticker 30s linear infinite;
+  display:flex;
+  align-items:center;
+  width:max-content;
+  height:100%;
+  animation:ticker 30s linear infinite;
 }
 
 .ticker span {
-  display: inline-flex;
-  align-items: center;
-
-  margin-right: 55px;
-
-  white-space: nowrap;
+  display:inline-flex;
+  align-items:center;
+  margin-right:55px;
+  white-space:nowrap;
 }
 
 .ticker i {
-  margin-right: 12px;
-
-  color: var(--red-hot);
-
-  font-style: normal;
-
-  text-shadow:
-    0 0 8px rgba(255,60,70,.8);
+  margin-right:12px;
+  color:var(--red-hot);
+  font-style:normal;
+  text-shadow:0 0 8px rgba(255,60,70,.8);
 }
 
 @keyframes ticker {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(-50%);
-  }
+  from { transform:translateX(0); }
+  to { transform:translateX(-50%); }
 }
 
-
-/* =========================================================
-   HEADER
-========================================================= */
-
+/* HEADER */
 .header {
-  position: fixed;
-  top: 30px;
-  left: 0;
-  right: 0;
-
-  z-index: 2500;
-
-  height: 76px;
-
-  color: white;
-
+  position:fixed;
+  top:30px;
+  left:0;
+  right:0;
+  z-index:var(--z-header);
+  height:76px;
+  color:white;
   transition:
     background .35s ease,
     box-shadow .35s ease,
@@ -413,304 +255,240 @@ body::before {
 }
 
 .header.scrolled {
-  background:
-    rgba(247,240,223,.94);
-
-  color: var(--ink);
-
+  background:rgba(247,240,223,.94);
+  color:var(--ink);
   box-shadow:
     0 1px 0 rgba(0,0,0,.12),
     0 15px 35px rgba(0,0,0,.08);
-
-  backdrop-filter: blur(18px);
+  backdrop-filter:blur(18px);
 }
 
 .nav {
-  height: 100%;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  gap: 25px;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
 }
 
-
-/* =========================================================
-   LOGO
-========================================================= */
-
+/* LOGO */
 .logo {
-  display: flex;
-  align-items: center;
-
-  gap: 11px;
-
-  flex-shrink: 0;
+  display:flex;
+  align-items:center;
+  gap:11px;
+  flex-shrink:0;
 }
 
 .logo-badge {
-  position: relative;
-
-  width: 46px;
-  height: 46px;
-
-  display: grid;
-  place-items: center;
-
-  border-radius: 10px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #e33740,
-      #95161d 55%,
-      #681014
-    );
-
-  color: white;
-
-  font-family: var(--display);
-  font-size: 17px;
-
+  position:relative;
+  width:46px;
+  height:46px;
+  display:grid;
+  place-items:center;
+  border-radius:10px;
+  background:linear-gradient(145deg,#e33740,#95161d 55%,#681014);
+  color:white;
+  font-family:var(--display);
+  font-size:17px;
   box-shadow:
     inset 0 1px 2px rgba(255,255,255,.45),
     0 5px 14px rgba(0,0,0,.2);
-
-  transition:
-    transform .3s var(--ease);
+  transition:transform .3s var(--ease);
 }
 
 .logo:hover .logo-badge {
-  transform: rotate(-5deg) scale(1.05);
+  transform:rotate(-5deg) scale(1.05);
 }
 
 .logo-badge::after {
-  content: "";
-
-  position: absolute;
-  top: 5px;
-  left: 7px;
-  right: 7px;
-
-  height: 5px;
-
-  border-radius: 999px;
-
-  background: rgba(255,255,255,.35);
+  content:"";
+  position:absolute;
+  top:5px;
+  left:7px;
+  right:7px;
+  height:5px;
+  border-radius:999px;
+  background:rgba(255,255,255,.35);
 }
 
 .logo-text {
-  display: flex;
-  flex-direction: column;
+  display:flex;
+  flex-direction:column;
 }
 
 .logo-name {
-  font-family: var(--display);
-  font-size: 17px;
-  font-weight: 700;
-
-  letter-spacing: .04em;
+  font-family:var(--display);
+  font-size:17px;
+  font-weight:700;
+  letter-spacing:.04em;
 }
 
 .logo-sub {
-  margin-top: -1px;
-
-  opacity: .55;
-
-  font-family: var(--mono);
-  font-size: 7px;
-
-  letter-spacing: .1em;
+  margin-top:-1px;
+  opacity:.55;
+  font-family:var(--mono);
+  font-size:7px;
+  letter-spacing:.1em;
 }
 
-
-/* =========================================================
-   DESKTOP NAV
-========================================================= */
-
+/* DESKTOP NAV */
 .desktop-nav {
-  display: flex;
-  align-items: center;
-  gap: 25px;
+  display:flex;
+  align-items:center;
+  gap:25px;
 }
 
 .desktop-nav a {
-  position: relative;
-
-  font-family: var(--mono);
-  font-size: 8px;
-  font-weight: 700;
-
-  letter-spacing: .08em;
-  text-transform: uppercase;
-
-  opacity: .72;
-
-  transition:
-    opacity .2s ease,
-    color .2s ease;
+  position:relative;
+  font-family:var(--mono);
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  opacity:.72;
+  transition:opacity .2s ease,color .2s ease;
 }
 
 .desktop-nav a:hover {
-  opacity: 1;
-  color: var(--red);
+  opacity:1;
+  color:var(--red);
 }
 
 .desktop-nav a::after {
-  content: "";
-
-  position: absolute;
-
-  left: 0;
-  bottom: -8px;
-
-  width: 100%;
-  height: 2px;
-
-  background: var(--red);
-
-  transform: scaleX(0);
-  transform-origin: left;
-
-  transition:
-    transform .25s var(--ease);
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-8px;
+  width:100%;
+  height:2px;
+  background:var(--red);
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .25s var(--ease);
 }
 
 .desktop-nav a:hover::after {
-  transform: scaleX(1);
+  transform:scaleX(1);
 }
 
-
-/* =========================================================
-   NAV BUTTON
-========================================================= */
-
-.nav-button {
-  min-height: 44px;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 0 18px;
-
-  border-radius: 8px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #e23b44,
-      #97181f
-    );
-
-  color: white;
-
-  font-family: var(--mono);
-  font-size: 8px;
-  font-weight: 700;
-
-  letter-spacing: .08em;
-  text-transform: uppercase;
-
+/* BUTTON */
+.nav-button,
+.button {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(145deg,#e23b44,#97181f);
+  color:white;
+  font-family:var(--mono);
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,.3),
-    0 5px 15px rgba(110,10,15,.25);
-
+    0 8px 25px rgba(0,0,0,.24);
   transition:
-    transform .2s ease,
-    background .2s ease,
-    box-shadow .2s ease;
+    transform .25s var(--ease),
+    box-shadow .25s ease,
+    background .25s ease;
 }
 
-.nav-button:hover {
-  transform: translateY(-2px);
-
-  background:
-    linear-gradient(
-      145deg,
-      #ff4a52,
-      #b21b24
-    );
-
-  box-shadow:
-    0 10px 25px rgba(110,10,15,.3);
+.nav-button {
+  min-height:44px;
+  padding:0 18px;
+  border-radius:8px;
+  font-size:8px;
 }
 
+.nav-button:hover,
+.button:hover {
+  transform:translateY(-3px);
+  background:linear-gradient(145deg,#f04a52,#ad1d25);
+}
 
-/* =========================================================
-   MOBILE BUTTON
-========================================================= */
-
+/* HAMBURGER */
 .menu-button {
-  display: none;
-
-  width: 44px;
-  height: 44px;
-
-  border: 1px solid currentColor;
-  border-radius: 8px;
-
-  background: transparent;
-  color: inherit;
-
-  cursor: pointer;
+  display:none;
+  position:relative;
+  width:46px;
+  height:46px;
+  padding:0;
+  border:1px solid currentColor;
+  border-radius:9px;
+  background:transparent;
+  color:inherit;
+  cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+  z-index:var(--z-header);
 }
 
 .menu-lines {
-  width: 19px;
-  height: 14px;
-
-  position: relative;
-
-  margin: auto;
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:20px;
+  height:16px;
+  transform:translate(-50%,-50%);
 }
 
 .menu-lines span,
 .menu-lines::before,
 .menu-lines::after {
-  content: "";
-
-  position: absolute;
-  left: 0;
-
-  width: 100%;
-  height: 2px;
-
-  border-radius: 4px;
-
-  background: currentColor;
-
-  transition: .25s ease;
+  content:"";
+  position:absolute;
+  left:0;
+  width:100%;
+  height:2px;
+  border-radius:5px;
+  background:currentColor;
+  transition:
+    transform .3s var(--ease),
+    top .3s var(--ease),
+    opacity .2s ease;
 }
 
+.menu-lines::before {
+  top:0;
+}
 
-/* =========================================================
-   HERO
-========================================================= */
+.menu-lines span {
+  top:7px;
+}
 
+.menu-lines::after {
+  top:14px;
+}
+
+/*
+  HAMBURGER -> X
+*/
+.menu-button[aria-expanded="true"] .menu-lines::before {
+  top:7px;
+  transform:rotate(45deg);
+}
+
+.menu-button[aria-expanded="true"] .menu-lines span {
+  opacity:0;
+}
+
+.menu-button[aria-expanded="true"] .menu-lines::after {
+  top:7px;
+  transform:rotate(-45deg);
+}
+
+/* HERO */
 .hero {
-  position: relative;
-
-  min-height: 100svh;
-
-  display: flex;
-  align-items: center;
-
-  overflow: hidden;
-
-  background: #2c080b;
-
-  color: white;
+  position:relative;
+  min-height:100svh;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  background:#2c080b;
+  color:white;
 }
-
-
-/* BACKGROUND */
 
 .hero-photo {
-  position: absolute;
-  inset: 0;
-
+  position:absolute;
+  inset:0;
   background:
     linear-gradient(
       90deg,
@@ -719,1397 +497,731 @@ body::before {
       rgba(55,7,10,.58) 62%,
       rgba(38,5,7,.82) 100%
     ),
-    linear-gradient(
-      0deg,
-      rgba(15,3,4,.94),
-      transparent 55%
-    ),
+    linear-gradient(0deg,rgba(15,3,4,.94),transparent 55%),
     url("https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=2200&q=90")
-    center / cover;
-
-  transform:
-    scale(1.08);
-
-  animation:
-    heroZoom 16s ease-in-out infinite alternate;
-
-  filter:
-    saturate(.85)
-    contrast(1.05);
+    center/cover;
+  transform:scale(1.08);
+  animation:heroZoom 16s ease-in-out infinite alternate;
+  filter:saturate(.85) contrast(1.05);
 }
 
 @keyframes heroZoom {
-  from {
-    transform: scale(1.08);
-  }
-
-  to {
-    transform: scale(1.14);
-  }
+  from { transform:scale(1.08); }
+  to { transform:scale(1.14); }
 }
-
-
-/* RED LIGHT */
 
 .hero::before {
-  content: "";
-
-  position: absolute;
-
-  width: 55vw;
-  height: 55vw;
-
-  max-width: 800px;
-  max-height: 800px;
-
-  right: -15%;
-  top: 10%;
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(255,52,62,.23),
-      rgba(180,20,30,.08) 35%,
-      transparent 70%
-    );
-
-  filter: blur(10px);
-
-  animation:
-    heroGlow 8s ease-in-out infinite alternate;
-
-  pointer-events: none;
+  content:"";
+  position:absolute;
+  width:55vw;
+  height:55vw;
+  max-width:800px;
+  max-height:800px;
+  right:-15%;
+  top:10%;
+  border-radius:50%;
+  background:radial-gradient(
+    circle,
+    rgba(255,52,62,.23),
+    rgba(180,20,30,.08) 35%,
+    transparent 70%
+  );
+  filter:blur(10px);
+  pointer-events:none;
 }
-
-@keyframes heroGlow {
-  from {
-    transform: translate3d(-20px,0,0) scale(.9);
-    opacity: .55;
-  }
-
-  to {
-    transform: translate3d(30px,20px,0) scale(1.1);
-    opacity: 1;
-  }
-}
-
-
-/* MOVING LIGHT STREAK */
 
 .hero::after {
-  content: "";
-
-  position: absolute;
-
-  width: 70%;
-  height: 160%;
-
-  top: -30%;
-  left: -70%;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(255,255,255,.035),
-      transparent
-    );
-
-  transform: rotate(15deg);
-
-  animation:
-    lightSweep 9s ease-in-out infinite;
-
-  pointer-events: none;
+  content:"";
+  position:absolute;
+  width:70%;
+  height:160%;
+  top:-30%;
+  left:-70%;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,.035),
+    transparent
+  );
+  transform:rotate(15deg);
+  animation:lightSweep 9s ease-in-out infinite;
+  pointer-events:none;
 }
 
 @keyframes lightSweep {
-  0% {
-    left: -80%;
-  }
-
-  45%,
-  100% {
-    left: 120%;
-  }
+  0% { left:-80%; }
+  45%,100% { left:120%; }
 }
 
-
-/* HERO CONTENT */
-
 .hero-content {
-  position: relative;
-  z-index: 5;
-
-  width: 100%;
-
-  padding:
-    155px
-    0
-    175px;
+  position:relative;
+  z-index:5;
+  width:100%;
+  padding:155px 0 175px;
 }
 
 .hero-copy {
-  max-width: 900px;
+  max-width:900px;
 }
 
-
-/* KICKER */
-
 .hero-kicker {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-
-  margin-bottom: 24px;
-
-  color: #ffd0d1;
-
-  font-family: var(--mono);
-  font-size: 9px;
-  font-weight: 700;
-
-  letter-spacing: .13em;
-  text-transform: uppercase;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:24px;
+  color:#ffd0d1;
+  font-family:var(--mono);
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.13em;
+  text-transform:uppercase;
 }
 
 .hero-kicker::before {
-  content: "";
-
-  width: 8px;
-  height: 8px;
-
-  border-radius: 50%;
-
-  background: #ff525a;
-
-  box-shadow:
-    0 0 10px #ff333b,
-    0 0 25px #ff333b;
-
-  animation:
-    pulse 1.6s ease-in-out infinite;
+  content:"";
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:#ff525a;
+  box-shadow:0 0 10px #ff333b,0 0 25px #ff333b;
 }
-
-@keyframes pulse {
-  0%,
-  100% {
-    transform: scale(.8);
-    opacity: .7;
-  }
-
-  50% {
-    transform: scale(1.25);
-    opacity: 1;
-  }
-}
-
-
-/* HERO TITLE */
 
 .hero h1 {
-  margin: 0;
-
-  font-size: clamp(
-    5rem,
-    12vw,
-    11rem
-  );
-
-  line-height: .75;
-
-  text-shadow:
-    0 8px 30px rgba(0,0,0,.3);
-
-  animation:
-    heroTitleIn 1s var(--ease) both;
-}
-
-@keyframes heroTitleIn {
-  from {
-    opacity: 0;
-    transform: translateY(35px);
-  }
-
-  to {
-    opacity: 1;
-    transform: none;
-  }
+  margin:0;
+  font-size:clamp(5rem,12vw,11rem);
+  line-height:.75;
+  text-shadow:0 8px 30px rgba(0,0,0,.3);
 }
 
 .hero h1 > span {
-  display: block;
+  display:block;
 }
 
 .hero h1 .outline {
-  color: transparent;
-
-  -webkit-text-stroke:
-    2px rgba(255,255,255,.78);
-
-  margin-left: .03em;
+  color:transparent;
+  -webkit-text-stroke:2px rgba(255,255,255,.78);
 }
 
 .hero h1 .red-word {
-  color: #f05b60;
-
-  text-shadow:
-    0 0 30px rgba(240,70,80,.18);
+  color:#f05b60;
 }
-
-
-/* =========================================================
-   HERO ACTIONS
-========================================================= */
 
 .hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-
-  margin-top: 34px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:34px;
 }
-
-
-/* BUTTON */
 
 .button {
-  min-height: 55px;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 0 25px;
-
-  border-radius: 9px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #e23b44,
-      #9e1920
-    );
-
-  color: white;
-
-  font-family: var(--mono);
-  font-size: 9px;
-  font-weight: 700;
-
-  letter-spacing: .08em;
-  text-transform: uppercase;
-
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.4),
-    0 8px 25px rgba(0,0,0,.24);
-
-  transition:
-    transform .25s var(--ease),
-    box-shadow .25s ease,
-    background .25s ease;
-}
-
-.button:hover {
-  transform: translateY(-4px);
-
-  background:
-    linear-gradient(
-      145deg,
-      #f04a52,
-      #ad1d25
-    );
-
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.4),
-    0 16px 35px rgba(0,0,0,.32);
+  min-height:55px;
+  padding:0 25px;
+  border-radius:9px;
+  font-size:9px;
 }
 
 .button.light {
-  background:
-    rgba(255,255,255,.055);
-
-  border:
-    1px solid rgba(255,255,255,.45);
-
-  box-shadow:
-    inset 0 0 25px rgba(255,255,255,.025);
+  background:rgba(255,255,255,.055);
+  border:1px solid rgba(255,255,255,.45);
 }
 
 .button.light:hover {
-  background:
-    rgba(255,255,255,.14);
+  background:rgba(255,255,255,.14);
 }
-
-
-/* =========================================================
-   DESCRIPTION — NOW BELOW BUTTONS
-========================================================= */
 
 .hero-description {
-  max-width: 620px;
-
-  margin-top: 27px;
-
-  padding-left: 16px;
-
-  border-left:
-    2px solid rgba(255,82,90,.75);
-
-  color:
-    rgba(255,255,255,.62);
-
-  font-size: 13px;
-  line-height: 1.85;
-
-  animation:
-    descriptionIn 1s .25s var(--ease) both;
+  max-width:620px;
+  margin-top:27px;
+  padding-left:16px;
+  border-left:2px solid rgba(255,82,90,.75);
+  color:rgba(255,255,255,.62);
+  font-size:13px;
+  line-height:1.85;
 }
-
-@keyframes descriptionIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-
-/* =========================================================
-   HERO MINI LABEL
-========================================================= */
 
 .hero-location {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-  margin-top: 25px;
-
-  color:
-    rgba(255,255,255,.35);
-
-  font-family: var(--mono);
-  font-size: 7px;
-
-  letter-spacing: .14em;
-  text-transform: uppercase;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-top:25px;
+  color:rgba(255,255,255,.35);
+  font-family:var(--mono);
+  font-size:7px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
 }
 
 .hero-location::before {
-  content: "";
-
-  width: 22px;
-  height: 1px;
-
-  background:
-    rgba(255,255,255,.35);
+  content:"";
+  width:22px;
+  height:1px;
+  background:rgba(255,255,255,.35);
 }
 
-
-/* =========================================================
-   HERO STATS
-========================================================= */
-
+/* HERO STATS */
 .hero-bottom {
-  position: absolute;
-
-  bottom: 0;
-  left: 0;
-  right: 0;
-
-  z-index: 5;
+  position:absolute;
+  bottom:0;
+  left:0;
+  right:0;
+  z-index:5;
 }
 
 .hero-bottom-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(4, 1fr);
-
-  border-top:
-    1px solid rgba(255,255,255,.2);
-
-  background:
-    linear-gradient(
-      90deg,
-      rgba(20,3,4,.15),
-      rgba(20,3,4,.35),
-      rgba(20,3,4,.15)
-    );
-
-  backdrop-filter:
-    blur(4px);
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  border-top:1px solid rgba(255,255,255,.2);
+  background:rgba(20,3,4,.28);
+  backdrop-filter:blur(4px);
 }
 
 .hero-stat {
-  padding: 17px 15px;
-
-  border-right:
-    1px solid rgba(255,255,255,.16);
-
-  transition:
-    background .25s ease;
-}
-
-.hero-stat:hover {
-  background:
-    rgba(255,255,255,.04);
+  padding:17px 15px;
+  border-right:1px solid rgba(255,255,255,.16);
 }
 
 .hero-stat:last-child {
-  border-right: 0;
+  border-right:0;
 }
 
 .hero-stat strong {
-  display: block;
-
-  font-family: var(--display);
-  font-size: 21px;
-
-  line-height: 1;
+  display:block;
+  font-family:var(--display);
+  font-size:21px;
+  line-height:1;
 }
 
 .hero-stat span {
-  display: block;
-
-  margin-top: 5px;
-
-  color:
-    rgba(255,255,255,.42);
-
-  font-family: var(--mono);
-  font-size: 7px;
-
-  letter-spacing: .1em;
-  text-transform: uppercase;
+  display:block;
+  margin-top:5px;
+  color:rgba(255,255,255,.42);
+  font-family:var(--mono);
+  font-size:7px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
 }
 
-
-/* =========================================================
-   MARQUEE
-========================================================= */
-
+/* MARQUEE */
 .marquee {
-  position: relative;
-
-  overflow: hidden;
-
-  background:
-    linear-gradient(
-      90deg,
-      #fffaf0,
-      #f2e5cd,
-      #fffaf0
-    );
-
-  border-top:
-    1px solid var(--line);
-
-  border-bottom:
-    1px solid var(--line);
-
-  color: var(--red);
-
-  white-space: nowrap;
+  overflow:hidden;
+  background:linear-gradient(90deg,#fffaf0,#f2e5cd,#fffaf0);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  color:var(--red);
+  white-space:nowrap;
 }
 
 .marquee-track {
-  display: flex;
-
-  width: max-content;
-
-  animation:
-    marquee 24s linear infinite;
+  display:flex;
+  width:max-content;
+  animation:marquee 24s linear infinite;
 }
 
 .marquee-item {
-  padding: 19px 25px;
-
-  font-family: var(--display);
-  font-size: 22px;
-
-  letter-spacing: .05em;
-  text-transform: uppercase;
+  padding:19px 25px;
+  font-family:var(--display);
+  font-size:22px;
+  letter-spacing:.05em;
+  text-transform:uppercase;
 }
 
 .marquee-item span {
-  margin-left: 25px;
-
-  color: var(--gold);
-
-  animation:
-    starSpin 4s linear infinite;
+  margin-left:25px;
+  color:var(--gold);
 }
 
 @keyframes marquee {
-  to {
-    transform: translateX(-50%);
-  }
+  to { transform:translateX(-50%); }
 }
 
-@keyframes starSpin {
-  to {
-    display: inline-block;
-    transform: rotate(360deg);
-  }
-}
-
-
-/* =========================================================
-   INTRO
-========================================================= */
-
+/* INTRO */
 .intro {
-  padding: 110px 0;
-
+  padding:110px 0;
   background:
-    radial-gradient(
-      circle at 50% 0,
-      rgba(255,255,255,.85),
-      transparent 35%
-    ),
+    radial-gradient(circle at 50% 0,rgba(255,255,255,.85),transparent 35%),
     var(--cream);
 }
 
 .intro-grid {
-  display: grid;
-
-  grid-template-columns:
-    1fr 1.25fr;
-
-  gap: 80px;
-
-  align-items: center;
+  display:grid;
+  grid-template-columns:1fr 1.25fr;
+  gap:80px;
+  align-items:center;
 }
 
 .intro-sign {
-  position: relative;
-
-  padding: 30px;
-
-  border-radius: 14px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #ba2229,
-      #801218
-    );
-
-  color: white;
-
+  padding:30px;
+  border-radius:14px;
+  background:linear-gradient(145deg,#ba2229,#801218);
+  color:white;
   box-shadow:
     inset 0 2px 3px rgba(255,255,255,.25),
     0 20px 45px rgba(88,10,15,.2);
-
-  transform:
-    rotate(-1deg);
-
-  transition:
-    transform .5s var(--ease);
 }
 
-.intro-sign:hover {
-  transform:
-    rotate(0deg)
-    translateY(-5px);
-}
-
-.intro-sign::before {
-  content: "";
-
-  position: absolute;
-
-  inset: 10px;
-
-  border:
-    1px solid rgba(255,255,255,.25);
-}
-
-.intro-sign-top {
-  font-family: var(--mono);
-  font-size: 8px;
-
-  letter-spacing: .18em;
+.intro-sign-top,
+.intro-sign-bottom {
+  font-family:var(--mono);
+  font-size:8px;
+  letter-spacing:.12em;
 }
 
 .intro-sign h3 {
-  margin: 25px 0;
-
-  font-size: 65px;
-
-  line-height: .82;
+  margin:25px 0;
+  font-size:65px;
+  line-height:.82;
 }
 
 .intro-sign-bottom {
-  padding-top: 18px;
-
-  border-top:
-    1px solid rgba(255,255,255,.25);
-
-  font-family: var(--mono);
-  font-size: 8px;
-
-  letter-spacing: .1em;
+  padding-top:18px;
+  border-top:1px solid rgba(255,255,255,.25);
 }
 
 .intro-copy p {
-  max-width: 630px;
-
-  margin-top: 22px;
-
-  color: var(--muted);
-
-  font-size: 15px;
-  line-height: 1.9;
+  max-width:630px;
+  margin-top:22px;
+  color:var(--muted);
+  font-size:15px;
+  line-height:1.9;
 }
 
 .signature {
-  margin-top: 30px;
-
-  color: var(--red);
-
-  font-family: var(--serif);
-  font-size: 28px;
-  font-style: italic;
+  margin-top:30px;
+  color:var(--red);
+  font-family:var(--serif);
+  font-size:28px;
+  font-style:italic;
 }
 
-
-/* =========================================================
-   ABOUT
-========================================================= */
-
-.about {
-  background: var(--ink);
-  color: white;
-}
-
-.about-grid {
-  display: grid;
-
-  grid-template-columns:
-    .9fr 1.1fr;
-
-  gap: 80px;
-
-  align-items: center;
-}
-
-.photo-card {
-  position: relative;
-
-  overflow: hidden;
-
-  padding: 10px;
-
-  border-radius: 18px;
-
-  background:
-    linear-gradient(
-      135deg,
-      #c9c9c6,
-      #6e6e6a,
-      #ededeb,
-      #777
-    );
-
-  box-shadow:
-    0 25px 60px rgba(0,0,0,.4);
-}
-
-.photo-card-inner {
-  position: relative;
-
-  overflow: hidden;
-
-  border-radius: 11px;
-}
-
-.photo-card img {
-  aspect-ratio: 4 / 5;
-
-  object-fit: cover;
-
-  transition:
-    transform .8s var(--ease);
-}
-
-.photo-card:hover img {
-  transform: scale(1.05);
-}
-
-.photo-label {
-  position: absolute;
-
-  left: 22px;
-  bottom: 22px;
-
-  padding: 10px 13px;
-
-  border-radius: 7px;
-
-  background:
-    rgba(15,10,10,.88);
-
-  color: white;
-
-  font-family: var(--mono);
-  font-size: 8px;
-  font-weight: 700;
-
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
-
-.about h2 {
-  font-size: clamp(
-    3.5rem,
-    7vw,
-    7rem
-  );
-}
-
-.about-copy > p {
-  max-width: 610px;
-
-  margin: 28px 0;
-
-  color:
-    rgba(255,255,255,.6);
-
-  font-size: 14px;
-  line-height: 1.9;
-}
-
-.principles {
-  margin-top: 35px;
-
-  border-top:
-    1px solid rgba(255,255,255,.14);
-}
-
-.principle {
-  display: grid;
-
-  grid-template-columns:
-    45px 1fr;
-
-  gap: 14px;
-
-  padding: 18px 0;
-
-  border-bottom:
-    1px solid rgba(255,255,255,.14);
-}
-
-.principle-number {
-  color: #ed555b;
-
-  font-family: var(--mono);
-  font-size: 9px;
-}
-
-.principle strong {
-  font-family: var(--display);
-  font-size: 19px;
-
-  text-transform: uppercase;
-}
-
-.principle p {
-  margin-top: 5px;
-
-  color:
-    rgba(255,255,255,.42);
-
-  font-size: 10px;
-}
-
-
-/* =========================================================
-   SECTION HEAD
-========================================================= */
-
+/* SHARED SECTION HEAD */
 .section-head {
-  max-width: 760px;
+  max-width:760px;
 }
 
 .section-head.center {
-  margin-inline: auto;
-  text-align: center;
+  margin-inline:auto;
+  text-align:center;
 }
 
 .section-head.center .eyebrow {
-  justify-content: center;
+  justify-content:center;
 }
 
 .section-head p {
-  max-width: 620px;
-
-  margin-top: 24px;
-
-  color: var(--muted);
-
-  font-size: 14px;
-  line-height: 1.85;
+  max-width:620px;
+  margin-top:24px;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.85;
 }
 
 .section-head.center p {
-  margin-inline: auto;
+  margin-inline:auto;
 }
 
+/* ABOUT */
+.about {
+  background:var(--ink);
+  color:white;
+}
 
-/* =========================================================
-   MENU
-========================================================= */
+.about-grid {
+  display:grid;
+  grid-template-columns:.9fr 1.1fr;
+  gap:80px;
+  align-items:center;
+}
 
+.photo-card {
+  overflow:hidden;
+  padding:10px;
+  border-radius:18px;
+  background:linear-gradient(135deg,#c9c9c6,#6e6e6a,#ededeb,#777);
+  box-shadow:0 25px 60px rgba(0,0,0,.4);
+}
+
+.photo-card-inner {
+  position:relative;
+  overflow:hidden;
+  border-radius:11px;
+}
+
+.photo-card img {
+  aspect-ratio:4/5;
+  object-fit:cover;
+}
+
+.photo-label {
+  position:absolute;
+  left:22px;
+  bottom:22px;
+  padding:10px 13px;
+  border-radius:7px;
+  background:rgba(15,10,10,.88);
+  color:white;
+  font-family:var(--mono);
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.about h2 {
+  font-size:clamp(3.5rem,7vw,7rem);
+}
+
+.about-copy > p {
+  max-width:610px;
+  margin:28px 0;
+  color:rgba(255,255,255,.6);
+  font-size:14px;
+  line-height:1.9;
+}
+
+.principles {
+  margin-top:35px;
+  border-top:1px solid rgba(255,255,255,.14);
+}
+
+.principle {
+  display:grid;
+  grid-template-columns:45px 1fr;
+  gap:14px;
+  padding:18px 0;
+  border-bottom:1px solid rgba(255,255,255,.14);
+}
+
+.principle-number {
+  color:#ed555b;
+  font-family:var(--mono);
+  font-size:9px;
+}
+
+.principle strong {
+  font-family:var(--display);
+  font-size:19px;
+  text-transform:uppercase;
+}
+
+.principle p {
+  margin-top:5px;
+  color:rgba(255,255,255,.42);
+  font-size:10px;
+}
+
+/* MENU / METHOD */
 .menu-section {
-  background: var(--cream-2);
+  background:var(--cream-2);
 }
 
 .menu-board {
-  margin-top: 60px;
-
-  padding: 12px;
-
-  border-radius: 20px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #bbb,
-      #f5f5f3,
-      #777,
-      #ddd
-    );
-
-  box-shadow:
-    0 25px 55px rgba(0,0,0,.16);
-
-  transition:
-    transform .4s var(--ease);
-}
-
-.menu-board:hover {
-  transform:
-    translateY(-5px);
+  margin-top:60px;
+  padding:12px;
+  border-radius:20px;
+  background:linear-gradient(145deg,#bbb,#f5f5f3,#777,#ddd);
+  box-shadow:0 25px 55px rgba(0,0,0,.16);
 }
 
 .menu-inner {
-  padding: 55px;
-
-  border-radius: 11px;
-
-  background:
-    linear-gradient(
-      rgba(255,255,255,.025),
-      rgba(255,255,255,.025)
-    ),
-    #1b1515;
-
-  color: white;
+  padding:55px;
+  border-radius:11px;
+  background:#1b1515;
+  color:white;
 }
 
 .menu-top {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  padding-bottom: 20px;
-
-  border-bottom:
-    1px solid rgba(255,255,255,.18);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding-bottom:20px;
+  border-bottom:1px solid rgba(255,255,255,.18);
 }
 
 .menu-title {
-  font-family: var(--display);
-  font-size: 52px;
-  line-height: .85;
+  font-family:var(--display);
+  font-size:52px;
+  line-height:.85;
 }
 
-.menu-open {
-  padding: 9px 12px;
-
-  border:
-    1px solid #cc4046;
-
-  border-radius: 5px;
-
-  color: #ff656b;
-
-  font-family: var(--mono);
-  font-size: 8px;
-  font-weight: 700;
-
-  letter-spacing: .12em;
-
-  box-shadow:
-    0 0 18px rgba(230,60,70,.08);
+/*
+  IMPORTANT:
+  Renamed from .menu-open to .menu-status.
+  This prevents collision with the body's menu state.
+*/
+.menu-status {
+  padding:9px 12px;
+  border:1px solid #cc4046;
+  border-radius:5px;
+  color:#ff656b;
+  font-family:var(--mono);
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:.12em;
 }
 
 .menu-columns {
-  display: grid;
-
-  grid-template-columns:
-    1fr 1fr;
-
-  gap: 60px;
-
-  margin-top: 40px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  margin-top:40px;
 }
 
 .menu-item {
-  padding: 20px 0;
-
-  border-bottom:
-    1px dashed rgba(255,255,255,.2);
-
-  transition:
-    padding-left .25s ease;
-}
-
-.menu-item:hover {
-  padding-left: 8px;
+  padding:20px 0;
+  border-bottom:1px dashed rgba(255,255,255,.2);
 }
 
 .menu-item-head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-
-  gap: 20px;
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:20px;
 }
 
 .menu-item h3 {
-  margin: 0;
-
-  font-size: 27px;
+  margin:0;
+  font-size:27px;
 }
 
 .menu-price {
-  color: #ef5b60;
-
-  font-family: var(--mono);
-  font-size: 10px;
+  color:#ef5b60;
+  font-family:var(--mono);
+  font-size:10px;
 }
 
 .menu-item p {
-  max-width: 450px;
-
-  margin-top: 8px;
-
-  color:
-    rgba(255,255,255,.42);
-
-  font-size: 10px;
-  line-height: 1.7;
+  max-width:450px;
+  margin-top:8px;
+  color:rgba(255,255,255,.42);
+  font-size:10px;
+  line-height:1.7;
 }
 
-
-/* =========================================================
-   EXPERTISE
-========================================================= */
-
+/* CARDS */
 .expertise {
-  background: var(--cream);
+  background:var(--cream);
 }
 
 .cards {
-  display: grid;
-
-  grid-template-columns:
-    repeat(3, 1fr);
-
-  gap: 15px;
-
-  margin-top: 60px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:15px;
+  margin-top:60px;
 }
 
 .card {
-  position: relative;
-
-  min-height: 310px;
-
-  padding: 30px;
-
-  overflow: hidden;
-
-  border-radius: 14px;
-
-  background: var(--cream-3);
-
-  border:
-    1px solid var(--line);
-
-  box-shadow:
-    0 10px 25px rgba(0,0,0,.04);
-
-  transition:
-    transform .3s var(--ease),
-    box-shadow .3s ease,
-    border-color .3s ease;
+  min-height:310px;
+  padding:30px;
+  overflow:hidden;
+  border-radius:14px;
+  background:var(--cream-3);
+  border:1px solid var(--line);
+  box-shadow:0 10px 25px rgba(0,0,0,.04);
+  transition:transform .3s var(--ease),box-shadow .3s ease;
 }
 
 .card:hover {
-  transform:
-    translateY(-8px);
-
-  border-color:
-    rgba(169,30,37,.3);
-
-  box-shadow:
-    0 20px 40px rgba(0,0,0,.11);
-}
-
-.card::after {
-  content: "";
-
-  position: absolute;
-
-  right: -35px;
-  bottom: -45px;
-
-  width: 130px;
-  height: 130px;
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(169,30,37,.12),
-      transparent 70%
-    );
-
-  transition:
-    transform .4s ease;
-}
-
-.card:hover::after {
-  transform: scale(1.4);
+  transform:translateY(-8px);
+  box-shadow:0 20px 40px rgba(0,0,0,.11);
 }
 
 .card-number {
-  color: var(--red);
-
-  font-family: var(--mono);
-  font-size: 8px;
-  font-weight: 700;
-
-  letter-spacing: .12em;
+  color:var(--red);
+  font-family:var(--mono);
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:.12em;
 }
 
 .card h3 {
-  margin-top: 65px;
-
-  font-size: 33px;
-
-  line-height: .9;
+  margin-top:65px;
+  font-size:33px;
+  line-height:.9;
 }
 
 .card p {
-  margin-top: 15px;
-
-  color: var(--muted);
-
-  font-size: 11px;
-  line-height: 1.75;
+  margin-top:15px;
+  color:var(--muted);
+  font-size:11px;
+  line-height:1.75;
 }
 
-
-/* =========================================================
-   FOOD
-========================================================= */
-
+/* FOOD */
 .food-section {
-  background: #ded1b8;
+  background:#ded1b8;
 }
 
 .food-grid {
-  display: grid;
-
-  grid-template-columns:
-    1.2fr .8fr;
-
-  grid-template-rows:
-    390px 390px;
-
-  gap: 15px;
-
-  margin-top: 60px;
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  grid-template-rows:390px 390px;
+  gap:15px;
+  margin-top:60px;
 }
 
 .food-card {
-  position: relative;
-
-  overflow: hidden;
-
-  border-radius: 15px;
-
-  background: #201616;
-
-  box-shadow:
-    0 15px 35px rgba(0,0,0,.16);
+  position:relative;
+  overflow:hidden;
+  border-radius:15px;
+  background:#201616;
+  box-shadow:0 15px 35px rgba(0,0,0,.16);
 }
 
 .food-card:first-child {
-  grid-row: 1 / 3;
+  grid-row:1/3;
 }
 
 .food-card img {
-  height: 100%;
-
-  object-fit: cover;
-
-  transition:
-    transform .8s var(--ease);
+  height:100%;
+  object-fit:cover;
+  transition:transform .8s var(--ease);
 }
 
 .food-card:hover img {
-  transform: scale(1.07);
+  transform:scale(1.07);
 }
 
 .food-card::after {
-  content: "";
-
-  position: absolute;
-  inset: 0;
-
-  background:
-    linear-gradient(
-      180deg,
-      transparent 35%,
-      rgba(15,8,8,.92)
-    );
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,transparent 35%,rgba(15,8,8,.92));
 }
 
 .food-info {
-  position: absolute;
-
-  left: 25px;
-  right: 25px;
-  bottom: 23px;
-
-  z-index: 2;
-
-  color: white;
+  position:absolute;
+  left:25px;
+  right:25px;
+  bottom:23px;
+  z-index:2;
+  color:white;
 }
 
 .food-number {
-  margin-bottom: 7px;
-
-  color: #ff676d;
-
-  font-family: var(--mono);
-  font-size: 8px;
-  font-weight: 700;
-
-  letter-spacing: .12em;
-  text-transform: uppercase;
+  margin-bottom:7px;
+  color:#ff676d;
+  font-family:var(--mono);
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
 }
 
 .food-info h3 {
-  margin: 0;
-
-  font-size: clamp(
-    28px,
-    4vw,
-    50px
-  );
-
-  line-height: .85;
+  margin:0;
+  font-size:clamp(28px,4vw,50px);
+  line-height:.85;
 }
 
 .food-info p {
-  max-width: 400px;
-
-  margin-top: 9px;
-
-  color:
-    rgba(255,255,255,.6);
-
-  font-size: 10px;
+  max-width:400px;
+  margin-top:9px;
+  color:rgba(255,255,255,.6);
+  font-size:10px;
 }
 
-
-/* =========================================================
-   LIFE
-========================================================= */
-
+/* LIFE */
 .life {
-  background: var(--cream-3);
+  background:var(--cream-3);
 }
 
 .life-grid {
-  display: grid;
-
-  grid-template-columns:
-    1fr 1fr;
-
-  gap: 15px;
-
-  margin-top: 60px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+  margin-top:60px;
 }
 
 .life-large {
-  overflow: hidden;
-
-  border-radius: 15px;
+  overflow:hidden;
+  border-radius:15px;
 }
 
 .life-large img {
-  height: 100%;
-  min-height: 600px;
-
-  object-fit: cover;
-
-  transition:
-    transform .8s var(--ease);
-}
-
-.life-large:hover img {
-  transform: scale(1.04);
+  height:100%;
+  min-height:600px;
+  object-fit:cover;
 }
 
 .life-small {
-  display: grid;
-
-  grid-template-columns:
-    1fr 1fr;
-
-  gap: 15px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
 }
 
 .life-small div {
-  overflow: hidden;
-
-  border-radius: 15px;
+  overflow:hidden;
+  border-radius:15px;
 }
 
 .life-small img {
-  width: 100%;
-  height: 100%;
-
-  min-height: 290px;
-
-  object-fit: cover;
-
-  transition:
-    transform .7s var(--ease);
+  width:100%;
+  height:100%;
+  min-height:290px;
+  object-fit:cover;
 }
 
-.life-small div:hover img {
-  transform: scale(1.05);
-}
-
-
-/* =========================================================
-   CAREER
-========================================================= */
-
+/* CAREER */
 .career {
-  background:
-    linear-gradient(
-      135deg,
-      #8c171d,
-      #5e0d11
-    );
-
-  color: white;
+  background:linear-gradient(135deg,#8c171d,#5e0d11);
+  color:white;
 }
 
 .career .eyebrow {
-  color: #ffb5b7;
+  color:#ffb5b7;
 }
 
 .career .section-head p {
-  color:
-    rgba(255,255,255,.58);
+  color:rgba(255,255,255,.58);
 }
 
 .timeline {
-  margin-top: 60px;
-
-  border-top:
-    1px solid rgba(255,255,255,.2);
+  margin-top:60px;
+  border-top:1px solid rgba(255,255,255,.2);
 }
 
 .timeline-row {
-  display: grid;
-
-  grid-template-columns:
-    150px 1fr 1fr;
-
-  gap: 35px;
-
-  padding: 30px 0;
-
-  border-bottom:
-    1px solid rgba(255,255,255,.2);
-
-  transition:
-    padding-left .25s ease;
-}
-
-.timeline-row:hover {
-  padding-left: 8px;
+  display:grid;
+  grid-template-columns:150px 1fr 1fr;
+  gap:35px;
+  padding:30px 0;
+  border-bottom:1px solid rgba(255,255,255,.2);
 }
 
 .timeline-label {
-  color: #ff989d;
-
-  font-family: var(--mono);
-  font-size: 8px;
-  font-weight: 700;
-
-  letter-spacing: .1em;
-  text-transform: uppercase;
+  color:#ff989d;
+  font-family:var(--mono);
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:.1em;
+  text-transform:uppercase;
 }
 
 .timeline-row h3 {
-  margin: 0;
-
-  font-size: 30px;
-  line-height: .9;
+  margin:0;
+  font-size:30px;
+  line-height:.9;
 }
 
 .timeline-row p {
-  color:
-    rgba(255,255,255,.52);
-
-  font-size: 11px;
-  line-height: 1.8;
+  color:rgba(255,255,255,.52);
+  font-size:11px;
+  line-height:1.8;
 }
 
-
-/* =========================================================
-   VISION
-========================================================= */
-
+/* VISION */
 .vision {
-  position: relative;
-
-  min-height: 720px;
-
-  display: flex;
-  align-items: center;
-
-  overflow: hidden;
-
-  color: white;
+  position:relative;
+  min-height:720px;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  color:white;
 }
 
 .vision-bg {
-  position: absolute;
-  inset: 0;
-
+  position:absolute;
+  inset:0;
   background:
     linear-gradient(
       90deg,
@@ -2118,508 +1230,415 @@ body::before {
       rgba(35,6,8,.35)
     ),
     url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=2200&q=90")
-    center / cover;
-
-  animation:
-    visionZoom 18s ease-in-out infinite alternate;
-}
-
-@keyframes visionZoom {
-  from {
-    transform: scale(1);
-  }
-
-  to {
-    transform: scale(1.06);
-  }
+    center/cover;
 }
 
 .vision-content {
-  position: relative;
-  z-index: 2;
-
-  max-width: 800px;
+  position:relative;
+  z-index:2;
+  max-width:800px;
 }
 
 .vision h2 {
-  font-size: clamp(
-    4rem,
-    8vw,
-    8rem
-  );
+  font-size:clamp(4rem,8vw,8rem);
 }
 
 .vision p {
-  max-width: 600px;
-
-  margin-top: 25px;
-
-  color:
-    rgba(255,255,255,.62);
-
-  font-size: 14px;
-  line-height: 1.9;
+  max-width:600px;
+  margin-top:25px;
+  color:rgba(255,255,255,.62);
+  font-size:14px;
+  line-height:1.9;
 }
 
 .quote {
-  margin: 35px 0;
-
-  padding-left: 20px;
-
-  border-left:
-    3px solid #e34a51;
-
-  font-family: var(--serif);
-  font-size: clamp(
-    1.3rem,
-    3vw,
-    2rem
-  );
-
-  font-style: italic;
-
-  line-height: 1.45;
+  margin:35px 0;
+  padding-left:20px;
+  border-left:3px solid #e34a51;
+  font-family:var(--serif);
+  font-size:clamp(1.3rem,3vw,2rem);
+  font-style:italic;
+  line-height:1.45;
 }
 
-
-/* =========================================================
-   CONTACT
-========================================================= */
-
+/* CONTACT */
 .contact {
-  padding: 110px 0;
-
+  padding:110px 0;
   background:
-    radial-gradient(
-      circle at 80% 20%,
-      rgba(255,255,255,.12),
-      transparent 25%
-    ),
+    radial-gradient(circle at 80% 20%,rgba(255,255,255,.12),transparent 25%),
     var(--red);
-
-  color: white;
+  color:white;
 }
 
 .contact-grid {
-  display: grid;
-
-  grid-template-columns:
-    1.15fr .85fr;
-
-  gap: 80px;
-
-  align-items: center;
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:80px;
+  align-items:center;
 }
 
 .contact .eyebrow {
-  color: #ffd2d2;
+  color:#ffd2d2;
 }
 
 .contact h2 {
-  font-size: clamp(
-    4rem,
-    8vw,
-    8rem
-  );
+  font-size:clamp(4rem,8vw,8rem);
 }
 
 .contact-copy p {
-  max-width: 560px;
-
-  margin-top: 25px;
-
-  color:
-    rgba(255,255,255,.7);
-
-  font-size: 14px;
-  line-height: 1.8;
+  max-width:560px;
+  margin-top:25px;
+  color:rgba(255,255,255,.7);
+  font-size:14px;
+  line-height:1.8;
 }
 
 .contact-sign {
-  padding: 10px;
+  padding:10px;
+  border-radius:16px;
+  background:linear-gradient(135deg,#d9d9d5,#6f6f6b,#f4f4f0,#858581);
+  box-shadow:0 25px 50px rgba(70,0,0,.3);
+}
 
-  border-radius: 16px;
+.contact-sign-inner {
+  padding:35px;
+  border-radius:9px;
+  background:#1c1414;
+  color:white;
+  text-align:center;
+}
+
+.contact-sign-inner small {
+  font-family:var(--mono);
+  font-size:8px;
+  letter-spacing:.15em;
+}
+
+.contact-sign-inner h3 {
+  margin:15px 0;
+  color:#f05359;
+  font-size:55px;
+  line-height:.85;
+}
+
+.contact-link {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  min-height:58px;
+  margin-top:10px;
+  padding:0 16px;
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:6px;
+  color:white;
+  font-family:var(--mono);
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+.contact-link:hover {
+  background:var(--red);
+}
+
+/* FOOTER */
+footer {
+  padding:75px 0 25px;
+  background:#160f0f;
+  color:white;
+}
+
+.footer-grid {
+  display:grid;
+  grid-template-columns:1.5fr 1fr 1fr 1fr;
+  gap:50px;
+  padding-bottom:55px;
+}
+
+.footer-brand p {
+  max-width:320px;
+  margin-top:18px;
+  color:rgba(255,255,255,.4);
+  font-size:10px;
+  line-height:1.8;
+}
+
+.footer-heading {
+  margin-bottom:15px;
+  color:#e7555b;
+  font-family:var(--mono);
+  font-size:8px;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+footer a {
+  display:block;
+  margin:8px 0;
+  color:rgba(255,255,255,.43);
+  font-size:10px;
+}
+
+footer a:hover {
+  color:white;
+}
+
+.footer-bottom {
+  display:flex;
+  justify-content:space-between;
+  padding-top:22px;
+  border-top:1px solid rgba(255,255,255,.1);
+  color:rgba(255,255,255,.28);
+  font-family:var(--mono);
+  font-size:7px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+
+/* =========================================================
+   MOBILE MENU — COMPLETELY REBUILT
+========================================================= */
+
+.mobile-menu {
+  position:fixed;
+  inset:0;
+  z-index:var(--z-menu);
+
+  /*
+    Hidden by default.
+    This is intentionally NOT display:none so
+    the animation can work cleanly.
+  */
+  display:flex;
+  align-items:flex-end;
+
+  padding-top:94px;
+
+  background:rgba(12,3,4,.72);
+  backdrop-filter:blur(5px);
+  -webkit-backdrop-filter:blur(5px);
+
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+
+  transition:
+    opacity .3s ease,
+    visibility 0s linear .3s;
+}
+
+/*
+  OPEN STATE
+*/
+.mobile-menu.is-open {
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+
+  transition:
+    opacity .3s ease,
+    visibility 0s linear 0s;
+}
+
+/*
+  MENU PANEL
+*/
+.mobile-panel {
+  width:100%;
+  max-height:calc(100svh - 94px);
+
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+
+  padding:
+    22px 25px
+    calc(30px + env(safe-area-inset-bottom));
+
+  border-radius:25px 25px 0 0;
 
   background:
     linear-gradient(
-      135deg,
-      #d9d9d5,
-      #6f6f6b,
-      #f4f4f0,
-      #858581
+      145deg,
+      #fffaf0,
+      #f3e7d0
     );
 
-  box-shadow:
-    0 25px 50px rgba(70,0,0,.3);
+  color:var(--ink);
 
+  box-shadow:
+    0 -20px 60px rgba(0,0,0,.3),
+    inset 0 1px 0 rgba(255,255,255,.9);
+
+  transform:translateY(100%);
   transition:
     transform .4s var(--ease);
 }
 
-.contact-sign:hover {
-  transform:
-    translateY(-8px)
-    rotate(.5deg);
+.mobile-menu.is-open .mobile-panel {
+  transform:translateY(0);
 }
 
-.contact-sign-inner {
-  padding: 35px;
+/*
+  SMALL HANDLE
+*/
+.mobile-panel::before {
+  content:"";
+  display:block;
 
-  border-radius: 9px;
+  width:42px;
+  height:4px;
 
-  background: #1c1414;
+  margin:0 auto 20px;
 
-  color: white;
+  border-radius:999px;
 
-  text-align: center;
+  background:rgba(21,19,19,.2);
 }
 
-.contact-sign-inner small {
-  font-family: var(--mono);
-  font-size: 8px;
-
-  letter-spacing: .15em;
-}
-
-.contact-sign-inner h3 {
-  margin: 15px 0;
-
-  color: #f05359;
-
-  font-size: 55px;
-
-  line-height: .85;
-}
-
-.contact-link {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  min-height: 58px;
-
-  margin-top: 10px;
-
-  padding: 0 16px;
-
-  border:
-    1px solid rgba(255,255,255,.2);
-
-  border-radius: 6px;
-
-  color: white;
-
-  font-family: var(--mono);
-  font-size: 8px;
-  font-weight: 700;
-
-  letter-spacing: .08em;
-  text-transform: uppercase;
-
-  transition:
-    background .2s ease,
-    transform .2s ease;
-}
-
-.contact-link:hover {
-  background: var(--red);
-
-  transform:
-    translateX(4px);
-}
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-footer {
-  padding: 75px 0 25px;
-
-  background: #160f0f;
-
-  color: white;
-}
-
-.footer-grid {
-  display: grid;
-
-  grid-template-columns:
-    1.5fr 1fr 1fr 1fr;
-
-  gap: 50px;
-
-  padding-bottom: 55px;
-}
-
-.footer-brand p {
-  max-width: 320px;
-
-  margin-top: 18px;
-
-  color:
-    rgba(255,255,255,.4);
-
-  font-size: 10px;
-  line-height: 1.8;
-}
-
-.footer-heading {
-  margin-bottom: 15px;
-
-  color: #e7555b;
-
-  font-family: var(--mono);
-  font-size: 8px;
-  font-weight: 700;
-
-  letter-spacing: .12em;
-  text-transform: uppercase;
-}
-
-footer a {
-  display: block;
-
-  margin: 8px 0;
-
-  color:
-    rgba(255,255,255,.43);
-
-  font-size: 10px;
-}
-
-footer a:hover {
-  color: white;
-}
-
-.footer-bottom {
-  display: flex;
-  justify-content: space-between;
-
-  padding-top: 22px;
-
-  border-top:
-    1px solid rgba(255,255,255,.1);
-
-  color:
-    rgba(255,255,255,.28);
-
-  font-family: var(--mono);
-  font-size: 7px;
-
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
-
-
-/* =========================================================
-   MOBILE BOTTOM NAV
-========================================================= */
-
-.bottom-nav {
-  display: none;
-}
-
-
-/* =========================================================
-   MOBILE MENU
-========================================================= */
-
-.mobile-menu {
-  position: fixed;
-  inset: 0;
-
-  z-index: 2400;
-
-  display: flex;
-  align-items: flex-end;
-
-  background:
-    rgba(15,5,6,.55);
-
-  opacity: 0;
-  pointer-events: none;
-
-  transition:
-    opacity .3s ease;
-}
-
-.mobile-menu.open {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.mobile-panel {
-  width: 100%;
-
-  padding:
-    100px
-    25px
-    35px;
-
-  border-radius:
-    25px
-    25px
-    0
-    0;
-
-  background: var(--cream);
-
-  transform:
-    translateY(30px);
-
-  transition:
-    transform .35s var(--ease);
-}
-
-.mobile-menu.open .mobile-panel {
-  transform: none;
-}
-
+/*
+  MOBILE MENU LINKS
+*/
 .mobile-panel a {
-  display: block;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 
-  padding: 15px 0;
+  min-height:60px;
 
-  border-bottom:
-    1px solid var(--line);
+  padding:13px 0;
 
-  font-family: var(--display);
-  font-size: 27px;
+  border-bottom:1px solid rgba(21,19,19,.12);
 
-  text-transform: uppercase;
+  font-family:var(--display);
+  font-size:27px;
+  line-height:1;
+
+  text-transform:uppercase;
+
+  transition:
+    color .2s ease,
+    padding-left .2s ease;
 }
 
+.mobile-panel a::after {
+  content:"→";
+  color:var(--red);
+  font-family:var(--mono);
+  font-size:16px;
+}
 
-/* =========================================================
-   REVEAL
-========================================================= */
+.mobile-panel a:hover,
+.mobile-panel a:focus {
+  color:var(--red);
+  padding-left:7px;
+}
 
+/* REVEAL */
 .reveal {
-  opacity: 0;
-
-  transform:
-    translateY(25px);
-
+  opacity:0;
+  transform:translateY(25px);
   transition:
     opacity .7s ease,
     transform .7s var(--ease);
 }
 
 .reveal.visible {
-  opacity: 1;
-
-  transform: none;
+  opacity:1;
+  transform:none;
 }
 
+/* MOBILE BOTTOM NAV */
+.bottom-nav {
+  display:none;
+}
 
-/* =========================================================
-   RESPONSIVE
-========================================================= */
-
-@media (max-width: 1050px) {
-
+/* RESPONSIVE */
+@media (max-width:1050px) {
   .desktop-nav,
   .nav-button {
-    display: none;
+    display:none;
   }
 
   .menu-button {
-    display: block;
+    display:block;
   }
 
   .intro-grid,
   .about-grid,
   .contact-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns:1fr;
   }
 
   .intro-grid {
-    gap: 45px;
+    gap:45px;
   }
 
   .about-grid {
-    gap: 55px;
+    gap:55px;
   }
 
   .cards {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:1fr 1fr;
   }
 
   .life-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns:1fr;
   }
 
   .timeline-row {
-    grid-template-columns:
-      120px 1fr;
+    grid-template-columns:120px 1fr;
   }
 
   .timeline-row p {
-    grid-column: 2;
+    grid-column:2;
   }
 
   .footer-grid {
-    grid-template-columns:
-      1fr 1fr;
+    grid-template-columns:1fr 1fr;
   }
 }
 
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 650px) {
-
-  :root {
-    --radius: 12px;
-  }
-
+@media (max-width:650px) {
   body {
-    padding-bottom: 68px;
+    padding-bottom:68px;
   }
 
   .container {
-    width:
-      min(
-        calc(100% - 30px),
-        var(--max)
-      );
+    width:min(calc(100% - 30px),var(--max));
   }
 
   .section {
-    padding: 80px 0;
+    padding:80px 0;
   }
 
-
-  /* HEADER */
-
   .header {
-    top: 30px;
-    height: 64px;
+    top:30px;
+    height:64px;
   }
 
   .logo-badge {
-    width: 39px;
-    height: 39px;
-
-    font-size: 14px;
+    width:39px;
+    height:39px;
+    font-size:14px;
   }
 
   .logo-name {
-    font-size: 14px;
+    font-size:14px;
   }
 
   .logo-sub {
-    display: none;
+    display:none;
   }
 
-
-  /* HERO */
+  .menu-button {
+    width:44px;
+    height:44px;
+  }
 
   .hero {
-    min-height: 100svh;
+    min-height:100svh;
   }
 
   .hero-photo {
@@ -2631,260 +1650,182 @@ footer a:hover {
         rgba(30,5,7,.99) 100%
       ),
       url("https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1400&q=90")
-      68% center / cover;
+      68% center/cover;
   }
 
   .hero-content {
-    padding:
-      145px 0
-      150px;
+    padding:145px 0 150px;
   }
 
   .hero-kicker {
-    max-width: 300px;
-
-    font-size: 7px;
-
-    line-height: 1.6;
+    max-width:300px;
+    font-size:7px;
+    line-height:1.6;
   }
 
   .hero h1 {
-    font-size:
-      clamp(
-        4.3rem,
-        20vw,
-        6.3rem
-      );
-
-    line-height: .77;
+    font-size:clamp(4.3rem,20vw,6.3rem);
+    line-height:.77;
   }
 
   .hero h1 .outline {
-    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-width:1px;
   }
 
   .hero-actions {
-    display: grid;
-
-    grid-template-columns:
-      1fr;
-
-    gap: 9px;
-
-    margin-top: 28px;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:9px;
+    margin-top:28px;
   }
 
   .button {
-    width: 100%;
-
-    min-height: 52px;
+    width:100%;
+    min-height:52px;
   }
 
-  /*
-     IMPORTANT:
-     Description intentionally remains BELOW buttons.
-  */
-
   .hero-description {
-    margin-top: 24px;
-
-    padding-left: 13px;
-
-    font-size: 11px;
-
-    line-height: 1.8;
+    margin-top:24px;
+    padding-left:13px;
+    font-size:11px;
+    line-height:1.8;
   }
 
   .hero-location {
-    font-size: 6px;
+    font-size:6px;
   }
 
-
-  /* HERO STATS */
-
   .hero-bottom {
-    bottom: 68px;
+    bottom:68px;
   }
 
   .hero-bottom-grid {
-    grid-template-columns:
-      1fr 1fr;
+    grid-template-columns:1fr 1fr;
   }
 
   .hero-stat {
-    padding:
-      12px 10px;
+    padding:12px 10px;
   }
 
   .hero-stat:nth-child(2) {
-    border-right: 0;
+    border-right:0;
   }
 
   .hero-stat:nth-child(-n+2) {
-    border-bottom:
-      1px solid rgba(255,255,255,.2);
+    border-bottom:1px solid rgba(255,255,255,.2);
   }
 
   .hero-stat strong {
-    font-size: 18px;
+    font-size:18px;
   }
 
   .hero-stat span {
-    font-size: 6px;
+    font-size:6px;
   }
-
-
-  /* MARQUEE */
 
   .marquee-item {
-    font-size: 18px;
-
-    padding:
-      15px 20px;
+    font-size:18px;
+    padding:15px 20px;
   }
 
-
-  /* INTRO */
-
   .intro-sign {
-    padding: 24px;
+    padding:24px;
   }
 
   .intro-sign h3 {
-    font-size: 50px;
+    font-size:50px;
   }
 
   .intro-copy p {
-    font-size: 13px;
+    font-size:13px;
   }
-
-
-  /* ABOUT */
 
   .photo-card img {
-    aspect-ratio:
-      1 / 1.08;
+    aspect-ratio:1/1.08;
   }
 
-
-  /* MENU */
-
   .menu-board {
-    margin-top: 45px;
-
-    padding: 7px;
+    margin-top:45px;
+    padding:7px;
   }
 
   .menu-inner {
-    padding:
-      30px 20px;
-  }
-
-  .menu-top {
-    align-items:
-      flex-start;
+    padding:30px 20px;
   }
 
   .menu-title {
-    font-size: 40px;
+    font-size:40px;
   }
 
   .menu-columns {
-    grid-template-columns:
-      1fr;
-
-    gap: 0;
-
-    margin-top: 25px;
+    grid-template-columns:1fr;
+    gap:0;
+    margin-top:25px;
   }
 
   .menu-item h3 {
-    font-size: 23px;
+    font-size:23px;
   }
 
-
-  /* CARDS */
-
   .cards {
-    grid-template-columns:
-      1fr;
-
-    margin-top: 45px;
+    grid-template-columns:1fr;
+    margin-top:45px;
   }
 
   .card {
-    min-height: 235px;
+    min-height:235px;
   }
 
   .card h3 {
-    margin-top: 42px;
+    margin-top:42px;
   }
 
-
-  /* FOOD */
-
   .food-grid {
-    grid-template-columns:
-      1fr;
-
-    grid-template-rows:
-      repeat(3, 300px);
-
-    margin-top: 45px;
+    grid-template-columns:1fr;
+    grid-template-rows:repeat(3,300px);
+    margin-top:45px;
   }
 
   .food-card:first-child {
-    grid-row: auto;
+    grid-row:auto;
   }
 
-
-  /* LIFE */
-
   .life-grid {
-    margin-top: 45px;
+    margin-top:45px;
   }
 
   .life-large img {
-    min-height: 400px;
+    min-height:400px;
   }
 
   .life-small {
-    gap: 8px;
+    gap:8px;
   }
 
   .life-small img {
-    min-height: 180px;
+    min-height:180px;
   }
 
-
-  /* CAREER */
-
   .timeline {
-    margin-top: 45px;
+    margin-top:45px;
   }
 
   .timeline-row {
-    grid-template-columns:
-      1fr;
-
-    gap: 10px;
-
-    padding: 24px 0;
+    grid-template-columns:1fr;
+    gap:10px;
+    padding:24px 0;
   }
 
   .timeline-row p {
-    grid-column: auto;
+    grid-column:auto;
   }
 
   .timeline-row h3 {
-    font-size: 26px;
+    font-size:26px;
   }
 
-
-  /* VISION */
-
   .vision {
-    min-height: 670px;
+    min-height:670px;
   }
 
   .vision-bg {
@@ -2895,357 +1836,207 @@ footer a:hover {
         rgba(35,6,8,.98)
       ),
       url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=1400&q=90")
-      center / cover;
+      center/cover;
   }
 
   .vision h2 {
-    font-size:
-      clamp(
-        4rem,
-        17vw,
-        5.5rem
-      );
+    font-size:clamp(4rem,17vw,5.5rem);
   }
 
-
-  /* CONTACT */
-
   .contact {
-    padding: 80px 0;
+    padding:80px 0;
   }
 
   .contact h2 {
-    font-size:
-      clamp(
-        4rem,
-        17vw,
-        6rem
-      );
+    font-size:clamp(4rem,17vw,6rem);
   }
 
   .contact-sign-inner h3 {
-    font-size: 44px;
+    font-size:44px;
   }
 
-
-  /* FOOTER */
-
   .footer-grid {
-    grid-template-columns:
-      1fr 1fr;
-
-    gap:
-      35px 20px;
+    grid-template-columns:1fr 1fr;
+    gap:35px 20px;
   }
 
   .footer-brand {
-    grid-column:
-      1 / -1;
+    grid-column:1/-1;
   }
 
   .footer-bottom {
-    flex-direction:
-      column;
-
-    gap: 8px;
+    flex-direction:column;
+    gap:8px;
   }
 
-
-  /* BOTTOM NAV */
-
+  /*
+    MOBILE BOTTOM NAV
+  */
   .bottom-nav {
-    position: fixed;
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index:var(--z-bottom);
 
-    left: 0;
-    right: 0;
-    bottom: 0;
+    height:calc(68px + env(safe-area-inset-bottom));
 
-    z-index: 2600;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
 
-    height:
-      calc(
-        68px +
-        env(safe-area-inset-bottom)
-      );
+    padding-bottom:env(safe-area-inset-bottom);
 
-    display: grid;
+    background:rgba(23,12,12,.97);
+    border-top:1px solid rgba(255,255,255,.14);
 
-    grid-template-columns:
-      repeat(4, 1fr);
-
-    padding-bottom:
-      env(safe-area-inset-bottom);
-
-    background:
-      rgba(23,12,12,.97);
-
-    border-top:
-      1px solid rgba(255,255,255,.14);
-
-    backdrop-filter:
-      blur(18px);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
   }
 
   .bottom-nav a {
-    display: flex;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    gap:4px;
 
-    align-items: center;
-    justify-content: center;
+    color:rgba(255,255,255,.42);
 
-    flex-direction: column;
+    font-family:var(--mono);
+    font-size:7px;
+    font-weight:700;
 
-    gap: 4px;
-
-    color:
-      rgba(255,255,255,.42);
-
-    font-family: var(--mono);
-    font-size: 7px;
-    font-weight: 700;
-
-    letter-spacing: .04em;
-    text-transform: uppercase;
+    letter-spacing:.04em;
+    text-transform:uppercase;
   }
 
   .bottom-nav a.active {
-    color: white;
+    color:white;
   }
 
   .bottom-icon {
-    color: #e64c53;
-
-    font-size: 16px;
-    line-height: 1;
+    color:#e64c53;
+    font-size:16px;
+    line-height:1;
   }
 }
 
-
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
+/* REDUCED MOTION */
+@media (prefers-reduced-motion:reduce) {
   html {
-    scroll-behavior: auto;
+    scroll-behavior:auto;
   }
 
   *,
   *::before,
   *::after {
-    animation-duration:
-      .01ms !important;
-
-    animation-iteration-count:
-      1 !important;
-
-    transition-duration:
-      .01ms !important;
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
   }
 
   .reveal {
-    opacity: 1;
-    transform: none;
+    opacity:1;
+    transform:none;
   }
 }
-
 </style>
 </head>
 
-
 <body>
-
-<!-- =======================================================
-     PROGRESS
-======================================================== -->
 
 <div id="progress"></div>
 
-
-<!-- =======================================================
-     TOP TICKER
-======================================================== -->
-
+<!-- TOP TICKER -->
 <div class="ticker">
-
   <div class="ticker-track">
+    <span><i>●</i> NOW SERVING — SEAN KEAGAN</span>
+    <span><i>✦</i> RED SEAL CHEF</span>
+    <span><i>●</i> PRECISION / TECHNIQUE / HOSPITALITY</span>
+    <span><i>✦</i> DESTINATION DINING</span>
 
-    <span>
-      <i>●</i>
-      NOW SERVING — SEAN KEAGAN
-    </span>
-
-    <span>
-      <i>✦</i>
-      RED SEAL CHEF
-    </span>
-
-    <span>
-      <i>●</i>
-      PRECISION / TECHNIQUE / HOSPITALITY
-    </span>
-
-    <span>
-      <i>✦</i>
-      DESTINATION DINING
-    </span>
-
-    <span>
-      <i>●</i>
-      NOW SERVING — SEAN KEAGAN
-    </span>
-
-    <span>
-      <i>✦</i>
-      RED SEAL CHEF
-    </span>
-
-    <span>
-      <i>●</i>
-      PRECISION / TECHNIQUE / HOSPITALITY
-    </span>
-
-    <span>
-      <i>✦</i>
-      DESTINATION DINING
-    </span>
-
+    <span><i>●</i> NOW SERVING — SEAN KEAGAN</span>
+    <span><i>✦</i> RED SEAL CHEF</span>
+    <span><i>●</i> PRECISION / TECHNIQUE / HOSPITALITY</span>
+    <span><i>✦</i> DESTINATION DINING</span>
   </div>
-
 </div>
 
-
-<!-- =======================================================
-     HEADER
-======================================================== -->
-
+<!-- HEADER -->
 <header class="header" id="header">
-
   <div class="container nav">
 
     <a href="#home" class="logo">
-
-      <span class="logo-badge">
-        SK
-      </span>
+      <span class="logo-badge">SK</span>
 
       <span class="logo-text">
-
-        <span class="logo-name">
-          SEAN KEAGAN
-        </span>
-
-        <span class="logo-sub">
-          CHEF · MATHEMATICS · HOSPITALITY
-        </span>
-
+        <span class="logo-name">SEAN KEAGAN</span>
+        <span class="logo-sub">CHEF · MATHEMATICS · HOSPITALITY</span>
       </span>
-
     </a>
 
-
-    <nav class="desktop-nav">
-
-      <a href="#about">
-        About
-      </a>
-
-      <a href="#menu">
-        Menu
-      </a>
-
-      <a href="#cuisine">
-        Cuisine
-      </a>
-
-      <a href="#career">
-        Journey
-      </a>
-
-      <a href="#vision">
-        Vision
-      </a>
-
+    <nav class="desktop-nav" aria-label="Desktop navigation">
+      <a href="#about">About</a>
+      <a href="#menu">Menu</a>
+      <a href="#cuisine">Cuisine</a>
+      <a href="#career">Journey</a>
+      <a href="#vision">Vision</a>
     </nav>
-
 
     <a href="#contact" class="nav-button">
       Come Inside →
     </a>
 
-
+    <!-- HAMBURGER -->
     <button
       class="menu-button"
       id="menuButton"
-      aria-label="Open navigation"
+      type="button"
+      aria-label="Open navigation menu"
+      aria-controls="mobileMenu"
       aria-expanded="false"
     >
-
-      <span class="menu-lines">
+      <span class="menu-lines" aria-hidden="true">
         <span></span>
       </span>
-
     </button>
 
   </div>
-
 </header>
-
 
 <!-- =======================================================
      MOBILE MENU
 ======================================================== -->
+<div
+  class="mobile-menu"
+  id="mobileMenu"
+  aria-hidden="true"
+>
 
-<div class="mobile-menu" id="mobileMenu">
+  <nav
+    class="mobile-panel"
+    aria-label="Mobile navigation"
+  >
 
-  <nav class="mobile-panel">
-
-    <a href="#home">
-      00 — Home
-    </a>
-
-    <a href="#about">
-      01 — About
-    </a>
-
-    <a href="#menu">
-      02 — Method
-    </a>
-
-    <a href="#cuisine">
-      03 — Cuisine
-    </a>
-
-    <a href="#career">
-      04 — Journey
-    </a>
-
-    <a href="#vision">
-      05 — Vision
-    </a>
-
-    <a href="#contact">
-      06 — Contact
-    </a>
+    <a href="#home">00 — Home</a>
+    <a href="#about">01 — About</a>
+    <a href="#menu">02 — Method</a>
+    <a href="#cuisine">03 — Cuisine</a>
+    <a href="#career">04 — Journey</a>
+    <a href="#vision">05 — Vision</a>
+    <a href="#contact">06 — Contact</a>
 
   </nav>
-
 </div>
-
-
-<!-- =======================================================
-     HERO
-======================================================== -->
 
 <main>
 
+<!-- HERO -->
 <section class="hero" id="home">
 
   <div class="hero-photo"></div>
 
-
   <div class="hero-content">
-
     <div class="container">
 
       <div class="hero-copy">
@@ -3254,46 +2045,21 @@ footer a:hover {
           Red Seal Chef · Mathematics · Hospitality
         </div>
 
-
         <h1>
-
-          <span>
-            Precision.
-          </span>
-
-          <span class="outline">
-            With
-          </span>
-
-          <span class="red-word">
-            Purpose.
-          </span>
-
+          <span>Precision.</span>
+          <span class="outline">With</span>
+          <span class="red-word">Purpose.</span>
         </h1>
 
-
-        <!-- BUTTONS FIRST -->
-
         <div class="hero-actions">
-
-          <a
-            href="#cuisine"
-            class="button"
-          >
+          <a href="#cuisine" class="button">
             Explore The Food →
           </a>
 
-          <a
-            href="#about"
-            class="button light"
-          >
+          <a href="#about" class="button light">
             Step Inside
           </a>
-
         </div>
-
-
-        <!-- TEXT IS NOW BELOW THE BUTTONS -->
 
         <p class="hero-description">
           Sean Keagan brings together professional culinary
@@ -3302,157 +2068,73 @@ footer a:hover {
           something exceptional.
         </p>
 
-
         <div class="hero-location">
           Precision cooking · thoughtful service · ambitious hospitality
         </div>
 
       </div>
-
     </div>
-
   </div>
 
-
-  <!-- HERO STATS -->
-
   <div class="hero-bottom">
-
     <div class="container">
 
       <div class="hero-bottom-grid">
 
         <div class="hero-stat">
-
-          <strong>
-            RED SEAL
-          </strong>
-
-          <span>
-            Culinary Foundation
-          </span>
-
+          <strong>RED SEAL</strong>
+          <span>Culinary Foundation</span>
         </div>
 
-
         <div class="hero-stat">
-
-          <strong>
-            ∑
-          </strong>
-
-          <span>
-            Mathematical Thinking
-          </span>
-
+          <strong>∑</strong>
+          <span>Mathematical Thinking</span>
         </div>
 
-
         <div class="hero-stat">
-
-          <strong>
-            01
-          </strong>
-
-          <span>
-            Long-Term Vision
-          </span>
-
+          <strong>01</strong>
+          <span>Long-Term Vision</span>
         </div>
 
-
         <div class="hero-stat">
-
-          <strong>
-            ∞
-          </strong>
-
-          <span>
-            Curiosity
-          </span>
-
+          <strong>∞</strong>
+          <span>Curiosity</span>
         </div>
 
       </div>
-
     </div>
-
   </div>
 
 </section>
 
-
-<!-- =======================================================
-     MARQUEE
-======================================================== -->
-
+<!-- MARQUEE -->
 <div class="marquee">
-
   <div class="marquee-track">
+    <div class="marquee-item">COOK WITH PURPOSE <span>✦</span></div>
+    <div class="marquee-item">RESPECT THE CRAFT <span>✦</span></div>
+    <div class="marquee-item">MAKE IT MEMORABLE <span>✦</span></div>
+    <div class="marquee-item">HOSPITALITY FIRST <span>✦</span></div>
 
-    <div class="marquee-item">
-      COOK WITH PURPOSE
-      <span>✦</span>
-    </div>
-
-    <div class="marquee-item">
-      RESPECT THE CRAFT
-      <span>✦</span>
-    </div>
-
-    <div class="marquee-item">
-      MAKE IT MEMORABLE
-      <span>✦</span>
-    </div>
-
-    <div class="marquee-item">
-      HOSPITALITY FIRST
-      <span>✦</span>
-    </div>
-
-    <div class="marquee-item">
-      COOK WITH PURPOSE
-      <span>✦</span>
-    </div>
-
-    <div class="marquee-item">
-      RESPECT THE CRAFT
-      <span>✦</span>
-    </div>
-
-    <div class="marquee-item">
-      MAKE IT MEMORABLE
-      <span>✦</span>
-    </div>
-
-    <div class="marquee-item">
-      HOSPITALITY FIRST
-      <span>✦</span>
-    </div>
-
+    <div class="marquee-item">COOK WITH PURPOSE <span>✦</span></div>
+    <div class="marquee-item">RESPECT THE CRAFT <span>✦</span></div>
+    <div class="marquee-item">MAKE IT MEMORABLE <span>✦</span></div>
+    <div class="marquee-item">HOSPITALITY FIRST <span>✦</span></div>
   </div>
-
 </div>
 
-
-<!-- =======================================================
-     INTRO
-======================================================== -->
-
+<!-- INTRO -->
 <section class="intro">
-
   <div class="container">
 
     <div class="intro-grid">
 
       <div class="intro-sign reveal">
-
         <div class="intro-sign-top">
           SEAN KEAGAN / KITCHEN NOTES
         </div>
 
         <h3>
-          GOOD
+          GOOD<br>
           FOOD.
         </h3>
 
@@ -3460,22 +2142,16 @@ footer a:hover {
           TECHNIQUE IS THE FOUNDATION.
           HOSPITALITY IS THE REASON.
         </div>
-
       </div>
-
 
       <div class="intro-copy reveal">
 
-        <div class="eyebrow">
-          Welcome In
-        </div>
+        <div class="eyebrow">Welcome In</div>
 
         <h2>
           The kitchen
           is the
-          <span class="red">
-            workshop.
-          </span>
+          <span class="red">workshop.</span>
         </h2>
 
         <p>
@@ -3491,31 +2167,21 @@ footer a:hover {
           improved, simplified or made more memorable.
         </p>
 
-        <div class="signature">
-          — Sean Keagan
-        </div>
+        <div class="signature">— Sean Keagan</div>
 
       </div>
 
     </div>
-
   </div>
-
 </section>
 
-
-<!-- =======================================================
-     ABOUT
-======================================================== -->
-
+<!-- ABOUT -->
 <section class="section about" id="about">
-
   <div class="container">
 
     <div class="about-grid">
 
       <div class="photo-card reveal">
-
         <div class="photo-card-inner">
 
           <img
@@ -3529,21 +2195,15 @@ footer a:hover {
           </div>
 
         </div>
-
       </div>
-
 
       <div class="about-copy reveal">
 
-        <div class="eyebrow">
-          The Philosophy
-        </div>
+        <div class="eyebrow">The Philosophy</div>
 
         <h2>
           Quietly
-          <span class="red">
-            obsessive.
-          </span>
+          <span class="red">obsessive.</span>
         </h2>
 
         <p>
@@ -3556,122 +2216,55 @@ footer a:hover {
         <div class="principles">
 
           <div class="principle">
-
-            <div class="principle-number">
-              01
-            </div>
-
+            <div class="principle-number">01</div>
             <div>
-
-              <strong>
-                Respect the fundamentals.
-              </strong>
-
-              <p>
-                Classical technique creates the freedom
-                to make intelligent decisions.
-              </p>
-
+              <strong>Respect the fundamentals.</strong>
+              <p>Classical technique creates the freedom to make intelligent decisions.</p>
             </div>
-
           </div>
 
-
           <div class="principle">
-
-            <div class="principle-number">
-              02
-            </div>
-
+            <div class="principle-number">02</div>
             <div>
-
-              <strong>
-                Understand the variables.
-              </strong>
-
-              <p>
-                Temperature, time, texture, acidity and
-                seasoning all matter.
-              </p>
-
+              <strong>Understand the variables.</strong>
+              <p>Temperature, time, texture, acidity and seasoning all matter.</p>
             </div>
-
           </div>
 
-
           <div class="principle">
-
-            <div class="principle-number">
-              03
-            </div>
-
+            <div class="principle-number">03</div>
             <div>
-
-              <strong>
-                Stay composed.
-              </strong>
-
-              <p>
-                Pressure should improve execution,
-                not compromise it.
-              </p>
-
+              <strong>Stay composed.</strong>
+              <p>Pressure should improve execution, not compromise it.</p>
             </div>
-
           </div>
 
-
           <div class="principle">
-
-            <div class="principle-number">
-              04
-            </div>
-
+            <div class="principle-number">04</div>
             <div>
-
-              <strong>
-                Make the guest remember.
-              </strong>
-
-              <p>
-                Technical excellence matters because
-                it creates a better experience.
-              </p>
-
+              <strong>Make the guest remember.</strong>
+              <p>Technical excellence matters because it creates a better experience.</p>
             </div>
-
           </div>
 
         </div>
-
       </div>
 
     </div>
-
   </div>
-
 </section>
 
-
-<!-- =======================================================
-     METHOD
-======================================================== -->
-
+<!-- METHOD -->
 <section class="section menu-section" id="menu">
-
   <div class="container">
 
     <div class="section-head reveal">
 
-      <div class="eyebrow">
-        The Method
-      </div>
+      <div class="eyebrow">The Method</div>
 
       <h2>
         Think like a
-        <span class="red">
-          chef.
-        </span>
+        <span class="red">chef.</span>
       </h2>
 
       <p>
@@ -3683,196 +2276,116 @@ footer a:hover {
 
     </div>
 
-
     <div class="menu-board reveal">
-
       <div class="menu-inner">
 
         <div class="menu-top">
 
           <div class="menu-title">
-            KITCHEN
+            KITCHEN<br>
             NOTES
           </div>
 
-          <div class="menu-open">
+          <div class="menu-status">
             OPEN
           </div>
 
         </div>
-
 
         <div class="menu-columns">
 
           <div>
 
             <div class="menu-item">
-
               <div class="menu-item-head">
-
-                <h3>
-                  Temperature
-                </h3>
-
-                <span class="menu-price">
-                  001
-                </span>
-
+                <h3>Temperature</h3>
+                <span class="menu-price">001</span>
               </div>
-
               <p>
                 Heat is a tool. Understanding how ingredients
                 respond to it changes everything.
               </p>
-
             </div>
 
-
             <div class="menu-item">
-
               <div class="menu-item-head">
-
-                <h3>
-                  Timing
-                </h3>
-
-                <span class="menu-price">
-                  002
-                </span>
-
+                <h3>Timing</h3>
+                <span class="menu-price">002</span>
               </div>
-
               <p>
                 Great ingredients can still fail without
                 the right sequence.
               </p>
-
             </div>
 
-
             <div class="menu-item">
-
               <div class="menu-item-head">
-
-                <h3>
-                  Texture
-                </h3>
-
-                <span class="menu-price">
-                  003
-                </span>
-
+                <h3>Texture</h3>
+                <span class="menu-price">003</span>
               </div>
-
               <p>
                 Contrast gives a dish movement and keeps
                 each bite interesting.
               </p>
-
             </div>
 
           </div>
 
-
           <div>
 
             <div class="menu-item">
-
               <div class="menu-item-head">
-
-                <h3>
-                  Balance
-                </h3>
-
-                <span class="menu-price">
-                  004
-                </span>
-
+                <h3>Balance</h3>
+                <span class="menu-price">004</span>
               </div>
-
               <p>
                 Acidity, salt, fat, sweetness and bitterness
                 must work together.
               </p>
-
             </div>
 
-
             <div class="menu-item">
-
               <div class="menu-item-head">
-
-                <h3>
-                  Technique
-                </h3>
-
-                <span class="menu-price">
-                  005
-                </span>
-
+                <h3>Technique</h3>
+                <span class="menu-price">005</span>
               </div>
-
               <p>
                 Fundamentals create the freedom to create
                 without losing control.
               </p>
-
             </div>
 
-
             <div class="menu-item">
-
               <div class="menu-item-head">
-
-                <h3>
-                  Judgment
-                </h3>
-
-                <span class="menu-price">
-                  006
-                </span>
-
+                <h3>Judgment</h3>
+                <span class="menu-price">006</span>
               </div>
-
               <p>
                 The final ingredient is knowing when enough
                 is enough.
               </p>
-
             </div>
 
           </div>
 
         </div>
-
       </div>
-
     </div>
 
   </div>
-
 </section>
 
-
-<!-- =======================================================
-     EXPERTISE
-======================================================== -->
-
+<!-- EXPERTISE -->
 <section class="section expertise" id="expertise">
-
   <div class="container">
 
     <div class="section-head center reveal">
 
-      <div class="eyebrow">
-        Culinary Foundation
-      </div>
+      <div class="eyebrow">Culinary Foundation</div>
 
       <h2>
         Built from the
-        <span class="red">
-          basics up.
-        </span>
+        <span class="red">basics up.</span>
       </h2>
 
       <p>
@@ -3884,147 +2397,78 @@ footer a:hover {
 
     </div>
 
-
     <div class="cards">
 
       <article class="card reveal">
-
-        <div class="card-number">
-          01 / TECHNIQUE
-        </div>
-
-        <h3>
-          Classical
-          Craft
-        </h3>
-
+        <div class="card-number">01 / TECHNIQUE</div>
+        <h3>Classical<br>Craft</h3>
         <p>
           Knife work, stocks, sauces, proteins, vegetables,
           pastry, heat management and the fundamentals
           underneath serious cooking.
         </p>
-
       </article>
 
-
       <article class="card reveal">
-
-        <div class="card-number">
-          02 / THINKING
-        </div>
-
-        <h3>
-          Analytical
-          Mind
-        </h3>
-
+        <div class="card-number">02 / THINKING</div>
+        <h3>Analytical<br>Mind</h3>
         <p>
           Mathematics provides a framework for understanding
           systems, constraints, measurement and optimization.
         </p>
-
       </article>
 
-
       <article class="card reveal">
-
-        <div class="card-number">
-          03 / SERVICE
-        </div>
-
-        <h3>
-          Hospitality
-        </h3>
-
+        <div class="card-number">03 / SERVICE</div>
+        <h3>Hospitality</h3>
         <p>
           The kitchen exists for the guest. Timing,
           communication, consistency and warmth matter.
         </p>
-
       </article>
 
-
       <article class="card reveal">
-
-        <div class="card-number">
-          04 / DISCIPLINE
-        </div>
-
-        <h3>
-          Standards
-        </h3>
-
+        <div class="card-number">04 / DISCIPLINE</div>
+        <h3>Standards</h3>
         <p>
           Clean stations, preparation and attention to detail
           create the conditions for calm, confident service.
         </p>
-
       </article>
 
-
       <article class="card reveal">
-
-        <div class="card-number">
-          05 / LEADERSHIP
-        </div>
-
-        <h3>
-          The
-          Brigade
-        </h3>
-
+        <div class="card-number">05 / LEADERSHIP</div>
+        <h3>The<br>Brigade</h3>
         <p>
           Great kitchens depend on people. Standards need
           to be understood, shared and consistently delivered.
         </p>
-
       </article>
 
-
       <article class="card reveal">
-
-        <div class="card-number">
-          06 / IDENTITY
-        </div>
-
-        <h3>
-          Point Of
-          View
-        </h3>
-
+        <div class="card-number">06 / IDENTITY</div>
+        <h3>Point Of<br>View</h3>
         <p>
           Technique is the foundation. The next step is
           developing a recognizable culinary language.
         </p>
-
       </article>
 
     </div>
-
   </div>
-
 </section>
 
-
-<!-- =======================================================
-     CUISINE
-======================================================== -->
-
+<!-- CUISINE -->
 <section class="section food-section" id="cuisine">
-
   <div class="container">
 
     <div class="section-head reveal">
 
-      <div class="eyebrow">
-        Cuisine / Selected Work
-      </div>
+      <div class="eyebrow">Cuisine / Selected Work</div>
 
       <h2>
         Food with a
-        <span class="red">
-          point of view.
-        </span>
+        <span class="red">point of view.</span>
       </h2>
 
       <p>
@@ -4034,7 +2478,6 @@ footer a:hover {
       </p>
 
     </div>
-
 
     <div class="food-grid">
 
@@ -4047,24 +2490,15 @@ footer a:hover {
         >
 
         <div class="food-info">
-
-          <div class="food-number">
-            01 / Composition
-          </div>
-
-          <h3>
-            Smoke · Acid · Sweet
-          </h3>
-
+          <div class="food-number">01 / Composition</div>
+          <h3>Smoke · Acid · Sweet</h3>
           <p>
             Bold flavour with enough restraint to let
             the ingredients speak.
           </p>
-
         </div>
 
       </article>
-
 
       <article class="food-card reveal">
 
@@ -4075,19 +2509,11 @@ footer a:hover {
         >
 
         <div class="food-info">
-
-          <div class="food-number">
-            02 / Texture
-          </div>
-
-          <h3>
-            Contrast
-          </h3>
-
+          <div class="food-number">02 / Texture</div>
+          <h3>Contrast</h3>
         </div>
 
       </article>
-
 
       <article class="food-card reveal">
 
@@ -4098,45 +2524,27 @@ footer a:hover {
         >
 
         <div class="food-info">
-
-          <div class="food-number">
-            03 / Balance
-          </div>
-
-          <h3>
-            Acidity
-          </h3>
-
+          <div class="food-number">03 / Balance</div>
+          <h3>Acidity</h3>
         </div>
 
       </article>
 
     </div>
-
   </div>
-
 </section>
 
-
-<!-- =======================================================
-     LIFE
-======================================================== -->
-
+<!-- LIFE -->
 <section class="section life" id="life">
-
   <div class="container">
 
     <div class="section-head center reveal">
 
-      <div class="eyebrow">
-        Beyond The Plate
-      </div>
+      <div class="eyebrow">Beyond The Plate</div>
 
       <h2>
         Life behind
-        <span class="gold">
-          the kitchen.
-        </span>
+        <span class="gold">the kitchen.</span>
       </h2>
 
       <p>
@@ -4148,93 +2556,66 @@ footer a:hover {
 
     </div>
 
-
     <div class="life-grid">
 
       <div class="life-large reveal">
-
         <img
           src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1500&q=90"
           alt="Chef's composed cuisine"
           loading="lazy"
         >
-
       </div>
-
 
       <div class="life-small">
 
         <div class="reveal">
-
           <img
             src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=900&q=90"
             alt="Professional kitchen preparation"
             loading="lazy"
           >
-
         </div>
 
-
         <div class="reveal">
-
           <img
             src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=900&q=90"
             alt="Fresh culinary ingredients"
             loading="lazy"
           >
-
         </div>
 
-
         <div class="reveal">
-
           <img
             src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=900&q=90"
             alt="Restaurant service"
             loading="lazy"
           >
-
         </div>
 
-
         <div class="reveal">
-
           <img
             src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=90"
             alt="Elegant restaurant interior"
             loading="lazy"
           >
-
         </div>
 
       </div>
-
     </div>
-
   </div>
-
 </section>
 
-
-<!-- =======================================================
-     CAREER
-======================================================== -->
-
+<!-- CAREER -->
 <section class="section career" id="career">
-
   <div class="container">
 
     <div class="section-head center reveal">
 
-      <div class="eyebrow">
-        The Journey
-      </div>
+      <div class="eyebrow">The Journey</div>
 
       <h2>
         Build the skill.
-        <span class="gold">
-          Build the house.
-        </span>
+        <span class="gold">Build the house.</span>
       </h2>
 
       <p>
@@ -4246,111 +2627,60 @@ footer a:hover {
 
     </div>
 
-
     <div class="timeline">
 
       <article class="timeline-row reveal">
-
-        <div class="timeline-label">
-          01 / Foundation
-        </div>
-
-        <h3>
-          Master The Fundamentals
-        </h3>
-
+        <div class="timeline-label">01 / Foundation</div>
+        <h3>Master The Fundamentals</h3>
         <p>
           Build technical fluency until the fundamentals
           become instinct: sauces, stocks, butchery,
           pastry, vegetables, fire and seasoning.
         </p>
-
       </article>
 
-
       <article class="timeline-row reveal">
-
-        <div class="timeline-label">
-          02 / Service
-        </div>
-
-        <h3>
-          Become Exceptional Under Pressure
-        </h3>
-
+        <div class="timeline-label">02 / Service</div>
+        <h3>Become Exceptional Under Pressure</h3>
         <p>
           Learn to execute at speed without allowing speed
           to lower the standard.
         </p>
-
       </article>
 
-
       <article class="timeline-row reveal">
-
-        <div class="timeline-label">
-          03 / Leadership
-        </div>
-
-        <h3>
-          Learn To Build A Team
-        </h3>
-
+        <div class="timeline-label">03 / Leadership</div>
+        <h3>Learn To Build A Team</h3>
         <p>
           Develop the communication, systems and standards
           required to make excellence repeatable.
         </p>
-
       </article>
 
-
       <article class="timeline-row reveal">
-
-        <div class="timeline-label">
-          04 / Identity
-        </div>
-
-        <h3>
-          Develop The Cuisine
-        </h3>
-
+        <div class="timeline-label">04 / Identity</div>
+        <h3>Develop The Cuisine</h3>
         <p>
           Turn technique into a recognizable language of
           ingredients, flavour, texture and hospitality.
         </p>
-
       </article>
 
-
       <article class="timeline-row reveal">
-
-        <div class="timeline-label">
-          05 / Ownership
-        </div>
-
-        <h3>
-          Build The House
-        </h3>
-
+        <div class="timeline-label">05 / Ownership</div>
+        <h3>Build The House</h3>
         <p>
           Create a restaurant with a serious culinary point
           of view, an exceptional team and an experience
           guests actively want to return to.
         </p>
-
       </article>
 
     </div>
-
   </div>
-
 </section>
 
-
-<!-- =======================================================
-     VISION
-======================================================== -->
-
+<!-- VISION -->
 <section class="vision" id="vision">
 
   <div class="vision-bg"></div>
@@ -4359,15 +2689,11 @@ footer a:hover {
 
     <div class="vision-content reveal">
 
-      <div class="eyebrow">
-        The Long-Term Vision
-      </div>
+      <div class="eyebrow">The Long-Term Vision</div>
 
       <h2>
         Not just a restaurant.
-        <span class="red">
-          A destination.
-        </span>
+        <span class="red">A destination.</span>
       </h2>
 
       <p>
@@ -4387,41 +2713,27 @@ footer a:hover {
         Make it human enough to be remembered.”
       </div>
 
-      <a
-        href="#contact"
-        class="button"
-      >
+      <a href="#contact" class="button">
         Start A Conversation →
       </a>
 
     </div>
-
   </div>
-
 </section>
 
-
-<!-- =======================================================
-     CONTACT
-======================================================== -->
-
+<!-- CONTACT -->
 <section class="contact" id="contact">
-
   <div class="container">
 
     <div class="contact-grid">
 
       <div class="contact-copy reveal">
 
-        <div class="eyebrow">
-          Come Inside
-        </div>
+        <div class="eyebrow">Come Inside</div>
 
         <h2>
           Let's build
-          <span style="color:#ffd3d3;">
-            something.
-          </span>
+          <span style="color:#ffd3d3;">something.</span>
         </h2>
 
         <p>
@@ -4432,114 +2744,62 @@ footer a:hover {
 
       </div>
 
-
       <div class="contact-sign reveal">
 
         <div class="contact-sign-inner">
 
-          <small>
-            SEAN KEAGAN / HOSPITALITY
-          </small>
+          <small>SEAN KEAGAN / HOSPITALITY</small>
 
           <h3>
-            SAY
+            SAY<br>
             HELLO
           </h3>
-
 
           <a
             href="mailto:hello@seankeagan.com"
             class="contact-link"
           >
-
-            <span>
-              Email Sean
-            </span>
-
-            <span>
-              →
-            </span>
-
+            <span>Email Sean</span>
+            <span>→</span>
           </a>
 
-
-          <a
-            href="#career"
-            class="contact-link"
-          >
-
-            <span>
-              Career & Experience
-            </span>
-
-            <span>
-              →
-            </span>
-
+          <a href="#career" class="contact-link">
+            <span>Career & Experience</span>
+            <span>→</span>
           </a>
 
-
-          <a
-            href="#cuisine"
-            class="contact-link"
-          >
-
-            <span>
-              Explore Cuisine
-            </span>
-
-            <span>
-              →
-            </span>
-
+          <a href="#cuisine" class="contact-link">
+            <span>Explore Cuisine</span>
+            <span>→</span>
           </a>
 
         </div>
-
       </div>
 
     </div>
-
   </div>
-
 </section>
 
 </main>
 
-
-<!-- =======================================================
-     FOOTER
-======================================================== -->
-
+<!-- FOOTER -->
 <footer>
-
   <div class="container">
 
     <div class="footer-grid">
-
 
       <div class="footer-brand">
 
         <a href="#home" class="logo">
 
-          <span class="logo-badge">
-            SK
-          </span>
+          <span class="logo-badge">SK</span>
 
           <span class="logo-text">
-
-            <span class="logo-name">
-              SEAN KEAGAN
-            </span>
-
-            <span class="logo-sub">
-              CHEF · MATHEMATICS · HOSPITALITY
-            </span>
-
+            <span class="logo-name">SEAN KEAGAN</span>
+            <span class="logo-sub">CHEF · MATHEMATICS · HOSPITALITY</span>
           </span>
 
         </a>
-
 
         <p>
           Culinary craft, analytical thinking and hospitality —
@@ -4549,277 +2809,280 @@ footer a:hover {
 
       </div>
 
-
       <div>
-
-        <div class="footer-heading">
-          Explore
-        </div>
-
-        <a href="#about">
-          About
-        </a>
-
-        <a href="#menu">
-          Method
-        </a>
-
-        <a href="#cuisine">
-          Cuisine
-        </a>
-
+        <div class="footer-heading">Explore</div>
+        <a href="#about">About</a>
+        <a href="#menu">Method</a>
+        <a href="#cuisine">Cuisine</a>
       </div>
 
-
       <div>
-
-        <div class="footer-heading">
-          Journey
-        </div>
-
-        <a href="#expertise">
-          Expertise
-        </a>
-
-        <a href="#life">
-          Life
-        </a>
-
-        <a href="#career">
-          Career
-        </a>
-
+        <div class="footer-heading">Journey</div>
+        <a href="#expertise">Expertise</a>
+        <a href="#life">Life</a>
+        <a href="#career">Career</a>
       </div>
 
-
       <div>
-
-        <div class="footer-heading">
-          Future
-        </div>
-
-        <a href="#vision">
-          Vision
-        </a>
-
-        <a href="#contact">
-          Contact
-        </a>
-
-        <a href="#home">
-          Back To Top ↑
-        </a>
-
+        <div class="footer-heading">Future</div>
+        <a href="#vision">Vision</a>
+        <a href="#contact">Contact</a>
+        <a href="#home">Back To Top ↑</a>
       </div>
-
 
     </div>
 
-
     <div class="footer-bottom">
-
-      <span>
-        © 2026 Sean Keagan
-      </span>
-
-      <span>
-        CRAFT / LOGIC / HOSPITALITY
-      </span>
-
+      <span>© 2026 Sean Keagan</span>
+      <span>CRAFT / LOGIC / HOSPITALITY</span>
     </div>
 
   </div>
-
 </footer>
 
-
-<!-- =======================================================
-     MOBILE BOTTOM NAV
-======================================================== -->
-
-<nav class="bottom-nav">
+<!-- MOBILE BOTTOM NAV -->
+<nav class="bottom-nav" aria-label="Mobile quick navigation">
 
   <a href="#home" class="active">
-
-    <span class="bottom-icon">
-      ⌂
-    </span>
-
+    <span class="bottom-icon">⌂</span>
     Home
-
   </a>
-
 
   <a href="#about">
-
-    <span class="bottom-icon">
-      ◌
-    </span>
-
+    <span class="bottom-icon">◌</span>
     About
-
   </a>
-
 
   <a href="#cuisine">
-
-    <span class="bottom-icon">
-      ✦
-    </span>
-
+    <span class="bottom-icon">✦</span>
     Food
-
   </a>
 
-
   <a href="#contact">
-
-    <span class="bottom-icon">
-      →
-    </span>
-
+    <span class="bottom-icon">→</span>
     Contact
-
   </a>
 
 </nav>
 
-
 <script>
-
 /* =========================================================
-   HEADER + SCROLL PROGRESS
+   ELEMENTS
 ========================================================= */
 
-const header =
-  document.getElementById("header");
+const header = document.getElementById("header");
+const progress = document.getElementById("progress");
 
-const progress =
-  document.getElementById("progress");
-
-
-function updateHeader() {
-
-  const scroll =
-    window.scrollY;
-
-  header.classList.toggle(
-    "scrolled",
-    scroll > 45
-  );
+const menuButton = document.getElementById("menuButton");
+const mobileMenu = document.getElementById("mobileMenu");
+const mobilePanel = mobileMenu.querySelector(".mobile-panel");
+const mobileLinks = mobileMenu.querySelectorAll("a");
 
 
-  const height =
+/* =========================================================
+   HEADER + PROGRESS
+========================================================= */
+
+function updatePageScroll() {
+  const scroll = window.scrollY;
+
+  header.classList.toggle("scrolled", scroll > 45);
+
+  const total =
     document.documentElement.scrollHeight -
     window.innerHeight;
 
-
   const percentage =
-    height > 0
-      ? (scroll / height) * 100
+    total > 0
+      ? Math.min(100, Math.max(0, (scroll / total) * 100))
       : 0;
 
-
-  progress.style.width =
-    percentage + "%";
-
+  progress.style.width = percentage + "%";
 }
-
 
 window.addEventListener(
   "scroll",
-  updateHeader,
-  {
-    passive: true
-  }
+  updatePageScroll,
+  { passive:true }
 );
 
-updateHeader();
+updatePageScroll();
 
 
 /* =========================================================
-   MOBILE MENU
+   MOBILE HAMBURGER MENU
+   THIS IS THE IMPORTANT PART
 ========================================================= */
 
-const menuButton =
-  document.getElementById("menuButton");
+let menuIsOpen = false;
 
-const mobileMenu =
-  document.getElementById("mobileMenu");
+function openMobileMenu() {
+  if (menuIsOpen) return;
 
-const mobileLinks =
-  mobileMenu.querySelectorAll("a");
+  menuIsOpen = true;
 
+  mobileMenu.classList.add("is-open");
 
-function toggleMenu(open) {
-
-  mobileMenu.classList.toggle(
-    "open",
-    open
-  );
-
-  document.body.classList.toggle(
-    "menu-open",
-    open
+  /*
+    aria-expanded tells screen readers and CSS
+    that the hamburger is currently open.
+  */
+  menuButton.setAttribute(
+    "aria-expanded",
+    "true"
   );
 
   menuButton.setAttribute(
-    "aria-expanded",
-    open ? "true" : "false"
+    "aria-label",
+    "Close navigation menu"
   );
 
+  mobileMenu.setAttribute(
+    "aria-hidden",
+    "false"
+  );
+
+  /*
+    IMPORTANT:
+    We use a UNIQUE body class.
+    We DO NOT use .menu-open anymore.
+  */
+  document.body.classList.add(
+    "mobile-menu-open"
+  );
 }
 
 
+function closeMobileMenu() {
+  if (!menuIsOpen) return;
+
+  menuIsOpen = false;
+
+  mobileMenu.classList.remove("is-open");
+
+  menuButton.setAttribute(
+    "aria-expanded",
+    "false"
+  );
+
+  menuButton.setAttribute(
+    "aria-label",
+    "Open navigation menu"
+  );
+
+  mobileMenu.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+  document.body.classList.remove(
+    "mobile-menu-open"
+  );
+}
+
+
+function toggleMobileMenu() {
+  if (menuIsOpen) {
+    closeMobileMenu();
+  } else {
+    openMobileMenu();
+  }
+}
+
+
+/*
+  Hamburger click
+*/
 menuButton.addEventListener(
   "click",
-  () => {
+  function(event) {
 
-    const open =
-      mobileMenu.classList.contains(
-        "open"
-      );
+    event.preventDefault();
+    event.stopPropagation();
 
-    toggleMenu(!open);
+    toggleMobileMenu();
 
   }
 );
 
 
+/*
+  Close when a menu link is clicked.
+*/
 mobileLinks.forEach(
-  link => {
+  function(link) {
 
     link.addEventListener(
       "click",
-      () => toggleMenu(false)
+      function() {
+        closeMobileMenu();
+      }
     );
 
   }
 );
 
 
+/*
+  Close when clicking the dark overlay.
+  Clicking inside the white panel does NOT close it.
+*/
 mobileMenu.addEventListener(
   "click",
-  event => {
+  function(event) {
 
-    if (
-      event.target === mobileMenu
-    ) {
-      toggleMenu(false);
+    if (event.target === mobileMenu) {
+      closeMobileMenu();
     }
 
   }
 );
 
 
+/*
+  Prevent clicks inside panel from bubbling
+  to the overlay.
+*/
+mobilePanel.addEventListener(
+  "click",
+  function(event) {
+    event.stopPropagation();
+  }
+);
+
+
+/*
+  Escape closes the menu.
+*/
 document.addEventListener(
   "keydown",
-  event => {
+  function(event) {
 
     if (
-      event.key === "Escape"
+      event.key === "Escape" &&
+      menuIsOpen
     ) {
-      toggleMenu(false);
+      closeMobileMenu();
+      menuButton.focus();
+    }
+
+  }
+);
+
+
+/*
+  If the screen becomes desktop-sized while the
+  mobile menu is open, force it closed.
+*/
+window.addEventListener(
+  "resize",
+  function() {
+
+    if (
+      window.innerWidth > 1050 &&
+      menuIsOpen
+    ) {
+      closeMobileMenu();
     }
 
   }
@@ -4830,54 +3093,61 @@ document.addEventListener(
    REVEAL ANIMATIONS
 ========================================================= */
 
-const reveal =
-  document.querySelectorAll(
-    ".reveal"
-  );
+const revealElements =
+  document.querySelectorAll(".reveal");
 
+if ("IntersectionObserver" in window) {
 
-const observer =
-  new IntersectionObserver(
-    entries => {
+  const revealObserver =
+    new IntersectionObserver(
+      function(entries) {
 
-      entries.forEach(
-        entry => {
+        entries.forEach(
+          function(entry) {
 
-          if (
-            entry.isIntersecting
-          ) {
+            if (
+              entry.isIntersecting
+            ) {
 
-            entry.target.classList.add(
-              "visible"
-            );
+              entry.target.classList.add(
+                "visible"
+              );
 
-            observer.unobserve(
-              entry.target
-            );
+              revealObserver.unobserve(
+                entry.target
+              );
+
+            }
 
           }
+        );
 
-        }
-      );
+      },
+      {
+        threshold:.08,
+        rootMargin:"0px 0px -40px 0px"
+      }
+    );
 
-    },
-    {
-      threshold: .08,
-
-      rootMargin:
-        "0px 0px -40px 0px"
+  revealElements.forEach(
+    function(element) {
+      revealObserver.observe(element);
     }
   );
 
+} else {
 
-reveal.forEach(
-  element =>
-    observer.observe(element)
-);
+  revealElements.forEach(
+    function(element) {
+      element.classList.add("visible");
+    }
+  );
+
+}
 
 
 /* =========================================================
-   ACTIVE MOBILE NAV
+   ACTIVE MOBILE BOTTOM NAV
 ========================================================= */
 
 const sections =
@@ -4890,64 +3160,60 @@ const bottomLinks =
     ".bottom-nav a"
   );
 
+if ("IntersectionObserver" in window) {
 
-const navObserver =
-  new IntersectionObserver(
-    entries => {
+  const navObserver =
+    new IntersectionObserver(
+      function(entries) {
 
-      entries.forEach(
-        entry => {
+        entries.forEach(
+          function(entry) {
 
-          if (
-            entry.isIntersecting
-          ) {
+            if (
+              entry.isIntersecting
+            ) {
 
-            bottomLinks.forEach(
-              link => {
+              bottomLinks.forEach(
+                function(link) {
+                  link.classList.remove(
+                    "active"
+                  );
+                }
+              );
 
-                link.classList.remove(
-                  "active"
+              const activeLink =
+                document.querySelector(
+                  `.bottom-nav a[href="#${entry.target.id}"]`
                 );
 
+              if (activeLink) {
+                activeLink.classList.add(
+                  "active"
+                );
               }
-            );
-
-
-            const active =
-              document.querySelector(
-                `.bottom-nav a[href="#${entry.target.id}"]`
-              );
-
-
-            if (active) {
-
-              active.classList.add(
-                "active"
-              );
 
             }
 
           }
+        );
 
-        }
-      );
+      },
+      {
+        rootMargin:"-45% 0px -45% 0px"
+      }
+    );
 
-    },
-    {
-      rootMargin:
-        "-45% 0px -45% 0px"
+  sections.forEach(
+    function(section) {
+      navObserver.observe(section);
     }
   );
 
-
-sections.forEach(
-  section =>
-    navObserver.observe(section)
-);
+}
 
 
 /* =========================================================
-   SMOOTH ANCHORS
+   SMOOTH ANCHOR NAVIGATION
 ========================================================= */
 
 document
@@ -4955,44 +3221,50 @@ document
     'a[href^="#"]'
   )
   .forEach(
-    link => {
+    function(link) {
 
       link.addEventListener(
         "click",
-        event => {
+        function(event) {
 
           const id =
             link.getAttribute("href");
 
-
           if (
+            !id ||
             id === "#"
           ) {
             return;
           }
 
-
           const target =
             document.querySelector(id);
-
 
           if (!target) {
             return;
           }
 
+          /*
+            Do not hijack the mobile menu itself.
+            Just close it first.
+          */
+          if (mobileMenu.contains(link)) {
+            closeMobileMenu();
+          }
 
           event.preventDefault();
 
+          const reduceMotion =
+            window.matchMedia(
+              "(prefers-reduced-motion: reduce)"
+            ).matches;
 
           target.scrollIntoView({
             behavior:
-              window.matchMedia(
-                "(prefers-reduced-motion: reduce)"
-              ).matches
+              reduceMotion
                 ? "auto"
                 : "smooth",
-
-            block: "start"
+            block:"start"
           });
 
         }
@@ -5009,11 +3281,11 @@ document
 document
   .querySelectorAll("img")
   .forEach(
-    img => {
+    function(img) {
 
       img.addEventListener(
         "error",
-        () => {
+        function() {
 
           img.style.background =
             "#241515";
@@ -5032,48 +3304,64 @@ document
    HERO PARALLAX
 ========================================================= */
 
-const hero =
-  document.querySelector(".hero");
-
 const heroPhoto =
   document.querySelector(".hero-photo");
 
+let ticking = false;
+
+function updateHeroParallax() {
+
+  if (
+    window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches
+  ) {
+    heroPhoto.style.transform = "";
+    ticking = false;
+    return;
+  }
+
+  if (
+    window.innerWidth <= 650
+  ) {
+    heroPhoto.style.transform = "";
+    ticking = false;
+    return;
+  }
+
+  const scroll = window.scrollY;
+
+  if (
+    scroll < window.innerHeight
+  ) {
+
+    heroPhoto.style.transform =
+      `scale(1.08) translateY(${scroll * .08}px)`;
+
+  }
+
+  ticking = false;
+}
 
 window.addEventListener(
   "scroll",
-  () => {
+  function() {
 
-    if (
-      window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-      ).matches
-    ) {
-      return;
-    }
+    if (!ticking) {
+      window.requestAnimationFrame(
+        updateHeroParallax
+      );
 
-
-    const scroll =
-      window.scrollY;
-
-
-    if (
-      scroll < window.innerHeight
-    ) {
-
-      heroPhoto.style.transform =
-        `scale(1.08) translateY(${scroll * .08}px)`;
-
+      ticking = true;
     }
 
   },
-  {
-    passive: true
-  }
+  { passive:true }
 );
 
 
 /* =========================================================
-   3D TILT ON DESKTOP CARDS
+   DESKTOP CARD TILT
 ========================================================= */
 
 if (
@@ -5087,33 +3375,28 @@ if (
       ".card, .contact-sign"
     )
     .forEach(
-      card => {
+      function(card) {
 
         card.addEventListener(
           "mousemove",
-          event => {
+          function(event) {
 
             const rect =
               card.getBoundingClientRect();
-
 
             const x =
               event.clientX -
               rect.left;
 
-
             const y =
               event.clientY -
               rect.top;
 
-
             const rotateY =
               ((x / rect.width) - .5) * 4;
 
-
             const rotateX =
               ((y / rect.height) - .5) * -4;
-
 
             card.style.transform =
               `perspective(900px)
@@ -5124,14 +3407,10 @@ if (
           }
         );
 
-
         card.addEventListener(
           "mouseleave",
-          () => {
-
-            card.style.transform =
-              "";
-
+          function() {
+            card.style.transform = "";
           }
         );
 
@@ -5142,24 +3421,10 @@ if (
 
 
 /* =========================================================
-   PREVENT HERO PARALLAX ON MOBILE
+   INITIAL STATE
 ========================================================= */
 
-window.addEventListener(
-  "resize",
-  () => {
-
-    if (
-      window.innerWidth <= 650
-    ) {
-
-      heroPhoto.style.transform =
-        "";
-
-    }
-
-  }
-);
+closeMobileMenu();
 
 </script>
 
