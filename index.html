@@ -28,14 +28,15 @@
 <style>
 
 /* =========================================================
-   CANDY PAINT STOREFRONT
+   SEAN KEAGAN — PREMIUM CULINARY STOREFRONT
 ========================================================= */
 
 :root {
   --red: #a91e25;
   --red-dark: #741116;
-  --red-deep: #500b0e;
-  --red-bright: #d72b34;
+  --red-deep: #43080b;
+  --red-bright: #e2353d;
+  --red-hot: #ff555c;
 
   --cream: #f7f0df;
   --cream-2: #eee2c9;
@@ -45,7 +46,7 @@
   --ink-2: #242020;
 
   --gold: #d6a94c;
-  --chrome: #d8d8d4;
+  --gold-light: #f0ca70;
 
   --muted: #766f67;
 
@@ -57,7 +58,6 @@
   --mono: "Space Mono", monospace;
 
   --max: 1240px;
-  --radius: 18px;
   --ease: cubic-bezier(.2,.8,.2,1);
 }
 
@@ -74,7 +74,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 90px;
+  scroll-padding-top: 100px;
 }
 
 body {
@@ -219,7 +219,28 @@ p {
 
 
 /* =========================================================
-   GLOSS / CANDY PAINT UTILITIES
+   GLOBAL GLOW / NOISE
+========================================================= */
+
+body::before {
+  content: "";
+
+  position: fixed;
+  inset: 0;
+
+  z-index: 9999;
+
+  pointer-events: none;
+
+  opacity: .035;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
+}
+
+
+/* =========================================================
+   CANDY PAINT
 ========================================================= */
 
 .candy {
@@ -227,7 +248,7 @@ p {
 
   background:
     linear-gradient(
-      150deg,
+      145deg,
       #cf2932 0%,
       #a51b22 35%,
       #801219 70%,
@@ -240,31 +261,6 @@ p {
     inset 0 1px 0 rgba(255,255,255,.3),
     inset 0 -18px 40px rgba(50,0,0,.18),
     0 18px 40px rgba(80,10,14,.18);
-}
-
-.candy::before {
-  content: "";
-
-  position: absolute;
-  top: 8px;
-  left: 8%;
-  right: 8%;
-
-  height: 14px;
-
-  border-radius: 999px;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(255,255,255,.38),
-      transparent
-    );
-
-  opacity: .6;
-
-  pointer-events: none;
 }
 
 .chrome {
@@ -296,7 +292,7 @@ p {
   top: 0;
   left: 0;
 
-  z-index: 3000;
+  z-index: 5000;
 
   width: 0;
   height: 4px;
@@ -304,10 +300,13 @@ p {
   background:
     linear-gradient(
       90deg,
-      #ff5b61,
+      #ff686e,
       var(--red),
-      #6e0d12
+      #630b10
     );
+
+  box-shadow:
+    0 0 12px rgba(255,60,70,.6);
 }
 
 
@@ -321,16 +320,24 @@ p {
   left: 0;
   right: 0;
 
-  z-index: 1500;
+  z-index: 3000;
 
   height: 30px;
 
   overflow: hidden;
 
-  background: #160e0f;
+  background:
+    linear-gradient(
+      90deg,
+      #110a0a,
+      #261112,
+      #110a0a
+    );
+
   color: white;
 
-  border-bottom: 1px solid rgba(255,255,255,.15);
+  border-bottom:
+    1px solid rgba(255,255,255,.14);
 
   font-family: var(--mono);
   font-size: 8px;
@@ -347,14 +354,15 @@ p {
   width: max-content;
   height: 100%;
 
-  animation: ticker 28s linear infinite;
+  animation:
+    ticker 30s linear infinite;
 }
 
 .ticker span {
   display: inline-flex;
   align-items: center;
 
-  margin-right: 50px;
+  margin-right: 55px;
 
   white-space: nowrap;
 }
@@ -362,9 +370,12 @@ p {
 .ticker i {
   margin-right: 12px;
 
-  color: #ef555b;
+  color: var(--red-hot);
 
   font-style: normal;
+
+  text-shadow:
+    0 0 8px rgba(255,60,70,.8);
 }
 
 @keyframes ticker {
@@ -388,27 +399,30 @@ p {
   left: 0;
   right: 0;
 
-  z-index: 1400;
+  z-index: 2500;
 
   height: 76px;
 
   color: white;
 
   transition:
-    background .3s ease,
-    box-shadow .3s ease,
-    color .3s ease;
+    background .35s ease,
+    box-shadow .35s ease,
+    color .35s ease,
+    backdrop-filter .35s ease;
 }
 
 .header.scrolled {
-  background: rgba(247,240,223,.96);
+  background:
+    rgba(247,240,223,.94);
+
   color: var(--ink);
 
   box-shadow:
     0 1px 0 rgba(0,0,0,.12),
-    0 12px 30px rgba(0,0,0,.08);
+    0 15px 35px rgba(0,0,0,.08);
 
-  backdrop-filter: blur(16px);
+  backdrop-filter: blur(18px);
 }
 
 .nav {
@@ -422,7 +436,9 @@ p {
 }
 
 
-/* LOGO */
+/* =========================================================
+   LOGO
+========================================================= */
 
 .logo {
   display: flex;
@@ -460,6 +476,13 @@ p {
   box-shadow:
     inset 0 1px 2px rgba(255,255,255,.45),
     0 5px 14px rgba(0,0,0,.2);
+
+  transition:
+    transform .3s var(--ease);
+}
+
+.logo:hover .logo-badge {
+  transform: rotate(-5deg) scale(1.05);
 }
 
 .logo-badge::after {
@@ -502,7 +525,9 @@ p {
 }
 
 
-/* NAV */
+/* =========================================================
+   DESKTOP NAV
+========================================================= */
 
 .desktop-nav {
   display: flex;
@@ -548,7 +573,8 @@ p {
   transform: scaleX(0);
   transform-origin: left;
 
-  transition: transform .25s var(--ease);
+  transition:
+    transform .25s var(--ease);
 }
 
 .desktop-nav a:hover::after {
@@ -556,7 +582,9 @@ p {
 }
 
 
-/* NAV BUTTON */
+/* =========================================================
+   NAV BUTTON
+========================================================= */
 
 .nav-button {
   min-height: 44px;
@@ -569,7 +597,12 @@ p {
 
   border-radius: 8px;
 
-  background: var(--red);
+  background:
+    linear-gradient(
+      145deg,
+      #e23b44,
+      #97181f
+    );
 
   color: white;
 
@@ -586,16 +619,28 @@ p {
 
   transition:
     transform .2s ease,
-    background .2s ease;
+    background .2s ease,
+    box-shadow .2s ease;
 }
 
 .nav-button:hover {
   transform: translateY(-2px);
-  background: var(--red-bright);
+
+  background:
+    linear-gradient(
+      145deg,
+      #ff4a52,
+      #b21b24
+    );
+
+  box-shadow:
+    0 10px 25px rgba(110,10,15,.3);
 }
 
 
-/* MOBILE BUTTON */
+/* =========================================================
+   MOBILE BUTTON
+========================================================= */
 
 .menu-button {
   display: none;
@@ -639,21 +684,9 @@ p {
   transition: .25s ease;
 }
 
-.menu-lines::before {
-  top: 0;
-}
-
-.menu-lines span {
-  top: 6px;
-}
-
-.menu-lines::after {
-  top: 12px;
-}
-
 
 /* =========================================================
-   HERO STOREFRONT
+   HERO
 ========================================================= */
 
 .hero {
@@ -666,9 +699,13 @@ p {
 
   overflow: hidden;
 
-  background: #3b0c0f;
+  background: #2c080b;
+
   color: white;
 }
+
+
+/* BACKGROUND */
 
 .hero-photo {
   position: absolute;
@@ -677,108 +714,126 @@ p {
   background:
     linear-gradient(
       90deg,
-      rgba(55,7,10,.94) 0%,
-      rgba(55,7,10,.72) 40%,
-      rgba(55,7,10,.28) 72%,
-      rgba(55,7,10,.62) 100%
+      rgba(38,5,7,.98) 0%,
+      rgba(55,7,10,.88) 30%,
+      rgba(55,7,10,.58) 62%,
+      rgba(38,5,7,.82) 100%
     ),
     linear-gradient(
       0deg,
-      rgba(20,5,6,.85),
-      transparent 65%
+      rgba(15,3,4,.94),
+      transparent 55%
     ),
-    url("https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=2200&q=90")
+    url("https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=2200&q=90")
     center / cover;
 
-  transform: scale(1.04);
+  transform:
+    scale(1.08);
 
-  filter: saturate(.9);
+  animation:
+    heroZoom 16s ease-in-out infinite alternate;
+
+  filter:
+    saturate(.85)
+    contrast(1.05);
 }
+
+@keyframes heroZoom {
+  from {
+    transform: scale(1.08);
+  }
+
+  to {
+    transform: scale(1.14);
+  }
+}
+
+
+/* RED LIGHT */
+
+.hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 55vw;
+  height: 55vw;
+
+  max-width: 800px;
+  max-height: 800px;
+
+  right: -15%;
+  top: 10%;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255,52,62,.23),
+      rgba(180,20,30,.08) 35%,
+      transparent 70%
+    );
+
+  filter: blur(10px);
+
+  animation:
+    heroGlow 8s ease-in-out infinite alternate;
+
+  pointer-events: none;
+}
+
+@keyframes heroGlow {
+  from {
+    transform: translate3d(-20px,0,0) scale(.9);
+    opacity: .55;
+  }
+
+  to {
+    transform: translate3d(30px,20px,0) scale(1.1);
+    opacity: 1;
+  }
+}
+
+
+/* MOVING LIGHT STREAK */
 
 .hero::after {
   content: "";
 
   position: absolute;
-  inset: 0;
+
+  width: 70%;
+  height: 160%;
+
+  top: -30%;
+  left: -70%;
 
   background:
-    radial-gradient(
-      circle at 75% 35%,
-      rgba(255,70,70,.15),
-      transparent 28%
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,.035),
+      transparent
     );
+
+  transform: rotate(15deg);
+
+  animation:
+    lightSweep 9s ease-in-out infinite;
 
   pointer-events: none;
 }
 
+@keyframes lightSweep {
+  0% {
+    left: -80%;
+  }
 
-/* STORE SIGN */
-
-.store-sign {
-  position: absolute;
-
-  top: 135px;
-  right: 5%;
-
-  z-index: 3;
-
-  width: 235px;
-
-  padding: 18px;
-
-  border: 7px solid #171313;
-  border-radius: 8px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #c72931,
-      #8d171d
-    );
-
-  color: white;
-
-  text-align: center;
-
-  transform: rotate(2deg);
-
-  box-shadow:
-    0 18px 40px rgba(0,0,0,.35),
-    inset 0 2px 2px rgba(255,255,255,.3);
-}
-
-.store-sign::before {
-  content: "";
-
-  position: absolute;
-
-  inset: 6px;
-
-  border: 1px solid rgba(255,255,255,.28);
-  border-radius: 2px;
-}
-
-.sign-small {
-  font-family: var(--mono);
-  font-size: 8px;
-  font-weight: 700;
-
-  letter-spacing: .18em;
-}
-
-.sign-big {
-  margin: 6px 0;
-
-  font-family: var(--display);
-  font-size: 48px;
-  line-height: .85;
-  letter-spacing: .02em;
-}
-
-.sign-bottom {
-  font-family: var(--mono);
-  font-size: 7px;
-  letter-spacing: .15em;
+  45%,
+  100% {
+    left: 120%;
+  }
 }
 
 
@@ -791,21 +846,26 @@ p {
   width: 100%;
 
   padding:
-    150px
+    155px
     0
-    80px;
+    175px;
 }
 
 .hero-copy {
-  max-width: 790px;
+  max-width: 900px;
 }
+
+
+/* KICKER */
 
 .hero-kicker {
   display: inline-flex;
   align-items: center;
   gap: 10px;
 
-  margin-bottom: 20px;
+  margin-bottom: 24px;
+
+  color: #ffd0d1;
 
   font-family: var(--mono);
   font-size: 9px;
@@ -813,69 +873,107 @@ p {
 
   letter-spacing: .13em;
   text-transform: uppercase;
-
-  color: #ffd3d3;
 }
 
 .hero-kicker::before {
-  content: "●";
+  content: "";
 
-  color: #ff525a;
+  width: 8px;
+  height: 8px;
 
-  text-shadow:
+  border-radius: 50%;
+
+  background: #ff525a;
+
+  box-shadow:
     0 0 10px #ff333b,
-    0 0 20px #ff333b;
+    0 0 25px #ff333b;
+
+  animation:
+    pulse 1.6s ease-in-out infinite;
 }
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(.8);
+    opacity: .7;
+  }
+
+  50% {
+    transform: scale(1.25);
+    opacity: 1;
+  }
+}
+
+
+/* HERO TITLE */
 
 .hero h1 {
   margin: 0;
 
   font-size: clamp(
     5rem,
-    11vw,
-    10.5rem
+    12vw,
+    11rem
   );
 
-  line-height: .76;
+  line-height: .75;
 
   text-shadow:
-    0 5px 25px rgba(0,0,0,.25);
+    0 8px 30px rgba(0,0,0,.3);
+
+  animation:
+    heroTitleIn 1s var(--ease) both;
+}
+
+@keyframes heroTitleIn {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.hero h1 > span {
+  display: block;
 }
 
 .hero h1 .outline {
-  display: block;
-
   color: transparent;
 
   -webkit-text-stroke:
-    2px rgba(255,255,255,.8);
+    2px rgba(255,255,255,.78);
+
+  margin-left: .03em;
 }
 
 .hero h1 .red-word {
   color: #f05b60;
+
+  text-shadow:
+    0 0 30px rgba(240,70,80,.18);
 }
 
-.hero-description {
-  max-width: 600px;
 
-  margin-top: 32px;
-
-  color: rgba(255,255,255,.72);
-
-  font-size: 15px;
-  line-height: 1.8;
-}
+/* =========================================================
+   HERO ACTIONS
+========================================================= */
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
 
-  margin-top: 30px;
+  margin-top: 34px;
 }
 
 
-/* BUTTONS */
+/* BUTTON */
 
 .button {
   min-height: 55px;
@@ -884,7 +982,7 @@ p {
   align-items: center;
   justify-content: center;
 
-  padding: 0 23px;
+  padding: 0 25px;
 
   border-radius: 9px;
 
@@ -910,32 +1008,119 @@ p {
 
   transition:
     transform .25s var(--ease),
-    box-shadow .25s ease;
+    box-shadow .25s ease,
+    background .25s ease;
 }
 
 .button:hover {
   transform: translateY(-4px);
 
+  background:
+    linear-gradient(
+      145deg,
+      #f04a52,
+      #ad1d25
+    );
+
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,.4),
-    0 14px 32px rgba(0,0,0,.3);
+    0 16px 35px rgba(0,0,0,.32);
 }
 
 .button.light {
-  background: rgba(255,255,255,.08);
+  background:
+    rgba(255,255,255,.055);
 
-  border: 1px solid rgba(255,255,255,.4);
+  border:
+    1px solid rgba(255,255,255,.45);
 
-  box-shadow: none;
+  box-shadow:
+    inset 0 0 25px rgba(255,255,255,.025);
+}
+
+.button.light:hover {
+  background:
+    rgba(255,255,255,.14);
 }
 
 
-/* HERO INFO */
+/* =========================================================
+   DESCRIPTION — NOW BELOW BUTTONS
+========================================================= */
+
+.hero-description {
+  max-width: 620px;
+
+  margin-top: 27px;
+
+  padding-left: 16px;
+
+  border-left:
+    2px solid rgba(255,82,90,.75);
+
+  color:
+    rgba(255,255,255,.62);
+
+  font-size: 13px;
+  line-height: 1.85;
+
+  animation:
+    descriptionIn 1s .25s var(--ease) both;
+}
+
+@keyframes descriptionIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
+/* =========================================================
+   HERO MINI LABEL
+========================================================= */
+
+.hero-location {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-top: 25px;
+
+  color:
+    rgba(255,255,255,.35);
+
+  font-family: var(--mono);
+  font-size: 7px;
+
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.hero-location::before {
+  content: "";
+
+  width: 22px;
+  height: 1px;
+
+  background:
+    rgba(255,255,255,.35);
+}
+
+
+/* =========================================================
+   HERO STATS
+========================================================= */
 
 .hero-bottom {
   position: absolute;
 
-  bottom: 30px;
+  bottom: 0;
   left: 0;
   right: 0;
 
@@ -946,15 +1131,36 @@ p {
   display: grid;
 
   grid-template-columns:
-    1fr 1fr 1fr 1fr;
+    repeat(4, 1fr);
 
-  border-top: 1px solid rgba(255,255,255,.2);
+  border-top:
+    1px solid rgba(255,255,255,.2);
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(20,3,4,.15),
+      rgba(20,3,4,.35),
+      rgba(20,3,4,.15)
+    );
+
+  backdrop-filter:
+    blur(4px);
 }
 
 .hero-stat {
   padding: 17px 15px;
 
-  border-right: 1px solid rgba(255,255,255,.2);
+  border-right:
+    1px solid rgba(255,255,255,.16);
+
+  transition:
+    background .25s ease;
+}
+
+.hero-stat:hover {
+  background:
+    rgba(255,255,255,.04);
 }
 
 .hero-stat:last-child {
@@ -975,7 +1181,8 @@ p {
 
   margin-top: 5px;
 
-  color: rgba(255,255,255,.5);
+  color:
+    rgba(255,255,255,.42);
 
   font-family: var(--mono);
   font-size: 7px;
@@ -990,12 +1197,23 @@ p {
 ========================================================= */
 
 .marquee {
+  position: relative;
+
   overflow: hidden;
 
-  background: var(--cream-3);
+  background:
+    linear-gradient(
+      90deg,
+      #fffaf0,
+      #f2e5cd,
+      #fffaf0
+    );
 
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  border-top:
+    1px solid var(--line);
+
+  border-bottom:
+    1px solid var(--line);
 
   color: var(--red);
 
@@ -1007,11 +1225,12 @@ p {
 
   width: max-content;
 
-  animation: marquee 24s linear infinite;
+  animation:
+    marquee 24s linear infinite;
 }
 
 .marquee-item {
-  padding: 18px 25px;
+  padding: 19px 25px;
 
   font-family: var(--display);
   font-size: 22px;
@@ -1024,6 +1243,9 @@ p {
   margin-left: 25px;
 
   color: var(--gold);
+
+  animation:
+    starSpin 4s linear infinite;
 }
 
 @keyframes marquee {
@@ -1032,18 +1254,25 @@ p {
   }
 }
 
+@keyframes starSpin {
+  to {
+    display: inline-block;
+    transform: rotate(360deg);
+  }
+}
+
 
 /* =========================================================
-   INTRO / STOREFRONT PANEL
+   INTRO
 ========================================================= */
 
 .intro {
-  padding: 100px 0;
+  padding: 110px 0;
 
   background:
     radial-gradient(
       circle at 50% 0,
-      rgba(255,255,255,.8),
+      rgba(255,255,255,.85),
       transparent 35%
     ),
     var(--cream);
@@ -1080,7 +1309,17 @@ p {
     inset 0 2px 3px rgba(255,255,255,.25),
     0 20px 45px rgba(88,10,15,.2);
 
-  transform: rotate(-1deg);
+  transform:
+    rotate(-1deg);
+
+  transition:
+    transform .5s var(--ease);
+}
+
+.intro-sign:hover {
+  transform:
+    rotate(0deg)
+    translateY(-5px);
 }
 
 .intro-sign::before {
@@ -1090,7 +1329,8 @@ p {
 
   inset: 10px;
 
-  border: 1px solid rgba(255,255,255,.25);
+  border:
+    1px solid rgba(255,255,255,.25);
 }
 
 .intro-sign-top {
@@ -1111,7 +1351,8 @@ p {
 .intro-sign-bottom {
   padding-top: 18px;
 
-  border-top: 1px solid rgba(255,255,255,.25);
+  border-top:
+    1px solid rgba(255,255,255,.25);
 
   font-family: var(--mono);
   font-size: 8px;
@@ -1214,7 +1455,8 @@ p {
 
   border-radius: 7px;
 
-  background: rgba(15,10,10,.88);
+  background:
+    rgba(15,10,10,.88);
 
   color: white;
 
@@ -1239,7 +1481,8 @@ p {
 
   margin: 28px 0;
 
-  color: rgba(255,255,255,.6);
+  color:
+    rgba(255,255,255,.6);
 
   font-size: 14px;
   line-height: 1.9;
@@ -1248,19 +1491,22 @@ p {
 .principles {
   margin-top: 35px;
 
-  border-top: 1px solid rgba(255,255,255,.14);
+  border-top:
+    1px solid rgba(255,255,255,.14);
 }
 
 .principle {
   display: grid;
 
-  grid-template-columns: 45px 1fr;
+  grid-template-columns:
+    45px 1fr;
 
   gap: 14px;
 
   padding: 18px 0;
 
-  border-bottom: 1px solid rgba(255,255,255,.14);
+  border-bottom:
+    1px solid rgba(255,255,255,.14);
 }
 
 .principle-number {
@@ -1280,7 +1526,8 @@ p {
 .principle p {
   margin-top: 5px;
 
-  color: rgba(255,255,255,.42);
+  color:
+    rgba(255,255,255,.42);
 
   font-size: 10px;
 }
@@ -1320,7 +1567,7 @@ p {
 
 
 /* =========================================================
-   MENU / METHOD
+   MENU
 ========================================================= */
 
 .menu-section {
@@ -1345,6 +1592,14 @@ p {
 
   box-shadow:
     0 25px 55px rgba(0,0,0,.16);
+
+  transition:
+    transform .4s var(--ease);
+}
+
+.menu-board:hover {
+  transform:
+    translateY(-5px);
 }
 
 .menu-inner {
@@ -1369,7 +1624,8 @@ p {
 
   padding-bottom: 20px;
 
-  border-bottom: 1px solid rgba(255,255,255,.18);
+  border-bottom:
+    1px solid rgba(255,255,255,.18);
 }
 
 .menu-title {
@@ -1381,7 +1637,8 @@ p {
 .menu-open {
   padding: 9px 12px;
 
-  border: 1px solid #cc4046;
+  border:
+    1px solid #cc4046;
 
   border-radius: 5px;
 
@@ -1392,6 +1649,9 @@ p {
   font-weight: 700;
 
   letter-spacing: .12em;
+
+  box-shadow:
+    0 0 18px rgba(230,60,70,.08);
 }
 
 .menu-columns {
@@ -1408,7 +1668,15 @@ p {
 .menu-item {
   padding: 20px 0;
 
-  border-bottom: 1px dashed rgba(255,255,255,.2);
+  border-bottom:
+    1px dashed rgba(255,255,255,.2);
+
+  transition:
+    padding-left .25s ease;
+}
+
+.menu-item:hover {
+  padding-left: 8px;
 }
 
 .menu-item-head {
@@ -1437,7 +1705,8 @@ p {
 
   margin-top: 8px;
 
-  color: rgba(255,255,255,.42);
+  color:
+    rgba(255,255,255,.42);
 
   font-size: 10px;
   line-height: 1.7;
@@ -1445,7 +1714,7 @@ p {
 
 
 /* =========================================================
-   EXPERTISE CARDS
+   EXPERTISE
 ========================================================= */
 
 .expertise {
@@ -1476,18 +1745,24 @@ p {
 
   background: var(--cream-3);
 
-  border: 1px solid var(--line);
+  border:
+    1px solid var(--line);
 
   box-shadow:
     0 10px 25px rgba(0,0,0,.04);
 
   transition:
     transform .3s var(--ease),
-    box-shadow .3s ease;
+    box-shadow .3s ease,
+    border-color .3s ease;
 }
 
 .card:hover {
-  transform: translateY(-7px);
+  transform:
+    translateY(-8px);
+
+  border-color:
+    rgba(169,30,37,.3);
 
   box-shadow:
     0 20px 40px rgba(0,0,0,.11);
@@ -1512,6 +1787,13 @@ p {
       rgba(169,30,37,.12),
       transparent 70%
     );
+
+  transition:
+    transform .4s ease;
+}
+
+.card:hover::after {
+  transform: scale(1.4);
 }
 
 .card-number {
@@ -1543,7 +1825,7 @@ p {
 
 
 /* =========================================================
-   FOOD STOREFRONT
+   FOOD
 ========================================================= */
 
 .food-section {
@@ -1603,8 +1885,8 @@ p {
   background:
     linear-gradient(
       180deg,
-      transparent 40%,
-      rgba(15,8,8,.9)
+      transparent 35%,
+      rgba(15,8,8,.92)
     );
 }
 
@@ -1650,14 +1932,15 @@ p {
 
   margin-top: 9px;
 
-  color: rgba(255,255,255,.6);
+  color:
+    rgba(255,255,255,.6);
 
   font-size: 10px;
 }
 
 
 /* =========================================================
-   LIFE COLLAGE
+   LIFE
 ========================================================= */
 
 .life {
@@ -1686,6 +1969,13 @@ p {
   min-height: 600px;
 
   object-fit: cover;
+
+  transition:
+    transform .8s var(--ease);
+}
+
+.life-large:hover img {
+  transform: scale(1.04);
 }
 
 .life-small {
@@ -1711,7 +2001,8 @@ p {
 
   object-fit: cover;
 
-  transition: transform .7s var(--ease);
+  transition:
+    transform .7s var(--ease);
 }
 
 .life-small div:hover img {
@@ -1739,13 +2030,15 @@ p {
 }
 
 .career .section-head p {
-  color: rgba(255,255,255,.58);
+  color:
+    rgba(255,255,255,.58);
 }
 
 .timeline {
   margin-top: 60px;
 
-  border-top: 1px solid rgba(255,255,255,.2);
+  border-top:
+    1px solid rgba(255,255,255,.2);
 }
 
 .timeline-row {
@@ -1758,7 +2051,15 @@ p {
 
   padding: 30px 0;
 
-  border-bottom: 1px solid rgba(255,255,255,.2);
+  border-bottom:
+    1px solid rgba(255,255,255,.2);
+
+  transition:
+    padding-left .25s ease;
+}
+
+.timeline-row:hover {
+  padding-left: 8px;
 }
 
 .timeline-label {
@@ -1780,7 +2081,8 @@ p {
 }
 
 .timeline-row p {
-  color: rgba(255,255,255,.52);
+  color:
+    rgba(255,255,255,.52);
 
   font-size: 11px;
   line-height: 1.8;
@@ -1817,6 +2119,19 @@ p {
     ),
     url("https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&w=2200&q=90")
     center / cover;
+
+  animation:
+    visionZoom 18s ease-in-out infinite alternate;
+}
+
+@keyframes visionZoom {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.06);
+  }
 }
 
 .vision-content {
@@ -1839,7 +2154,8 @@ p {
 
   margin-top: 25px;
 
-  color: rgba(255,255,255,.62);
+  color:
+    rgba(255,255,255,.62);
 
   font-size: 14px;
   line-height: 1.9;
@@ -1850,7 +2166,8 @@ p {
 
   padding-left: 20px;
 
-  border-left: 3px solid #e34a51;
+  border-left:
+    3px solid #e34a51;
 
   font-family: var(--serif);
   font-size: clamp(
@@ -1866,11 +2183,11 @@ p {
 
 
 /* =========================================================
-   CONTACT — BIG STOREFRONT SIGN
+   CONTACT
 ========================================================= */
 
 .contact {
-  padding: 100px 0;
+  padding: 110px 0;
 
   background:
     radial-gradient(
@@ -1911,7 +2228,8 @@ p {
 
   margin-top: 25px;
 
-  color: rgba(255,255,255,.7);
+  color:
+    rgba(255,255,255,.7);
 
   font-size: 14px;
   line-height: 1.8;
@@ -1933,6 +2251,15 @@ p {
 
   box-shadow:
     0 25px 50px rgba(70,0,0,.3);
+
+  transition:
+    transform .4s var(--ease);
+}
+
+.contact-sign:hover {
+  transform:
+    translateY(-8px)
+    rotate(.5deg);
 }
 
 .contact-sign-inner {
@@ -1975,7 +2302,9 @@ p {
 
   padding: 0 16px;
 
-  border: 1px solid rgba(255,255,255,.2);
+  border:
+    1px solid rgba(255,255,255,.2);
+
   border-radius: 6px;
 
   color: white;
@@ -1994,7 +2323,9 @@ p {
 
 .contact-link:hover {
   background: var(--red);
-  transform: translateX(4px);
+
+  transform:
+    translateX(4px);
 }
 
 
@@ -2026,7 +2357,8 @@ footer {
 
   margin-top: 18px;
 
-  color: rgba(255,255,255,.4);
+  color:
+    rgba(255,255,255,.4);
 
   font-size: 10px;
   line-height: 1.8;
@@ -2050,7 +2382,8 @@ footer a {
 
   margin: 8px 0;
 
-  color: rgba(255,255,255,.43);
+  color:
+    rgba(255,255,255,.43);
 
   font-size: 10px;
 }
@@ -2065,9 +2398,11 @@ footer a:hover {
 
   padding-top: 22px;
 
-  border-top: 1px solid rgba(255,255,255,.1);
+  border-top:
+    1px solid rgba(255,255,255,.1);
 
-  color: rgba(255,255,255,.28);
+  color:
+    rgba(255,255,255,.28);
 
   font-family: var(--mono);
   font-size: 7px;
@@ -2078,7 +2413,7 @@ footer a:hover {
 
 
 /* =========================================================
-   MOBILE BOTTOM BAR
+   MOBILE BOTTOM NAV
 ========================================================= */
 
 .bottom-nav {
@@ -2094,17 +2429,19 @@ footer a:hover {
   position: fixed;
   inset: 0;
 
-  z-index: 1300;
+  z-index: 2400;
 
   display: flex;
   align-items: flex-end;
 
-  background: rgba(15,5,6,.55);
+  background:
+    rgba(15,5,6,.55);
 
   opacity: 0;
   pointer-events: none;
 
-  transition: opacity .3s ease;
+  transition:
+    opacity .3s ease;
 }
 
 .mobile-menu.open {
@@ -2128,7 +2465,8 @@ footer a:hover {
 
   background: var(--cream);
 
-  transform: translateY(30px);
+  transform:
+    translateY(30px);
 
   transition:
     transform .35s var(--ease);
@@ -2143,7 +2481,8 @@ footer a:hover {
 
   padding: 15px 0;
 
-  border-bottom: 1px solid var(--line);
+  border-bottom:
+    1px solid var(--line);
 
   font-family: var(--display);
   font-size: 27px;
@@ -2159,7 +2498,8 @@ footer a:hover {
 .reveal {
   opacity: 0;
 
-  transform: translateY(25px);
+  transform:
+    translateY(25px);
 
   transition:
     opacity .7s ease,
@@ -2188,11 +2528,6 @@ footer a:hover {
     display: block;
   }
 
-  .store-sign {
-    right: 3%;
-    width: 190px;
-  }
-
   .intro-grid,
   .about-grid,
   .contact-grid {
@@ -2216,7 +2551,8 @@ footer a:hover {
   }
 
   .timeline-row {
-    grid-template-columns: 120px 1fr;
+    grid-template-columns:
+      120px 1fr;
   }
 
   .timeline-row p {
@@ -2224,10 +2560,15 @@ footer a:hover {
   }
 
   .footer-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:
+      1fr 1fr;
   }
 }
 
+
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media (max-width: 650px) {
 
@@ -2240,10 +2581,11 @@ footer a:hover {
   }
 
   .container {
-    width: min(
-      calc(100% - 30px),
-      var(--max)
-    );
+    width:
+      min(
+        calc(100% - 30px),
+        var(--max)
+      );
   }
 
   .section {
@@ -2284,76 +2626,94 @@ footer a:hover {
     background:
       linear-gradient(
         180deg,
-        rgba(55,7,10,.5),
+        rgba(55,7,10,.55),
         rgba(55,7,10,.72) 42%,
-        rgba(30,5,7,.98) 100%
+        rgba(30,5,7,.99) 100%
       ),
-      url("https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=1400&q=90")
-      63% center / cover;
-  }
-
-  .store-sign {
-    top: 120px;
-    right: 15px;
-
-    width: 145px;
-
-    padding: 12px;
-
-    border-width: 5px;
-  }
-
-  .sign-big {
-    font-size: 32px;
-  }
-
-  .sign-small,
-  .sign-bottom {
-    font-size: 6px;
+      url("https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1400&q=90")
+      68% center / cover;
   }
 
   .hero-content {
     padding:
-      150px 0
-      125px;
+      145px 0
+      150px;
+  }
+
+  .hero-kicker {
+    max-width: 300px;
+
+    font-size: 7px;
+
+    line-height: 1.6;
   }
 
   .hero h1 {
-    font-size: clamp(
-      4.3rem,
-      20vw,
-      6.3rem
-    );
+    font-size:
+      clamp(
+        4.3rem,
+        20vw,
+        6.3rem
+      );
+
+    line-height: .77;
   }
 
   .hero h1 .outline {
     -webkit-text-stroke-width: 1px;
   }
 
-  .hero-description {
-    font-size: 12px;
-    line-height: 1.8;
-  }
-
   .hero-actions {
     display: grid;
-    grid-template-columns: 1fr;
+
+    grid-template-columns:
+      1fr;
+
+    gap: 9px;
+
+    margin-top: 28px;
   }
 
   .button {
     width: 100%;
+
+    min-height: 52px;
   }
 
+  /*
+     IMPORTANT:
+     Description intentionally remains BELOW buttons.
+  */
+
+  .hero-description {
+    margin-top: 24px;
+
+    padding-left: 13px;
+
+    font-size: 11px;
+
+    line-height: 1.8;
+  }
+
+  .hero-location {
+    font-size: 6px;
+  }
+
+
+  /* HERO STATS */
+
   .hero-bottom {
-    bottom: 75px;
+    bottom: 68px;
   }
 
   .hero-bottom-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:
+      1fr 1fr;
   }
 
   .hero-stat {
-    padding: 13px 10px;
+    padding:
+      12px 10px;
   }
 
   .hero-stat:nth-child(2) {
@@ -2361,7 +2721,16 @@ footer a:hover {
   }
 
   .hero-stat:nth-child(-n+2) {
-    border-bottom: 1px solid rgba(255,255,255,.2);
+    border-bottom:
+      1px solid rgba(255,255,255,.2);
+  }
+
+  .hero-stat strong {
+    font-size: 18px;
+  }
+
+  .hero-stat span {
+    font-size: 6px;
   }
 
 
@@ -2369,7 +2738,9 @@ footer a:hover {
 
   .marquee-item {
     font-size: 18px;
-    padding: 15px 20px;
+
+    padding:
+      15px 20px;
   }
 
 
@@ -2391,7 +2762,8 @@ footer a:hover {
   /* ABOUT */
 
   .photo-card img {
-    aspect-ratio: 1 / 1.08;
+    aspect-ratio:
+      1 / 1.08;
   }
 
 
@@ -2404,11 +2776,13 @@ footer a:hover {
   }
 
   .menu-inner {
-    padding: 30px 20px;
+    padding:
+      30px 20px;
   }
 
   .menu-top {
-    align-items: flex-start;
+    align-items:
+      flex-start;
   }
 
   .menu-title {
@@ -2416,7 +2790,8 @@ footer a:hover {
   }
 
   .menu-columns {
-    grid-template-columns: 1fr;
+    grid-template-columns:
+      1fr;
 
     gap: 0;
 
@@ -2431,7 +2806,8 @@ footer a:hover {
   /* CARDS */
 
   .cards {
-    grid-template-columns: 1fr;
+    grid-template-columns:
+      1fr;
 
     margin-top: 45px;
   }
@@ -2448,7 +2824,8 @@ footer a:hover {
   /* FOOD */
 
   .food-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns:
+      1fr;
 
     grid-template-rows:
       repeat(3, 300px);
@@ -2487,7 +2864,8 @@ footer a:hover {
   }
 
   .timeline-row {
-    grid-template-columns: 1fr;
+    grid-template-columns:
+      1fr;
 
     gap: 10px;
 
@@ -2521,11 +2899,12 @@ footer a:hover {
   }
 
   .vision h2 {
-    font-size: clamp(
-      4rem,
-      17vw,
-      5.5rem
-    );
+    font-size:
+      clamp(
+        4rem,
+        17vw,
+        5.5rem
+      );
   }
 
 
@@ -2536,11 +2915,12 @@ footer a:hover {
   }
 
   .contact h2 {
-    font-size: clamp(
-      4rem,
-      17vw,
-      6rem
-    );
+    font-size:
+      clamp(
+        4rem,
+        17vw,
+        6rem
+      );
   }
 
   .contact-sign-inner h3 {
@@ -2551,17 +2931,21 @@ footer a:hover {
   /* FOOTER */
 
   .footer-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns:
+      1fr 1fr;
 
-    gap: 35px 20px;
+    gap:
+      35px 20px;
   }
 
   .footer-brand {
-    grid-column: 1 / -1;
+    grid-column:
+      1 / -1;
   }
 
   .footer-bottom {
-    flex-direction: column;
+    flex-direction:
+      column;
 
     gap: 8px;
   }
@@ -2576,11 +2960,12 @@ footer a:hover {
     right: 0;
     bottom: 0;
 
-    z-index: 1600;
+    z-index: 2600;
 
     height:
       calc(
-        68px + env(safe-area-inset-bottom)
+        68px +
+        env(safe-area-inset-bottom)
       );
 
     display: grid;
@@ -2597,7 +2982,8 @@ footer a:hover {
     border-top:
       1px solid rgba(255,255,255,.14);
 
-    backdrop-filter: blur(18px);
+    backdrop-filter:
+      blur(18px);
   }
 
   .bottom-nav a {
@@ -2610,7 +2996,8 @@ footer a:hover {
 
     gap: 4px;
 
-    color: rgba(255,255,255,.42);
+    color:
+      rgba(255,255,255,.42);
 
     font-family: var(--mono);
     font-size: 7px;
@@ -2646,8 +3033,14 @@ footer a:hover {
   *,
   *::before,
   *::after {
-    animation-duration: .01ms !important;
-    transition-duration: .01ms !important;
+    animation-duration:
+      .01ms !important;
+
+    animation-iteration-count:
+      1 !important;
+
+    transition-duration:
+      .01ms !important;
   }
 
   .reveal {
@@ -2674,19 +3067,51 @@ footer a:hover {
 ======================================================== -->
 
 <div class="ticker">
+
   <div class="ticker-track">
 
-    <span><i>●</i> NOW SERVING — SEAN KEAGAN</span>
-    <span><i>✦</i> RED SEAL CHEF</span>
-    <span><i>●</i> PRECISION / TECHNIQUE / HOSPITALITY</span>
-    <span><i>✦</i> DESTINATION DINING</span>
+    <span>
+      <i>●</i>
+      NOW SERVING — SEAN KEAGAN
+    </span>
 
-    <span><i>●</i> NOW SERVING — SEAN KEAGAN</span>
-    <span><i>✦</i> RED SEAL CHEF</span>
-    <span><i>●</i> PRECISION / TECHNIQUE / HOSPITALITY</span>
-    <span><i>✦</i> DESTINATION DINING</span>
+    <span>
+      <i>✦</i>
+      RED SEAL CHEF
+    </span>
+
+    <span>
+      <i>●</i>
+      PRECISION / TECHNIQUE / HOSPITALITY
+    </span>
+
+    <span>
+      <i>✦</i>
+      DESTINATION DINING
+    </span>
+
+    <span>
+      <i>●</i>
+      NOW SERVING — SEAN KEAGAN
+    </span>
+
+    <span>
+      <i>✦</i>
+      RED SEAL CHEF
+    </span>
+
+    <span>
+      <i>●</i>
+      PRECISION / TECHNIQUE / HOSPITALITY
+    </span>
+
+    <span>
+      <i>✦</i>
+      DESTINATION DINING
+    </span>
 
   </div>
+
 </div>
 
 
@@ -2819,23 +3244,6 @@ footer a:hover {
   <div class="hero-photo"></div>
 
 
-  <div class="store-sign">
-
-    <div class="sign-small">
-      EST. IN THE MAKING
-    </div>
-
-    <div class="sign-big">
-      CHEF
-    </div>
-
-    <div class="sign-bottom">
-      PRECISION · FLAVOUR · SERVICE
-    </div>
-
-  </div>
-
-
   <div class="hero-content">
 
     <div class="container">
@@ -2864,6 +3272,29 @@ footer a:hover {
         </h1>
 
 
+        <!-- BUTTONS FIRST -->
+
+        <div class="hero-actions">
+
+          <a
+            href="#cuisine"
+            class="button"
+          >
+            Explore The Food →
+          </a>
+
+          <a
+            href="#about"
+            class="button light"
+          >
+            Step Inside
+          </a>
+
+        </div>
+
+
+        <!-- TEXT IS NOW BELOW THE BUTTONS -->
+
         <p class="hero-description">
           Sean Keagan brings together professional culinary
           technique, mathematical thinking and serious
@@ -2872,16 +3303,8 @@ footer a:hover {
         </p>
 
 
-        <div class="hero-actions">
-
-          <a href="#cuisine" class="button">
-            Explore The Food →
-          </a>
-
-          <a href="#about" class="button light">
-            Step Inside
-          </a>
-
+        <div class="hero-location">
+          Precision cooking · thoughtful service · ambitious hospitality
         </div>
 
       </div>
@@ -2889,7 +3312,9 @@ footer a:hover {
     </div>
 
   </div>
-<br><br><br><br><br><br><br>
+
+
+  <!-- HERO STATS -->
 
   <div class="hero-bottom">
 
@@ -2898,7 +3323,7 @@ footer a:hover {
       <div class="hero-bottom-grid">
 
         <div class="hero-stat">
-          
+
           <strong>
             RED SEAL
           </strong>
@@ -2906,9 +3331,12 @@ footer a:hover {
           <span>
             Culinary Foundation
           </span>
+
         </div>
 
+
         <div class="hero-stat">
+
           <strong>
             ∑
           </strong>
@@ -2916,9 +3344,12 @@ footer a:hover {
           <span>
             Mathematical Thinking
           </span>
+
         </div>
 
+
         <div class="hero-stat">
+
           <strong>
             01
           </strong>
@@ -2926,9 +3357,12 @@ footer a:hover {
           <span>
             Long-Term Vision
           </span>
+
         </div>
 
+
         <div class="hero-stat">
+
           <strong>
             ∞
           </strong>
@@ -2936,6 +3370,7 @@ footer a:hover {
           <span>
             Curiosity
           </span>
+
         </div>
 
       </div>
@@ -2956,35 +3391,43 @@ footer a:hover {
   <div class="marquee-track">
 
     <div class="marquee-item">
-      COOK WITH PURPOSE <span>✦</span>
+      COOK WITH PURPOSE
+      <span>✦</span>
     </div>
 
     <div class="marquee-item">
-      RESPECT THE CRAFT <span>✦</span>
+      RESPECT THE CRAFT
+      <span>✦</span>
     </div>
 
     <div class="marquee-item">
-      MAKE IT MEMORABLE <span>✦</span>
+      MAKE IT MEMORABLE
+      <span>✦</span>
     </div>
 
     <div class="marquee-item">
-      HOSPITALITY FIRST <span>✦</span>
+      HOSPITALITY FIRST
+      <span>✦</span>
     </div>
 
     <div class="marquee-item">
-      COOK WITH PURPOSE <span>✦</span>
+      COOK WITH PURPOSE
+      <span>✦</span>
     </div>
 
     <div class="marquee-item">
-      RESPECT THE CRAFT <span>✦</span>
+      RESPECT THE CRAFT
+      <span>✦</span>
     </div>
 
     <div class="marquee-item">
-      MAKE IT MEMORABLE <span>✦</span>
+      MAKE IT MEMORABLE
+      <span>✦</span>
     </div>
 
     <div class="marquee-item">
-      HOSPITALITY FIRST <span>✦</span>
+      HOSPITALITY FIRST
+      <span>✦</span>
     </div>
 
   </div>
@@ -3119,6 +3562,7 @@ footer a:hover {
             </div>
 
             <div>
+
               <strong>
                 Respect the fundamentals.
               </strong>
@@ -3127,6 +3571,7 @@ footer a:hover {
                 Classical technique creates the freedom
                 to make intelligent decisions.
               </p>
+
             </div>
 
           </div>
@@ -3139,6 +3584,7 @@ footer a:hover {
             </div>
 
             <div>
+
               <strong>
                 Understand the variables.
               </strong>
@@ -3147,6 +3593,7 @@ footer a:hover {
                 Temperature, time, texture, acidity and
                 seasoning all matter.
               </p>
+
             </div>
 
           </div>
@@ -3159,6 +3606,7 @@ footer a:hover {
             </div>
 
             <div>
+
               <strong>
                 Stay composed.
               </strong>
@@ -3167,6 +3615,7 @@ footer a:hover {
                 Pressure should improve execution,
                 not compromise it.
               </p>
+
             </div>
 
           </div>
@@ -3179,6 +3628,7 @@ footer a:hover {
             </div>
 
             <div>
+
               <strong>
                 Make the guest remember.
               </strong>
@@ -3204,7 +3654,7 @@ footer a:hover {
 
 
 <!-- =======================================================
-     METHOD / MENU BOARD
+     METHOD
 ======================================================== -->
 
 <section class="section menu-section" id="menu">
@@ -3253,7 +3703,6 @@ footer a:hover {
 
 
         <div class="menu-columns">
-
 
           <div>
 
@@ -3394,7 +3843,6 @@ footer a:hover {
 
           </div>
 
-
         </div>
 
       </div>
@@ -3438,7 +3886,6 @@ footer a:hover {
 
 
     <div class="cards">
-
 
       <article class="card reveal">
 
@@ -3552,7 +3999,6 @@ footer a:hover {
 
       </article>
 
-
     </div>
 
   </div>
@@ -3591,7 +4037,6 @@ footer a:hover {
 
 
     <div class="food-grid">
-
 
       <article class="food-card reveal">
 
@@ -3665,7 +4110,6 @@ footer a:hover {
         </div>
 
       </article>
-
 
     </div>
 
@@ -3805,7 +4249,6 @@ footer a:hover {
 
     <div class="timeline">
 
-
       <article class="timeline-row reveal">
 
         <div class="timeline-label">
@@ -3897,7 +4340,6 @@ footer a:hover {
 
       </article>
 
-
     </div>
 
   </div>
@@ -3945,7 +4387,10 @@ footer a:hover {
         Make it human enough to be remembered.”
       </div>
 
-      <a href="#contact" class="button">
+      <a
+        href="#contact"
+        class="button"
+      >
         Start A Conversation →
       </a>
 
@@ -4006,6 +4451,7 @@ footer a:hover {
             href="mailto:hello@seankeagan.com"
             class="contact-link"
           >
+
             <span>
               Email Sean
             </span>
@@ -4013,6 +4459,7 @@ footer a:hover {
             <span>
               →
             </span>
+
           </a>
 
 
@@ -4020,6 +4467,7 @@ footer a:hover {
             href="#career"
             class="contact-link"
           >
+
             <span>
               Career & Experience
             </span>
@@ -4027,6 +4475,7 @@ footer a:hover {
             <span>
               →
             </span>
+
           </a>
 
 
@@ -4034,6 +4483,7 @@ footer a:hover {
             href="#cuisine"
             class="contact-link"
           >
+
             <span>
               Explore Cuisine
             </span>
@@ -4041,6 +4491,7 @@ footer a:hover {
             <span>
               →
             </span>
+
           </a>
 
         </div>
@@ -4189,23 +4640,46 @@ footer a:hover {
 <nav class="bottom-nav">
 
   <a href="#home" class="active">
-    <span class="bottom-icon">⌂</span>
+
+    <span class="bottom-icon">
+      ⌂
+    </span>
+
     Home
+
   </a>
+
 
   <a href="#about">
-    <span class="bottom-icon">◌</span>
+
+    <span class="bottom-icon">
+      ◌
+    </span>
+
     About
+
   </a>
+
 
   <a href="#cuisine">
-    <span class="bottom-icon">✦</span>
+
+    <span class="bottom-icon">
+      ✦
+    </span>
+
     Food
+
   </a>
 
+
   <a href="#contact">
-    <span class="bottom-icon">→</span>
+
+    <span class="bottom-icon">
+      →
+    </span>
+
     Contact
+
   </a>
 
 </nav>
@@ -4214,7 +4688,7 @@ footer a:hover {
 <script>
 
 /* =========================================================
-   HEADER
+   HEADER + SCROLL PROGRESS
 ========================================================= */
 
 const header =
@@ -4222,6 +4696,7 @@ const header =
 
 const progress =
   document.getElementById("progress");
+
 
 function updateHeader() {
 
@@ -4250,10 +4725,13 @@ function updateHeader() {
 
 }
 
+
 window.addEventListener(
   "scroll",
   updateHeader,
-  { passive: true }
+  {
+    passive: true
+  }
 );
 
 updateHeader();
@@ -4298,7 +4776,9 @@ menuButton.addEventListener(
   () => {
 
     const open =
-      mobileMenu.classList.contains("open");
+      mobileMenu.classList.contains(
+        "open"
+      );
 
     toggleMenu(!open);
 
@@ -4351,7 +4831,9 @@ document.addEventListener(
 ========================================================= */
 
 const reveal =
-  document.querySelectorAll(".reveal");
+  document.querySelectorAll(
+    ".reveal"
+  );
 
 
 const observer =
@@ -4381,6 +4863,7 @@ const observer =
     },
     {
       threshold: .08,
+
       rootMargin:
         "0px 0px -40px 0px"
     }
@@ -4388,7 +4871,8 @@ const observer =
 
 
 reveal.forEach(
-  element => observer.observe(element)
+  element =>
+    observer.observe(element)
 );
 
 
@@ -4420,9 +4904,11 @@ const navObserver =
 
             bottomLinks.forEach(
               link => {
+
                 link.classList.remove(
                   "active"
                 );
+
               }
             );
 
@@ -4434,9 +4920,11 @@ const navObserver =
 
 
             if (active) {
+
               active.classList.add(
                 "active"
               );
+
             }
 
           }
@@ -4476,20 +4964,25 @@ document
           const id =
             link.getAttribute("href");
 
+
           if (
             id === "#"
           ) {
             return;
           }
 
+
           const target =
             document.querySelector(id);
+
 
           if (!target) {
             return;
           }
 
+
           event.preventDefault();
+
 
           target.scrollIntoView({
             behavior:
@@ -4498,6 +4991,7 @@ document
               ).matches
                 ? "auto"
                 : "smooth",
+
             block: "start"
           });
 
@@ -4532,6 +5026,140 @@ document
 
     }
   );
+
+
+/* =========================================================
+   HERO PARALLAX
+========================================================= */
+
+const hero =
+  document.querySelector(".hero");
+
+const heroPhoto =
+  document.querySelector(".hero-photo");
+
+
+window.addEventListener(
+  "scroll",
+  () => {
+
+    if (
+      window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      ).matches
+    ) {
+      return;
+    }
+
+
+    const scroll =
+      window.scrollY;
+
+
+    if (
+      scroll < window.innerHeight
+    ) {
+
+      heroPhoto.style.transform =
+        `scale(1.08) translateY(${scroll * .08}px)`;
+
+    }
+
+  },
+  {
+    passive: true
+  }
+);
+
+
+/* =========================================================
+   3D TILT ON DESKTOP CARDS
+========================================================= */
+
+if (
+  window.matchMedia(
+    "(pointer:fine)"
+  ).matches
+) {
+
+  document
+    .querySelectorAll(
+      ".card, .contact-sign"
+    )
+    .forEach(
+      card => {
+
+        card.addEventListener(
+          "mousemove",
+          event => {
+
+            const rect =
+              card.getBoundingClientRect();
+
+
+            const x =
+              event.clientX -
+              rect.left;
+
+
+            const y =
+              event.clientY -
+              rect.top;
+
+
+            const rotateY =
+              ((x / rect.width) - .5) * 4;
+
+
+            const rotateX =
+              ((y / rect.height) - .5) * -4;
+
+
+            card.style.transform =
+              `perspective(900px)
+               rotateX(${rotateX}deg)
+               rotateY(${rotateY}deg)
+               translateY(-5px)`;
+
+          }
+        );
+
+
+        card.addEventListener(
+          "mouseleave",
+          () => {
+
+            card.style.transform =
+              "";
+
+          }
+        );
+
+      }
+    );
+
+}
+
+
+/* =========================================================
+   PREVENT HERO PARALLAX ON MOBILE
+========================================================= */
+
+window.addEventListener(
+  "resize",
+  () => {
+
+    if (
+      window.innerWidth <= 650
+    ) {
+
+      heroPhoto.style.transform =
+        "";
+
+    }
+
+  }
+);
 
 </script>
 
